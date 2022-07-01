@@ -1,7 +1,7 @@
 ---
-layout: CV
+layout: Resume
 menuorder: 3
-menutitle: Resume
+menutitle: CV
 ---
 
 I have received my M.Sc. degree in Water Resources Engineering and Management with a focus on remote sensing, hydrological modeling and algorithm development. I have received my B.Sc. in Civil Engineering. My research primarily focused on detecting best fitting satellite soil moisture products with in situ measurement moisture over the Lake Urmia basin. Then, I toward rainfall estimation using the satellite soil moisture data and generated a new algorithm using a bottom-up approach. SM2RAIN-NWF: A new algorithm by integrating the SM2RAIN algorithm and the analytical net water flux model. 
