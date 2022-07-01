@@ -7,7 +7,7 @@ menutitle: CV
 
 I have received my M.Sc. degree in Water Resources Engineering and Management with a focus on remote sensing, hydrological modeling and algorithm development. I have received my B.Sc. in Civil Engineering.
 My research primarily focused on detecting best fitting satellite soil moisture products with in situ measurement moisture over the Lake Urmia basin. Then, I toward rainfall estimation using the satellite soil moisture data and generated a new algorithm using a bottom-up approach. SM2RAIN-NWF: A new algorithm by integrating the SM2RAIN algorithm and the analytical net water flux model. I am currently focusing on improving the quality of the SM2RAIN-NWF algorithm to provide more accurate rainfall, and improve the application of this algorithm in various studies such as drought, runoff, irrigation and etc. 
-You can also download *[my CV](/files/exampele).
+You can also download [my CV](/files/exampele).
 
 ## Education
 
@@ -28,13 +28,13 @@ A.S. in Civil Engineering
  - An updated list is also available [online](https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en) 
 ## Published Peer-Reviewed Journal Articles
 `2022`
-__[1]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__. _[Link](/files/exampele)_
+__[1]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__. (_[Link](/files/exampele)__
 
 `2022`
-__[2]__ Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse, __Journal of Hydrology__. [Link](/files/exampele)*
+__[2]__ Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse, __Journal of Hydrology__. (_[Link](/files/exampele)_)
 
 `2021`
-__[3]__ Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__. [Link](/files/exampele)
+__[3]__ Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__. ([Link](/files/exampele))
 
 
 
