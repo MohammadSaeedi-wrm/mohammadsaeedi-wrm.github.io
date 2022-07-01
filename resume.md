@@ -27,6 +27,8 @@ A.S. in Civil Engineering
 ## Publications
 <!-- A list is also available [online](https://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
 __Published Peer-Reviewed Journal Articles__
+
+
 `2022`
 A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__.
 
@@ -38,6 +40,8 @@ Evaluation of gridded soil moisture products over varied land covers, climates, 
 
 
 __Submitted Peer-Reviewed Journal Articles__
+
+
 `2022`
 Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification, _Submitted to:_ __Remote Sensing of Environment__.
 
