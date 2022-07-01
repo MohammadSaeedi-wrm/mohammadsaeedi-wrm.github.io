@@ -11,12 +11,12 @@ The main objective of my research is to provide accurate hydrological variables,
 
 ## Research interests:
 
-•	Soil moisture remote sensing
-•	Hydrological modeling
-•	Irrigation mapping and quantification using SM2RAIN-NWF algorithm
-•	Runoff forecast using satellite soil moisture data
-•	Use of SM2RAIN-NWF algorithm, satellite and in situ observations for drought monitoring
-•	Spatial downscaling of satellite remotely sensed soil moisture
-•	Optimal convergence of model predictions with observations through data assimilation
-•	Data-Driven model and machine learning
+-	Soil moisture remote sensing
+-	Hydrological modeling
+-	Irrigation mapping and quantification using SM2RAIN-NWF algorithm
+-	Runoff forecast using satellite soil moisture data
+-	Use of SM2RAIN-NWF algorithm, satellite and in situ observations for drought monitoring
+-	Spatial downscaling of satellite remotely sensed soil moisture
+-	Optimal convergence of model predictions with observations through data assimilation
+-	Data-Driven model and machine learning
 
