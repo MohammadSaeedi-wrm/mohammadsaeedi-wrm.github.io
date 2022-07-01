@@ -37,7 +37,7 @@ Estimating rainfall depth from satellite-based soil moisture data: A new algorit
 `2021`
 Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__
 
-### Published Peer-Reviewed Journal Articles
+### Submitted Peer-Reviewed Journal Articles
 
 `2022`
 Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification, "Submitted to:" __Remote Sensing of Environment__
