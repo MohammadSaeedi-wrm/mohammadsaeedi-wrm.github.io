@@ -27,7 +27,7 @@ A.S. in Civil Engineering
 
 
 ## Publications
-An updated list is also available [online](https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en) 
+An updated list of published my articles is available ([here](https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en))  
 ## Published Peer-Reviewed Journal Articles
 `2022`
 __[1]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__. ([Link](https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136)) 
