@@ -11,14 +11,15 @@ owner:
   bio: "
         - Hydrology
         - Remote Sensing
-       "
+        - Algorithms development
+       ."
   email: #emailaddress
   # Do not include the @ symbol in your Twitter username
   twitter: #username
   linkedin: #username
   github: #username
   orcid: # ID Number (ex. 0000-0000-0000-0000)
-  researchgate: #username
+  researchgate: Mohammad-Saeedi-8
   mendeley: #username
   google:
     plus: #username
