@@ -31,7 +31,7 @@ A.S. in Civil Engineering
 __[1]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__.\ _[Link](/files/exampele)_
 
 `2022`
-__[2]__ Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse, __Journal of Hydrology__. *[Link](/files/exampele)_
+__[2]__ Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse, __Journal of Hydrology__. *[Link](/files/exampele)*
 
 `2021`
 __[3]__ Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__. *[Link](/files/exampele)
