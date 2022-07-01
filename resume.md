@@ -1,8 +1,9 @@
 ---
 layout: resume
 menuorder: 3
-menutitle: Resume
+menutitle: CV
 ---
+## Currently
 ## Professional Summary
 
 I have received my M.Sc. degree in Water Resources Engineering and Management with a focus on remote sensing, hydrological modeling and algorithm development. I have received my B.Sc. in Civil Engineering.
