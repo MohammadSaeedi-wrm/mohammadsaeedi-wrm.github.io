@@ -33,10 +33,10 @@ An updated list is also available [online](https://scholar.google.com/citations?
 __[1]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__. ([Link](/files/exampele))
 
 `2022`
-__[2]__ Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse, __Journal of Hydrology__. ([Link](/files/exampele))
+__[2]__ Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse, __Journal of Hydrology__. ([[Link](/files/exampele))](https://www.sciencedirect.com/science/article/abs/pii/S0022169422004437)
 
 `2021`
-__[3]__ Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__. <a href="[https://MyWebsite.tld/presentation1](https://link.springer.com/article/10.1007/s00704-021-03678-x)">Link</a>
+__[3]__ Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__. <a href="(https://link.springer.com/article/10.1007/s00704-021-03678-x)">Link</a>
 
 
 
