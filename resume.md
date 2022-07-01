@@ -1,6 +1,6 @@
 ---
 layout: resume
-menuorder: 3
+menuorder: 2
 menutitle: CV
 ---
 ## My Curriculum Vitae
@@ -25,10 +25,8 @@ A.S. in Civil Engineering
 
 
 ## Publications
-
 <!-- A list is also available [online](https://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
-
-### Journals
+### Published Peer-Reviewed Journal Articles
 
 `2022`
 A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__
@@ -39,6 +37,13 @@ Estimating rainfall depth from satellite-based soil moisture data: A new algorit
 `2021`
 Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__
 
+### Published Peer-Reviewed Journal Articles
+
+`2022`
+Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification, "Submitted to:" __Remote Sensing of Environment__
+
+`2022`
+novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to Soil & Tillage Research, "Submitted to:" __Soil & Tillage Research__
 
 
 
