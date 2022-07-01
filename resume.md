@@ -25,27 +25,25 @@ A.S. in Civil Engineering
 
 
 ## Publications
-<!-- A list is also available [online](https://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
+!-- A list is also available [online](https://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) --
 ## Published Peer-Reviewed Journal Articles
+`2022`
+__[1]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__./ _[Link](/files/exampele)_
 
 `2022`
-__[1]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__. _[Link](/files/exampele)_
-
-`2022`
-__[2]__ Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse, __Journal of Hydrology__. _[Link](/files/exampele)_
+__[2]__ Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse, __Journal of Hydrology__./ _[Link](/files/exampele)_
 
 `2021`
-__[3]__ Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__. _[Link](/files/exampele)_
+__[3]__ Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin, __Theoretical and Applied Climatology__./ _[Link](/files/exampele)_
 
 
 
 ## Submitted Peer-Reviewed Journal Articles
+`2022`
+__[1]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. Submitted to __Remote Sensing of Environment__.
 
 `2022`
-__[1]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. _Submitted to:_ __Remote Sensing of Environment__.
-
-`2022`
-__[2]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. _Submitted to:_ __Soil & Tillage Research__.
+__[2]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to __Soil & Tillage Research__.
 
 
 
