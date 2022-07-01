@@ -1,14 +1,14 @@
 # Site wide configuration
 
-title: mmmmm
+title: WEBSITE OF Mohammad Saeedi
 locale: en_US
 logo: # filename of a logo image that has been placed into your images directory
 
 # Enter the following platform usernames if you would like for them to appear on your site.
 owner:
-  name: mmm
+  name: Mohammad Saeedi
   avatar: bio-photo.jpg
-  bio: "A brief description of yourself."
+  bio: "Hydrology, Remote Sensing"
   email: #emailaddress
   # Do not include the @ symbol in your Twitter username
   twitter: #username
