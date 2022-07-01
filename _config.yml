@@ -8,9 +8,8 @@ logo: # filename of a logo image that has been placed into your images directory
 owner:
   name: Mohammad Saeedi
   avatar: bio-photo.jpg
-  bio: "Hydrology"
-        "Remote Sensing"
-        "Algorithms development"
+  bio: "Hydrology \n Remote Sensing \n Algorithms development"
+
   email: mohammadsaeedi.wrm@gmail.com
   # Do not include the @ symbol in your Twitter username
   twitter: #username
