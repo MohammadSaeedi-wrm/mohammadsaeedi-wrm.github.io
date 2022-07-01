@@ -7,7 +7,7 @@ menutitle: CV
 
 I have received my M.Sc. degree in Water Resources Engineering and Management with a focus on remote sensing, hydrological modeling and algorithm development. I have received my B.Sc. in Civil Engineering.
 My research primarily focused on detecting best fitting satellite soil moisture products with in situ measurement moisture over the Lake Urmia basin. Then, I toward rainfall estimation using the satellite soil moisture data and generated a new algorithm using a bottom-up approach. SM2RAIN-NWF: A new algorithm by integrating the SM2RAIN algorithm and the analytical net water flux model. I am currently focusing on improving the quality of the SM2RAIN-NWF algorithm to provide more accurate rainfall, and improve the application of this algorithm in various studies such as drought, runoff, irrigation and etc. 
-You can also download [my CV](/files/exampele).
+You can also download _[my CV](/files/exampele)_.
 
 ## Education
 
@@ -39,10 +39,10 @@ Evaluation of gridded soil moisture products over varied land covers, climates, 
 
 __Submitted Peer-Reviewed Journal Articles__
 `2022`
-Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification, "Submitted to:" __Remote Sensing of Environment__.
+Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification, _Submitted to:_ __Remote Sensing of Environment__.
 
 `2022`
-novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to Soil & Tillage Research, "Submitted to:" __Soil & Tillage Research__.
+novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to Soil & Tillage Research, _Submitted to:_ __Soil & Tillage Research__.
 
 
 
