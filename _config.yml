@@ -8,15 +8,13 @@ logo: # filename of a logo image that has been placed into your images directory
 owner:
   name: Mohammad Saeedi
   avatar: bio-photo.jpg
-  bio: "
-        - Hydrology
-        - Remote Sensing
-        - Algorithms development
-       ."
-  email: #emailaddress
+  bio: "Hydrology"
+        "Remote Sensing"
+        "Algorithms development"
+  email: mohammadsaeedi.wrm@gmail.com
   # Do not include the @ symbol in your Twitter username
   twitter: #username
-  linkedin: #username
+  linkedin: mohammad-saeedi-wrm
   github: #username
   orcid: # ID Number (ex. 0000-0000-0000-0000)
   researchgate: Mohammad-Saeedi-8
