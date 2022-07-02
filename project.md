@@ -16,7 +16,7 @@ __[3] In situ measurement of soil moisture and its comparison with satellite- an
 	Which soil moisture satellite products are the best choice for other studies in Lake Urmia basin? 
 	What is the performance of remotely sensed soil moisture products compared to in-situ measured soil moisture considering climate classification, soil texture and land cover categories?
 
-<img width="300" alt="project01" src="/assets//project01.jpg">
+<img width="450" alt="project01" src="/assets//project01.jpg">
 _____________________________________________________________________________________________________________________________________________________________________________________________________________
 
 <img width="300" alt="overview" src="/assets//overview.jpg">
