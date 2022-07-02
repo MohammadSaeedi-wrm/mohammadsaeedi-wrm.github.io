@@ -4,7 +4,7 @@ menutitle: Projects
 menuorder: 4
 ---
 
-# __Publications__
+# __Projects__
 
 `2021`
 __[3]__ *In situ measurement of soil moisture and its comparison with satellite- and model-based data (AMSR2, SMAP L3, SMAP L4 and GLDAS) in the Lake Urmia basin.*
