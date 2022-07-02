@@ -21,3 +21,4 @@ ________________________________________________________________________________
 
 
 <img src="/assets//overview.jpg" width=50% height=50%>
+<img width="50" alt="overview" src="/assets//overview.jpg">
