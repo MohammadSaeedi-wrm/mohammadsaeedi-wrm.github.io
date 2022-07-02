@@ -13,7 +13,8 @@ __[4] Application of SM2RAIN-NWF rainfall estimation algorithm in various practi
 _________________________________________________________________________________________________________________________________________________________________________
 
 __[3] Evaluation of the SM2RAIN-NWF algorithm on a local, regional and continental scale;  Furthermore, investigating the use of different solutions to boost the accuracy of the algorithm__ `(2021-ongoing)`
-<br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Effect of ASCAT data: What is the effect of using ASCAT data as an input in the SM2RAINNWF for the first time? 
+<br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Temperature as a secondary variable: Could specify a temperature threshold to reinforce the SM2RAIN-NWF to affect the quality of rainfall estimation? 
+<br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Effect of ASCAT data: What is the effect of using ASCAT data as an input in the SM2RAIN-NWF for the first time? 
 <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> What is the effect of combining active and passive soil moisture data on rainfall estimation?
 <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Assessment of the gap-filling method: Can discrete cosine transform method affect the quality of rainfall estimation?
 
