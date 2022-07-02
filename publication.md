@@ -3,7 +3,7 @@ layout: resume
 menuorder: 3
 menutitle: Publication
 ---
-## Currently
+# Publications
 
 ## Published Peer-Reviewed Journal Articles 
 (Chronologically)
