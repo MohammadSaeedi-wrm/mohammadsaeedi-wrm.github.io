@@ -27,7 +27,8 @@ A.S. in Civil Engineering
 
 
 ## Publications
-Please find an updated list of my published articles available __*[here](https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en)*__.  
+Please find an updated list of my published articles available <a href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" style="color: blue;">here.</a> 
+
 
 <img src="/assets//Publications.png" alt="Publications">
 
