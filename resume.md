@@ -10,6 +10,7 @@ SM2RAIN-NWF: A new algorithm by integrating the SM2RAIN algorithm and the analyt
 I am currently focusing on improving the quality of the SM2RAIN-NWF algorithm to provide more accurate rainfall, and improve the application of this algorithm in various studies such as drought, runoff, irrigation and etc.
 
 You can also download <a href="/assets//CV_MS_(June 06).pdf" target="_blank">*my CV (Update: June 6, 2022)*.</a>
+__*<a href="/assets//CV_MS_(June 06).pdf" style="color: blue; text-decoration: underline;text-decoration-style: line;">my CV (Update: June 6, 2022)</a>*__
 
 ## Education
 
