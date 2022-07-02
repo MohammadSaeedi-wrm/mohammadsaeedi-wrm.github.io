@@ -5,6 +5,8 @@ menutitle: Publication
 ---
 
 __Publications__
+![Book logo](/mohammadsaeedi-wrm.github.io/assets//JoH.png)
+
 ## Published Peer-Reviewed Journal Articles 
 (Chronologically)
 
