@@ -29,7 +29,7 @@ __[2]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supe
 `2022`
 __[1]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to __Soil & Tillage Research__.
 
-
+<a href="https://www.google.com/" style="color: blue; text-decoration: underline;text-decoration-style: dotted;">custom link</a>
 
 <!-- ### Footer
 
