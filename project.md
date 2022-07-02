@@ -19,6 +19,6 @@ __[3] In situ measurement of soil moisture and its comparison with satellite- an
 ## __Overview of my Master's degree projects__
 ________________________________________________________________________________________________________________________________________________________
 
-<img width="300" height="324" alt="overview" src="/assets//overview.jpg">
+<img width="550" height="550" alt="overview" src="/assets//overview.jpg">
 <img src="/assets//overview.jpg" width="80" height="80">
 <img src="/assets//overview.jpg" alt="overview" width="250"/>
