@@ -9,7 +9,7 @@ I have received a B.Sc. degree in Civil Engineering, and I have received my M.Sc
 My research primarily focused on detecting best fitting satellite soil moisture products with in situ measurement moisture over the Lake Urmia basin. Then, I toward rainfall estimation using the satellite soil moisture data and generated a new algorithm using a bottom-up approach. 
 SM2RAIN-NWF: A new algorithm by integrating the SM2RAIN algorithm and the analytical net water flux model. 
 I am currently focusing on improving the quality of the SM2RAIN-NWF algorithm to provide more accurate rainfall, and improve the application of this algorithm in various studies such as drought, runoff, irrigation and etc. 
-You can also download _[my CV](/files/exampele).
+You can also download *[my CV](/files/exampele)*.
 
 ## Education
 
@@ -27,7 +27,7 @@ A.S. in Civil Engineering
 
 
 ## Publications
-An updated list of published my articles is available _(here(https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en))_  
+An updated list of published my articles is available __([here](https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en))__  
 ## Published Peer-Reviewed Journal Articles
 `2022`
 __[3]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__. ([Link](https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136)) 
