@@ -6,7 +6,7 @@ menutitle: Publication
 
 __Publications__
 
-<img src="/assets//JoH.png" alt="JoH">
+<img src="/assets//Publications.png" alt="Publications">
 
 ## Published Peer-Reviewed Journal Articles 
 (Chronologically)
