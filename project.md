@@ -20,4 +20,4 @@ __[3] In situ measurement of soil moisture and its comparison with satellite- an
 _________________________________________________________________________________________________________________________________________________________________________
 
 
-<img src="/assets//overview2.jpg" alt="overview2"> 
+<img src="/assets//overview2.jpg" alt="overview2" width=50% height=50%>
