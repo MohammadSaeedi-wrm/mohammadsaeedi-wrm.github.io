@@ -33,7 +33,6 @@ An updated list of published my articles is available __*[here](https://scholar.
 
 ## Published Peer-Reviewed Journal Articles 
 (Chronologically)
-
 `2022`
 __[3]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__. ([Link](https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136)) 
 
@@ -46,7 +45,7 @@ __[1]__ Evaluation of gridded soil moisture products over varied land covers, cl
 
 
 
-## Submitted Peer-Reviewed Journal Articles (Chronologically)
+## Submitted Peer-Reviewed Journal Articles
 `2022`
 __[2]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. Submitted to __Remote Sensing of Environment__.
 
