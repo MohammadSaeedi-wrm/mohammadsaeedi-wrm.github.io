@@ -4,7 +4,7 @@ menuorder: 3
 menutitle: Publication
 ---
 
-## Publications
+__Publications__
 ## Published Peer-Reviewed Journal Articles 
 (Chronologically)
 
