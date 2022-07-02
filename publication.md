@@ -1,6 +1,6 @@
 ---
 layout: resume
-menuorder: 4
-menutitle: Resume
+menuorder: 3
+menutitle: Publication
 ---
 ## Currently
