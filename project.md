@@ -17,7 +17,7 @@ __[2] SM2RAIN-NWF.__ `(2020-ongoing)`
 
 __[1] In situ measurement of soil moisture and its comparison with satellite- and model-based data (AMSR2, SMAP L3, SMAP L4 and GLDAS) in the Lake Urmia basin.__ `(2019-2020)`
 
-<img width="15" height="10" alt="Target" src="/assets//Target.png"> aaaaaaaaaaaaaaaaaaaaaaaaaaa
+<img width="22" height="22" alt="Target" src="/assets//Target.png"> aaaaaaaaaaaaaaaaaaaaaaaaaaa
 *(Note: Before this study, no in-situ measurement of soil moisture had been done in the surroundings of the Lake Urmia basin).*
 
 <img width="15" height="15" alt="question" src="/assets//question.png"> Which soil moisture satellite products are the best choice for other studies in Lake Urmia basin?
