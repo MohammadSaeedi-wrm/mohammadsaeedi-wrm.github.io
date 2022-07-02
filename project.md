@@ -9,7 +9,7 @@ menuorder: 4
 
 _________________________________________________________________________________________________________________________________________________________________________
 `2021`
-__[3]__In situ measurement of soil moisture and its comparison with satellite- and model-based data (AMSR2, SMAP L3, SMAP L4 and GLDAS) in the Lake Urmia basin.
+__[3] In situ measurement of soil moisture and its comparison with satellite- and model-based data (AMSR2, SMAP L3, SMAP L4 and GLDAS) in the Lake Urmia basin.__
 
 *(Note: Before this study, no in-situ measurement of soil moisture had been done in the surroundings of the Lake Urmia basin).*
 
