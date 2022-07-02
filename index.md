@@ -5,8 +5,8 @@ menutitle: Home
 menuorder: 1
 ---
 
-I have received my M.Sc. degree in Water Resources Engineering and Management with a focus on remote sensing, hydrological modeling and algorithm development. I have received my B.Sc. in Civil Engineering. 
-The main objective of my research is to provide accurate hydrological variables, use practical research applications to improve the quality of data and satellite-based models to predict natural disasters and solve the major challenges related to Earth system science that we will face in the coming decades. Therefore, in this way, a better understanding of the role played by environmental factors and hydrometeorological factors, to control and manage, in the face of the challenges ahead can be achieved.
+  I have received bachelor's and master's degrees in Civil Engineering and Water Resources Engineering and Management, respectively. During the My master's degree, I have been focussing on remote sensing, hydrological modeling and algorithm development.
+  The main objective of my research is to provide accurate hydrological variables, using practical research applications to improve the quality of data satellite-based to predict natural disasters and solve the major challenges related to Earth science that we will face in the coming decades. Therefore, in this way, a better understanding of the impact of environmental factors and water and meteorological factors can be achieved for management in facing the challenges ahead.
 
 ## Research interests:
 
