@@ -14,16 +14,16 @@ You can also download *[my CV](/files/exampele)*.
 ## Education
 
 `2018 - 2021`
-*_Islamic Azad University Science and Research Branch, Tehran, Iran_*.
-M.Sc. in Water Resources Engineering and Management 
+__Islamic Azad University Science and Research Branch, Tehran, Iran__.
+*M.Sc. in Water Resources Engineering and Management* 
 
 `2014 - 2017`
 __Qazvin Islamic Azad University, Qazvin, Iran.__
-B.Sc. in Civil Engineering 
+*B.Sc. in Civil Engineering* 
 
 `2012 - 2014`
-_______Qazvin Islamic Azad University, Qazvin, Iran______.
-A.S. in Civil Engineering 
+__Qazvin Islamic Azad University, Qazvin, Iran__.
+*A.S. in Civil Engineering* 
 
 
 ## Publications
