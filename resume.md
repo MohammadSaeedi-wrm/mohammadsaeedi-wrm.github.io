@@ -11,7 +11,10 @@ I am currently focusing on improving the quality of the SM2RAIN-NWF algorithm to
 
 You can also download *<a href="/assets//CV_MS_(June 06).pdf" style="color: blue; text-decoration: underline;text-decoration-style: line;">my CV (Update: June 6, 2022).</a>*
 
-*<a href="/assets//CV_MS_(June 06).pdf" style="color: blue;">my CV (Update: June 6, 2022).</a>*
+**<a href="/assets//CV_MS_(June 06).pdf" style="color: blue;">my CV (Update: June 6, 2022).</a>**
+
+_<a href="/assets//CV_MS_(June 06).pdf" style="color: blue;">my CV (Update: June 6, 2022).</a>_
+
 
 ## Education
 
