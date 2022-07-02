@@ -14,15 +14,15 @@ You can also download [my CV](/files/exampele).
 ## Education
 
 `2018 - 2021`
-__Islamic Azad University Science and Research Branch, Tehran, Iran.__
+_Islamic Azad University Science and Research Branch, Tehran, Iran._
 M.Sc. in Water Resources Engineering and Management 
 
 `2014 - 2017`
-__Qazvin Islamic Azad University, Qazvin, Iran.__
+_Qazvin Islamic Azad University, Qazvin, Iran._
 B.Sc. in Civil Engineering 
 
 `2012 - 2014`
-__Qazvin Islamic Azad University, Qazvin, Iran.__
+_Qazvin Islamic Azad University, Qazvin, Iran._
 A.S. in Civil Engineering 
 
 
@@ -43,10 +43,10 @@ __[1]__ Evaluation of gridded soil moisture products over varied land covers, cl
 
 ## Submitted Peer-Reviewed Journal Articles
 `2022`
-__[1]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. Submitted to __Remote Sensing of Environment__.
+__[2]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. Submitted to __Remote Sensing of Environment__.
 
 `2022`
-__[2]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to __Soil & Tillage Research__.
+__[1]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to __Soil & Tillage Research__.
 
 
 
