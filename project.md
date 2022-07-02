@@ -3,3 +3,12 @@ layout: page
 menutitle: Projects
 menuorder: 4
 ---
+
+# __Publications__
+
+`2021`
+__[3]__ *In situ measurement of soil moisture and its comparison with satellite- and model-based data (AMSR2, SMAP L3, SMAP L4 and GLDAS).*
+
+(Note: Before this study, no in-situ measurement of soil moisture had been done in the surroundings of the Lake Urmia basin).
+	Which soil moisture satellite products are the best choice for other studies in Lake Urmia basin? 
+	What is the performance of remotely sensed soil moisture products compared to in-situ measured soil moisture considering climate classification, soil texture and land cover categories?
