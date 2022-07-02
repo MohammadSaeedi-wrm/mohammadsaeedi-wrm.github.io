@@ -15,7 +15,7 @@ The main objective of my research is to provide accurate hydrological variables,
 -	Irrigation estimates from space using bottom-up approach
 -	Runoff forecast using satellite soil moisture data
 -	Drought monitoring using the SM2RAIN-NWF algorithm, satellite data and in situ measurements
--	Spatial downscaling of satellite remotely sensed soil moisture
+-	Spatial downscaling of soil moisture remote sensing products
 -	Optimal convergence of model predictions with observations through data assimilation
 
 
