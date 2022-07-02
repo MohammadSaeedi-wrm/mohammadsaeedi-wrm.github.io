@@ -14,7 +14,7 @@ You can also download *[my CV](/files/exampele)*.
 ## Education
 
 `2018 - 2021`
-_Islamic Azad University Science and Research Branch, Tehran, Iran._
+*Islamic Azad University Science and Research Branch, Tehran, Iran*.
 M.Sc. in Water Resources Engineering and Management 
 
 `2014 - 2017`
@@ -22,13 +22,18 @@ __Qazvin Islamic Azad University, Qazvin, Iran.__
 B.Sc. in Civil Engineering 
 
 `2012 - 2014`
-[Qazvin Islamic Azad University, Qazvin, Iran.]
+*Qazvin Islamic Azad University, Qazvin, Iran*.
 A.S. in Civil Engineering 
 
 
 ## Publications
-An updated list of published my articles is available __([here](https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en))__  
-## Published Peer-Reviewed Journal Articles _(Chronologically)_
+An updated list of published my articles is available __[here](https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en)__  
+
+***sdd****
+*****(djdjdk)*****
+
+
+## Published Peer-Reviewed Journal Articles *(Chronologically)*
 `2022`
 __[3]__ A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation, __Science of the Total Environment__. ([Link](https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136)) 
 
