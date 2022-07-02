@@ -6,7 +6,7 @@ menutitle: Publication
 
 __Publications__
 
-![JoH](/mohammadsaeedi-wrm.github.io/assets//JoH.png)
+<img src="/assets//JoH.png" alt="JoH">
 
 ## Published Peer-Reviewed Journal Articles 
 (Chronologically)
