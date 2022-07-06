@@ -7,7 +7,7 @@ menuorder: 1
 
  Mohammad Saeedi received a Master’s degree in Water Resources Engineering and Bachelor’s degree in Civil Engineering. During his graduate course/thesis, he concentrated on employing satellite remote sensing data in hydrological simulation and developing algorithms.
 The main objective of his applied research is as follows:<br/> 
-(1) enhance the accuracy of the estimated variables in hydrological simulation, (2) investigate data processing approaches to improving the quality of satellite- and model-based data, (3) predict natural disasters by utilizing remotely-sensed satellite data, and (4) the exploitation of the above to use in applied research to solve the significant challenges related to Earth science that we will face in the coming decades.
+(1) enhance the accuracy of the estimated variables in hydrological simulation, (2) investigate data processing approaches to improving the quality of satellite- and model-based data, (3) predict natural disasters by utilizing remotely-sensed satellite data, and (4) the exploitation of the above mentioned to use in applied research to solve the significant challenges related to Earth science that we will face in the coming decades.
  
 
 ## Research interests:
