@@ -5,7 +5,10 @@ menutitle: Home
 menuorder: 1
 ---
 
- I have received bachelor's and master's degrees in Civil Engineering and Water Resources Engineering and Management, respectively. During the my master's degree, I have been focussing on remote sensing, hydrological modeling and algorithm development.<br/>The main objective of my research is to provide accurate hydrological variables, use of applied research to improve the quality of data satellite-based to predict natural disasters and solve the major challenges related to Earth science that we will face in the coming decades. Therefore, in this way, a better understanding of the impact of environmental factors and water and meteorological factors can be achieved for management in facing the challenges ahead.
+ Mohammad Saeedi received a Master’s degree in Water Resources Engineering and Bachelor’s degree in Civil Engineering. During his graduate course/thesis, he concentrated on employing satellite remote sensing data in hydrological simulation and developing algorithms.
+The main objective of his applied research is as follows:<br/> 
+(1) enhance the accuracy of the estimated variables in hydrological simulation, (2) investigate data processing approaches to improving the quality of satellite- and model-based data, (3) predict natural disasters by utilizing remotely-sensed satellite data, and (4) the exploitation of the above to use in applied research to solve the significant challenges related to Earth science that we will face in the coming decades.
+ 
 
 ## Research interests:
 
