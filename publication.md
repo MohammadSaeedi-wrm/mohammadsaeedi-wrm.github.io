@@ -11,7 +11,7 @@ __Publications__
 (Chronologically)
 
 `2022`
-$base-font-size:   16px !default; __[3]__ __Saeedi, M.__, Kim, H., Nabaei, S., Brocca, L., Lakshmi, V., & Mosaffa, H. A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation. ___Science of the Total Environment___. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136" style="color: blue;">(Link)</a>
+__[3]__ __Saeedi, M.__, Kim, H., Nabaei, S., Brocca, L., Lakshmi, V., & Mosaffa, H. A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation. ___Science of the Total Environment___. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136" style="color: blue;">(Link)</a>
 
 `2022`
 __[2]__ __Saeedi, M.__, Sharafati, A., Brocca, L., & Tavakol, A. Estimating rainfall depth from satellite-based soil moisture data: A new algorithm by integrating SM2RAIN and the analytical net water flux modelse. ___Journal of Hydrology___. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022169422004437" style="color: blue;">(Link)</a>
