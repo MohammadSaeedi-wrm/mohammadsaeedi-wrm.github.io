@@ -7,8 +7,7 @@ logo: # filename of a logo image that has been placed into your images directory
 # Enter the following platform usernames if you would like for them to appear on your site.
 owner:
   name: Mohammad Saeedi
-  avatar:
-    #avatar: profile.jpg
+  avatar: bio-photo.jpg
   bio: "Hydrology<br/>Hydrological modeling<br/>Remote Sensing<br/>SM2RAIN-NWF<br/>Soil moisture<br/>Rainfall"
 
         
