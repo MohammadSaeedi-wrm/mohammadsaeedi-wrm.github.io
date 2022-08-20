@@ -19,7 +19,7 @@ The main objective of his applied research is as follows:<br/>
 -	Drought monitoring using the SM2RAIN-NWF algorithm, satellite data and in situ measurements
 -	Spatial downscaling of soil moisture remote sensing products
 -	Data-assimilation approach to ensure maximum convergence between model predictions and observations
--	Applications of Machine Learning to Remote Sensing and Hydrology
+-	Applications of machine learning to remote sensing and hydrology
 
 
 
