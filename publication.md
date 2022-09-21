@@ -24,10 +24,10 @@ __[1]__ __Saeedi, M.__, Sharafati, A., & Tavakol, A. Evaluation of gridded soil 
 
 ## Submitted Peer-Reviewed Journal Articles
 `2022`
-__[2]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. Submitted to __Remote Sensing of Environment__.
+__[2]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. Submitted to __...__.
 
 `2022`
-__[1]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to __Soil & Tillage Research__.
+__[1]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to __...__.
 
 
 <!-- ### Footer
