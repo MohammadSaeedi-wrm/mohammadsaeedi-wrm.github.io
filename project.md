@@ -7,7 +7,7 @@ menuorder: 4
 ## __Projects__
 _________________________________________________________________________________________________________________________________________________________________________
 
-__[4] Application of SM2RAIN-NWF rainfall estimation algorithm in various practical researches such as runoff, irrigation, drought, flood, etc.__ `(2022-ongoing)`
+__[4] Use of SM2RAIN-NWF rainfall estimation algorithm in various types of practical research, including runoff, irrigation, drought, and flooding.__ `(2022-ongoing)`
 <br/> 
 
 _________________________________________________________________________________________________________________________________________________________________________
