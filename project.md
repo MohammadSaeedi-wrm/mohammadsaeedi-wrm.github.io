@@ -15,7 +15,7 @@ ________________________________________________________________________________
 __[3] Analyzing the performance of the SM2RAIN-NWF algorithm on a local, regional, and continental scale; investigating ways to boost its accuracy__ `(2021-ongoing)`
 <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Temperature as a secondary variable: Could specify a temperature threshold to reinforce the SM2RAIN-NWF to affect the quality of rainfall estimation? 
 <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> How does the performance of the SM2RAIN-NWF algorithm change spatially in diverse climates (on a national scale) compared to the SM2RAIN algorithm? 
-<br/> <img width="21" height="21" alt="question" src="/assets//question.png"> What is the effect of combining active and passive soil moisture data on rainfall estimation?
+<br/> <img width="21" height="21" alt="question" src="/assets//question.png"> In terms of rainfall estimation, what is the effect of combining active and passive soil moisture data?
 <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Assessment of the gap-filling method: Can discrete cosine transform method affect the quality of rainfall estimation?
 
 _______________________________________________________________________________________________________________________________________________________________________
