@@ -7,5 +7,5 @@ menuorder: 5
 _________________________________________________________________________________________________________________________________________________________________________
 
 
-## <img alt="Target" src="/assets//call.png"> __<a href="" style="color: blue;">Tel </a>__ 
-## <img width="35" height="30" alt="Target" src="/assets//web.png"> __<a href="https://mohammadsaeedi-wrm.github.io/" style="color: blue;">web </a>__ 
+## <img width="40" height="40" alt="Target" src="/assets//call.png"> __<a href="" style="color: blue;">Tel </a>__ 
+## <img width="40" height="40" alt="Target" src="/assets//web.png"> __<a href="https://mohammadsaeedi-wrm.github.io/" style="color: blue;">web </a>__ 
