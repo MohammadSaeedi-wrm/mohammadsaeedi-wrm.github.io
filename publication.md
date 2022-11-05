@@ -9,7 +9,7 @@ __Publications__
 ## <img src="/assets//icons8-google-scholar-48.png" alt="NEWW_P"> *_<a href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" style="color: blue;"> Google Scholar </a>_*
 
 ## Published Peer-Reviewed Journal Articles 
-(Chronologically) `Update: Nov 01, 2022`
+(Chronologically) `Update: June 10, 2022`
 
 `2022`
 __[3]__ __Saeedi, M.__, Kim, H., Nabaei, S., Brocca, L., Lakshmi, V., & Mosaffa, H. A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation. ___Science of the Total Environment___. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136" style="color: blue;">(Link)</a>
