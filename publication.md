@@ -6,7 +6,7 @@ menutitle: Publication
 
 __Publications__
 <img src="/assets//NEWW_P.png" alt="NEWW_P"> 
-## <img src="/assets//icons8-google-scholar-96.png" alt="NEWW_P"> __<a href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" style="color: blue;"> Google Scholar </a>__ 
+## <img src="/assets//icons8-google-scholar-48.png" alt="NEWW_P"> __<a href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" style="color: blue;"> Google Scholar </a>__ 
 
 ## Published Peer-Reviewed Journal Articles 
 (Chronologically)
