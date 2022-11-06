@@ -6,7 +6,7 @@ menutitle: CV
 ## Curriculum Vitae
 
 My research primarily focused on detecting best fitting satellite soil moisture products with in situ measurement moisture over the Lake Urmia basin. Then, I turned my attention to rainfall estimation using satellite soil moisture data and generated a new algorithm using a bottom-up approach. <br/> SM2RAIN-NWF: A new algorithm by integrating the SM2RAIN algorithm and the analytical net water flux model. <br/>
-__In order to address Earth's future challenges, I am currently exploring the application of numerical modeling, data science and machine learning to satellite remote sensing, water resources, and environmental sciences.__
+__In order to address Earth's future challenges, I am currently exploring the application of numerical modeling, data science and machine learning algorithms to satellite remote sensing, water resources, and environmental sciences.__
 
 <br/> You can also download *<a href="/assets//CV_MS_(June 0).pdf" style="color: blue; text-decoration: underline;text-decoration-style: line;">my CV (Update: June 6, 2022).</a>*
 
