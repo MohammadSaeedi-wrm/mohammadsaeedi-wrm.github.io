@@ -44,14 +44,19 @@ owner:
   codepen: #username
   disqus-shortname:
 
+url: 'https://mohammadsaeedi-wrm.github.io/' # your main domain
+baseurl: '' # if you're using custom domain keep this blank example: baseurl: ''
+
+theme: jekyll-theme-hacker
+
 # The following adjust the accents for your site. If you would like to further edit colors, fonts, font sizes, etc.
 # you may do so in _sass/variables.scss
-highlight-color: '#394cd4'
+highlight-color: '#0069cc'
 lowlight-color: '#000'
 
   # NOTE: If you would like your site to be licensed under a creative commons license, uncomment the 'yes' next to the type of license you wish to use.
 creative-commons:
-  cc-by: yes
+  cc-by: #yes
   cc-by-nc: yes
 
 #DO NOT EDIT BEYOND THIS POINT
