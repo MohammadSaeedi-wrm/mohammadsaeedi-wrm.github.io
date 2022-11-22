@@ -8,7 +8,10 @@ __Publications__
 ## <img src="/assets//icons8-google-scholar-48.png" alt="NEWW_P"> *<a href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" style="color: blue; text-decoration: underline;text-decoration-style: line;">Google Scholar </a>*
 
 ## Published Peer-Reviewed Journal Articles 
-(Chronologically) `Update: June 10, 2022`
+(Chronologically) `Update: Nov 22, 2022`
+
+`2022`
+__[4]__ __Saeedi, M.__, Nabaei, S., Kim, H., Tavakol, A., & Lakshmi, V. Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. __Remote Sensing of Environment__. (Accepted)
 
 `2022`
 __[3]__ __Saeedi, M.__, Kim, H., Nabaei, S., Brocca, L., Lakshmi, V., & Mosaffa, H. A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation. ___Science of the Total Environment___. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136" style="color: blue;">(Link)</a>
@@ -23,8 +26,6 @@ __[1]__ __Saeedi, M.__, Sharafati, A., & Tavakol, A. Evaluation of gridded soil 
 
 
 ## Submitted Peer-Reviewed Journal Articles
-`2022`
-__[2]__ Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification. Submitted to __...__.
 
 `2022`
 __[1]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to __...__.
