@@ -13,15 +13,15 @@ __In order to address Earth's future challenges, I am currently exploring the ap
 ## Education
 
 `2018 - 2021`
-__Islamic Azad University Science and Research Branch, Tehran, Iran__.
+__Islamic Azad University Science and Research Branch, Tehran, Iran__ <br/>
 M.Sc. in Water Resources Engineering and Management
 
 `2014 - 2017`
-__Qazvin Islamic Azad University, Qazvin, Iran.__
+__Qazvin Islamic Azad University, Qazvin, Iran__ <br/>
 B.Sc. in Civil Engineering
 
 `2012 - 2014`
-__Qazvin Islamic Azad University, Qazvin, Iran__.
+__Qazvin Islamic Azad University, Qazvin, Iran__ <br/>
 A.S. in Civil Engineering
 
 
