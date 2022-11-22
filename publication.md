@@ -12,7 +12,6 @@ __Publications__
 
 `2022`
 __[4]__ __Saeedi, M.__, Nabaei, S., Kim, H., Tavakol, A., & Lakshmi, V. Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification.<br/> ___Remote Sensing of Environment___. (Accepted)
-<span style="color: blue"> ___Remote Sensing of Environment___. </span>
 
 `2022`
 __[3]__ __Saeedi, M.__, Kim, H., Nabaei, S., Brocca, L., Lakshmi, V., & Mosaffa, H. A comprehensive assessment of SM2RAIN-NWF using ASCAT and a combination of ASCAT and SMAP soil moisture products for rainfall estimation.<br/> ___Science of the Total Environment___. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0048969722035136" style="color: blue;">(Link)</a>
