@@ -26,6 +26,7 @@ __[1]__ __Saeedi, M.__, Sharafati, A., & Tavakol, A. Evaluation of gridded soil 
 
 
 ## Submitted Peer-Reviewed Journal Articles
+(Chronologically)  `Update: Apr 01, 2022` 
 
 `2022`
 __[1]__ novel strategy for estimating soil moisture from remote sensing products: A case study of Lake Urmia Basin, Iran. Submitted to __...__.
