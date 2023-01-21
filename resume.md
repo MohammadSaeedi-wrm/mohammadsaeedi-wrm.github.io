@@ -19,9 +19,6 @@ M.Sc. in Water Resources Engineering and Management
 __Qazvin Islamic Azad University, Qazvin, Iran__ <br/>
 B.Sc. in Civil Engineering
 
-`2012 - 2014`
-__Qazvin Islamic Azad University, Qazvin, Iran__ <br/>
-A.S. in Civil Engineering
 
 
 ## Publications
