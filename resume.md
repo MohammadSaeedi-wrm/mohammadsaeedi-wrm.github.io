@@ -13,12 +13,7 @@ __In order to address Earth's future challenges, I am currently exploring the ap
 
 `2018 - 2021`
 __Islamic Azad University Science and Research Branch, Tehran, Iran__ <br/>
-M.Sc. in Water Resources Engineering and Management
-
-`2014 - 2017`
-__Qazvin Islamic Azad University, Qazvin, Iran__ <br/>
-B.Sc. in Civil Engineering
-
+M.Sc. in Civil Engineering-Water Resources Engineering and Management
 
 
 ## Publications
