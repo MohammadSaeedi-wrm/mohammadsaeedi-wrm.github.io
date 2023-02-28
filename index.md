@@ -16,12 +16,10 @@ In addition, *<a href="/assets//CV_Mohammad-Saeedi.pdf" style="color: blue; text
 
 -	Soil moisture remote sensing
 -	Hydrological modeling
--	Irrigation estimates from space using bottom-up approach
 -	Rainfall-Runoff modeling using satellite soil moisture data
 -	Drought monitoring using the SM2RAIN-NWF algorithm, satellite data and in situ measurements
 -	Spatial downscaling of soil moisture remote sensing products
 -	Data-assimilation approach to ensure maximum convergence between model predictions and observations
 -	Applications of machine learning to remote sensing and hydrology
-
 
 
