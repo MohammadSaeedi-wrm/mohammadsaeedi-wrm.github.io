@@ -14,6 +14,7 @@ His applied research focuses on the following:<br/>
 ## Research interests:
 
 -	Hydrological modeling
+-	Climate change
 -	Rainfall-Runoff modeling
 -	Drought monitoring
 -	Data-assimilation approach to ensure maximum convergence between model predictions and observations
