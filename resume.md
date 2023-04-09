@@ -5,6 +5,11 @@ menutitle: CV
 ---
 ## Curriculum Vitae
 
+## Education
+
+`2018 - 2021`
+__Islamic Azad University Science and Research Branch, Tehran, Iran__ <br/>
+M.Sc. in Civil Engineering-Water Resources Engineering and Management
 
 
 
