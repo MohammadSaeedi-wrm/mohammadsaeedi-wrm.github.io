@@ -12,7 +12,7 @@ __University of Virginia, VA, USA__ <br/>
 
 Ph.D. student in Engineering Systems and Environment department (Major: Civil Engineering) <br/>
 (Advisor: [<span style="color: blue">Dr. Venkataraman Lakshmi</span>](https://scholar.google.com/citations?user=vbNdSy0AAAAJ&hl=en))
-
+<br/>
 
 
 `2018 - 2021`
