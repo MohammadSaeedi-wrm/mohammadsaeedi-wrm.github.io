@@ -9,7 +9,7 @@ __Publications__
 ## <img src="/assets//icons8-google-scholar-48.png" alt="NEWW_P"> *<a href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" style="color: blue; text-decoration: underline;text-decoration-style: line;">Google Scholar </a>*
 
 ## Published Peer-Reviewed Journal Articles 
-<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: Nov 22, 2022` </span> 
+<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: Feb 22, 2023` </span> 
 
 `2023`
 __[4]__ __Saeedi, M.__, Nabaei, S., Kim, H., Tavakol, A., & Lakshmi, V. Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification.<br/> ___Remote Sensing of Environment___. <a href="https://doi.org/10.1016/j.rse.2022.113393" style="color: blue;">(Link)</a>
