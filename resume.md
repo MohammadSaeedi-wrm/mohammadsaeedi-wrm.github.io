@@ -8,7 +8,7 @@ menutitle: CV
 ## Education
 
 `2024 - 2028`
-__University of Virginia, VA, USA <br/>
+__University of Virginia, VA, USA__ <br/>
 Ph.D. in Civil and Environmental Engineering
 
 `2018 - 2021`
