@@ -7,6 +7,9 @@ menutitle: CV
 
 ## Education
 
+`2024 - 2028`
+__University of Virginia, VA, USA <br/>
+Ph.D. in Civil and Environmental Engineering
 
 `2018 - 2021`
 __Islamic Azad University Science and Research Branch, Tehran, Iran__ <br/>
