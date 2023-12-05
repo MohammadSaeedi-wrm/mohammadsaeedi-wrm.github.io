@@ -24,6 +24,11 @@ __[2]__ __Saeedi, M.__, Sharafati, A., Brocca, L., & Tavakol, A. Estimating rain
 __[1]__ __Saeedi, M.__, Sharafati, A., & Tavakol, A. Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures using in situ measurements: A case study of Lake Urmia Basin.<br/> ___Theoretical and Applied Climatology___. <a href="https://link.springer.com/article/10.1007/s00704-021-03678-x" style="color: blue;">(Link)</a>
 
 
+## Conference Papers
+<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: 2023` </span> 
+`2023`
+__[1]__ __Saeedi, M.__, Kim, H., & Lakshmi, V. Beyond the Conventional: Advancements in Rainfall Estimation through a Bottom-Up Approach and Net Water Flux.<br/> ___AGU Fall Meeting___. 
+
 
 <!-- ### Footer
 
