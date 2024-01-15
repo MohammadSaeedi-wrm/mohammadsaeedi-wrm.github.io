@@ -14,10 +14,12 @@ His applied research focuses on the following:<br/>
 
 ## Research interests:
 
--	Hydrological modeling
--	Hydrological variables
--	Concurrent extreme events
--	Climate change
--	Rainfall-Runoff modeling
--	Drought monitoring
+-	Soil moisture remote sensing
+- Hydrological modeling
+- Irrigation mapping and quantification using the SM2RAIN-NWF algorithm
+- Rainfall-runoff modelling using satellite soil moisture data
+- Use of SM2RAIN-NWF algorithm, satellite and in situ observations for drought monitoring
+- Spatial downscaling of satellite remotely sensed soil moisture
+- Optimal convergence of model predictions with observations through data assimilation
+- Data-Driven model and machine learning
 
