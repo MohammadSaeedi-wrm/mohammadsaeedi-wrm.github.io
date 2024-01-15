@@ -27,7 +27,7 @@ __[2] SM2RAIN-NWF: A new algorithm by integrating SM2RAIN and the analytical net
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 __[1] In situ measurement of soil moisture and its comparison with satellite- and model-based data (AMSR2, SMAP L3, SMAP L4 and GLDAS) in the Lake Urmia basin.__ `(2019-2020)`
-<br/> *(Note: Before this study, no in-situ measurement of soil moisture had been done in the surroundings of the Lake Urmia).* <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Which soil moisture satellite products are the best choice for other studies in Lake Urmia basin? <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> What is the level of accuracy of remotely sensed soil moisture products compared to in-situ soil moisture measurement products based on climate, soil texture, and land cover classifications?
+<br/> <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Which soil moisture satellite products are the best choice for other studies in Lake Urmia basin? <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> What is the level of accuracy of remotely sensed soil moisture products compared to in-situ soil moisture measurement products based on climate, soil texture, and land cover classifications?
 
 <img width="550" alt="project01" src="/assets//project01.jpg">  <img width="520" src="/assets//workflow11.jpg" alt="workflow11"> 
 
