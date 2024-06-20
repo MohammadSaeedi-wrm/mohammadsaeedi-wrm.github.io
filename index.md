@@ -22,4 +22,4 @@ His applied research focuses on the following:<br/>
 -	Spatial downscaling of soil moisture remote sensing products
 -	Data-assimilation approach to ensure maximum convergence between model predictions and observations
 -	Applications of machine learning to remote sensing and hydrology
-
+-	Satellite data reconstruction, Numerical methods, and image processing
