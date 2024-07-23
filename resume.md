@@ -18,8 +18,14 @@ Ph.D. in Civil & Environmental Engineering
 __Islamic Azad University Science and Research Branch, Tehran, Iran__ <br/>
 M.Sc. in Civil Engineering-Water Resources Engineering and Management
 
-## Journal Reviews
+## Invitation of Joining the Editorial Board/Reviewer 
 
+Transactions on Geoscience and Remote Sensing <br/>
+Science of the Total Environment <br/>
+Water Resources Management <br/>
+International Journal of Climatology <br/>
+PLOS ONE<br/>
+American Journal of Remote Sensing<br/>
 
 <!-- ### Footer
 
