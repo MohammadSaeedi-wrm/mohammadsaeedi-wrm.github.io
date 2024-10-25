@@ -15,7 +15,7 @@ __University of Virginia, VA, USA__ <br/>
 Ph.D. in Civil & Environmental Engineering
 
 `2018 - 2021`
-__Islamic Azad University Science and Research Branch, Tehran, Iran__ <br/>
+__Islamic Azad University, Tehran, Iran__ <br/>
 M.Sc. in Civil Engineering-Water Resources Engineering and Management
 
 ## Invitation of Joining the Editorial Board/Reviewer 
