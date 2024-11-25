@@ -22,6 +22,7 @@ M.Sc. in Civil Engineering-Water Resources Engineering and Management
 
 Transactions on Geoscience and Remote Sensing <br/>
 Science of the Total Environment <br/>
+IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing <br/>
 Water Resources Management <br/>
 International Journal of Climatology <br/>
 PLOS ONE<br/>
