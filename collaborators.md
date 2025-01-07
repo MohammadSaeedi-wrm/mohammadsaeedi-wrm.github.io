@@ -57,11 +57,11 @@ menutitle: Collaborators
 
 ---
 ### Ameneh Tavakol
-![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
+![Ameneh Tavakol](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
 **Role:** Co-author  
 **Affiliation:** Water Resources Control Engineer  
-**Email:** [venkat@example.com](mailto:venkat@example.com)  
-**Website:** [example.com](https://example.com)
+**Email:** [Tavakol](mailto:)  
+**Website:** [LinkedIn](https://www.linkedin.com/in/ameneh-tavakol-b07199b1/)
 
 ---
 
