@@ -100,11 +100,7 @@ menutitle: Collaborators
 
 ---
 ### Hamidreza Mosaffa
-![Sina Nabaei](images/sina_nabaei.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
-**Role:** Co-author  
-**Affiliation:** Postdoc, University of Reading, UK    
-**Email:** [sina@example.com](mailto:sina@example.com)  
-**Website:** [example.com](https://example.com)
+
 
 <div style="display: flex; align-items: center;">
   <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/hamid.jpg" 
