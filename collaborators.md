@@ -57,11 +57,19 @@ menutitle: Collaborators
 
 ---
 ### Ameneh Tavakol
-![Ameneh Tavakol](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
-**Role:** Co-author  
-**Affiliation:** Water Resources Control Engineer  
-**Email:** [Tavakol](mailto:)  
-**Website:** [LinkedIn](https://www.linkedin.com/in/ameneh-tavakol-b07199b1/)
+
+<div style="display: flex; align-items: center;">
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/ameneh.png" 
+       alt="ameneh" 
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
+    <br>
+    <strong>Role:</strong> <span style="color: blue;"> Co-author  </span><br>
+    <strong>Affiliation:</strong> <span style="color: blue;"> Water Resources Control Engineer </span><br>
+    <strong>Email:</strong> <a href="mailto:" style="color: blue;"> Ameneh Tavakol </a><br>
+    <strong>Website:</strong> <a href="https://www.linkedin.com/in/ameneh-tavakol-b07199b1" style="color: blue;">LinkedIn</a>
+  </div>
+</div>
 
 ---
 
