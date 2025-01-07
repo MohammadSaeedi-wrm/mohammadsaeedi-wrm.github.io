@@ -7,11 +7,15 @@ menutitle: Collaborators
 ## Collaborators and Co-authors
 
 ### Venkat Lakshmi
-![Venkat Lakshmi](images/Lakshmi01-580x870.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
-**Role:** Advisor  
-**Affiliation:** John L Newcomb Professor of Engineering, Department of Civil and Environmental Engineering, University of Virginia, VA, USA | President, Hydrology Section, American Geophysical Union  
-**Email:** [vl9tn@virginia.edu](mailto:vl9tn@virginia.edu)  
-**Website:** [https://engineering.virginia.edu/faculty/venkataraman-lakshmi](https://engineering.virginia.edu/faculty/venkataraman-lakshmi)
+<div style="display: flex; align-items: center;">
+  <img src="images/Lakshmi01-580x870.jpg" alt="Venkat Lakshmi" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
+    <strong>Role:</strong> Advisor<br>
+    <strong>Affiliation:</strong> John L Newcomb Professor of Engineering, Department of Civil and Environmental Engineering, University of Virginia, VA, USA | President, Hydrology Section, American Geophysical Union<br>
+    <strong>Email:</strong> <a href="mailto:vl9tn@virginia.edu">vl9tn@virginia.edu</a><br>
+    <strong>Website:</strong> <a href="https://engineering.virginia.edu/faculty/venkatraman-lakshmi">engineering.virginia.edu</a>
+  </div>
+</div>
 
 ---
 ### Luca Brocca
