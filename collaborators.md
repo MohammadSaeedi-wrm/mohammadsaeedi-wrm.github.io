@@ -7,10 +7,10 @@ menutitle: Collaborators
 ## Collaborators and Co-authors
 
 ### Venkat Lakshmi
-![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
+![Venkat Lakshmi](images/Lakshmi01-580x870.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
 **Role:** Advisor  
 **Affiliation:** John L Newcomb Professor of Engineering, Department of Civil and Environmental Engineering, University of Virginia, VA, USA | President, Hydrology Section, American Geophysical Union  
-**Email:** [venkat@example.com](mailto:venkat@example.com)  
+**Email:** [vl9tn@virginia.edu](mailto:vl9tn@virginia.edu)  
 **Website:** [example.com](https://example.com)
 
 ---
