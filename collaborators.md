@@ -9,7 +9,31 @@ menutitle: Collaborators
 ### Venkat Lakshmi
 ![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
 **Role:** Advisor  
-**Affiliation:** University of Virginia  
+**Affiliation:** John L Newcomb Professor of Engineering, Department of Civil and Environmental Engineering, University of Virginia, VA, USA | President, Hydrology Section, American Geophysical Union
+**Email:** [venkat@example.com](mailto:venkat@example.com)  
+**Website:** [example.com](https://example.com)
+
+---
+### Luca Brocca
+![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
+**Role:** Co-author  
+**Affiliation:** Director of Research, Research Institute for Geo-Hydrological Protection, National Research Council of Italy
+**Email:** [venkat@example.com](mailto:venkat@example.com)  
+**Website:** [example.com](https://example.com)
+
+---
+### Hyunglok Kim
+![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
+**Role:** Co-author  
+**Affiliation:** Assistant Professor, School of Earth Sciences and Environmental Engineering, GIST
+**Email:** [venkat@example.com](mailto:venkat@example.com)  
+**Website:** [example.com](https://example.com)
+
+---
+### Ameneh Tavakol
+![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
+**Role:** Co-author  
+**Affiliation:** Water Resources Control Engineer  
 **Email:** [venkat@example.com](mailto:venkat@example.com)  
 **Website:** [example.com](https://example.com)
 
@@ -24,5 +48,19 @@ menutitle: Collaborators
 
 ---
 
-### Zanko
-![Zanko](images/zanko.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0
+### Ahmad Sharafati
+![Sina Nabaei](images/sina_nabaei.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
+**Role:** Advisor  
+**Affiliation:** XYZ Institute  
+**Email:** [sina@example.com](mailto:sina@example.com)  
+**Website:** [example.com](https://example.com)
+
+---
+### Hamidreza Mosaffa
+![Sina Nabaei](images/sina_nabaei.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
+**Role:** Co-author  
+**Affiliation:** XYZ Institute  
+**Email:** [sina@example.com](mailto:sina@example.com)  
+**Website:** [example.com](https://example.com)
+
+---
