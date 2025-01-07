@@ -33,7 +33,7 @@ __[1] In situ measurement of soil moisture and its comparison with satellite- an
 
 <img width="550" alt="project01" src="/assets//project01.jpg">  <img width="520" src="/assets//workflow11.jpg" alt="workflow11"> 
 
-## <img width="35" height="30" alt="Target" src="/assets//Target.png"> __Overview of my Master's degree projects__
+## <img width="35" height="30" alt="Target" src="/assets//Target.png"> __A summary of my master's degree projects__
 ________________________________________________________________________________________________________________________________________________________
 
 <img width="550" height="550" alt="overview" src="/assets//overview.jpg">
