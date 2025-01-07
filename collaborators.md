@@ -29,12 +29,20 @@ menutitle: Collaborators
 
 ---
 ### Luca Brocca
-![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
-**Role:** Co-author  
-**Affiliation:** Director of Research, Research Institute for Geo-Hydrological Protection, National Research Council of Italy  
-**Email:** [venkat@example.com](mailto:venkat@example.com)  
-**Website:** [example.com](https://example.com)
 
+<div style="display: flex; align-items: center;">
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Luca.jpg" alt="Venkat Lakshmi" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
+    <br>
+    <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
+    <br>
+    <strong>Affiliation:</strong> <span style="color: blue;">Director of Research, Research Institute for Geo-Hydrological Protection, National Research Council of Italy  </span><br>
+    <br>
+    <strong>Email:</strong> <a href="mailto:luca.brocca@cnr.it" style="color: blue;">luca.brocca@cnr.it</a><br>
+    <br>
+    <strong>Website:</strong> <a href="http://hydrology.irpi.cnr.it/people/luca-brocca/" style="color: blue;">hydrology.irpi.cnr.it</a>
+  </div>
+</div>
 ---
 ### Hyunglok Kim
 ![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
