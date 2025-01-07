@@ -20,7 +20,7 @@ menutitle: Collaborators
     <br>
     <strong>Email:</strong> <a href="mailto:vl9tn@virginia.edu" style="color: blue;">vl9tn@virginia.edu</a><br>
     <br>
-    <strong>Website:</strong> <a href="https://engineering.virginia.edu/faculty/venkatraman-lakshmi" style="color: blue;">engineering.virginia.edu</a>
+    <strong>Website:</strong> <a href="https://engineering.virginia.edu/faculty/venkataraman-lakshmi" style="color: blue;">engineering.virginia.edu</a>
   </div>
 </div>
 
