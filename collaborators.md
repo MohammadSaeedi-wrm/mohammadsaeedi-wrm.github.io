@@ -83,11 +83,20 @@ menutitle: Collaborators
 ---
 
 ### Ahmad Sharafati
-![Sina Nabaei](images/sina_nabaei.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
-**Role:** Advisor  
-**Affiliation:** Associate Professor, Civil Engineering Department, Science and Research Branch, IAU, Tehran, Iran  
-**Email:** [sina@example.com](mailto:sina@example.com)  
-**Website:** [example.com](https://example.com)
+
+
+<div style="display: flex; align-items: center;">
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/ahmad.jpg" 
+       alt="Ahmad" 
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
+    <br>
+    <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
+    <strong>Affiliation:</strong> <span style="color: blue;"> Associate Professor, Civil Engineering Department, Science and Research Branch, IAU, Tehran, Iran </span><br>
+    <strong>Email:</strong> <a href="mailto:" style="color: blue;">Ahmad Sharafati</a><br>
+    <strong>Website:</strong> <a href="https://scholar.google.com/citations?user=0cQtqGIAAAAJ&hl=en" style="color: blue;">Google Scholar</a>
+  </div>
+</div>
 
 ---
 ### Hamidreza Mosaffa
