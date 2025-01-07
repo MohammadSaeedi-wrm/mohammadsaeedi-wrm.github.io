@@ -8,14 +8,18 @@ menutitle: Collaborators
 
 ### Venkat Lakshmi
 
-<div style="width: 150px; height: 150px; border-radius: 10px; overflow: hidden; background: #f0f0f0; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+<div style="display: flex; align-items: center;">
   <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Lakshmi01-580x870.jpg" 
        alt="Venkat Lakshmi" 
-       style="max-width: 100%; max-height: 100%;">
-</div>
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
+    <br>
     <strong>Role:</strong> <span style="color: blue;">Advisor</span><br>
+    <br>
     <strong>Affiliation:</strong> <span style="color: blue;">John L Newcomb Professor of Engineering, Department of Civil and Environmental Engineering, University of Virginia, VA, USA | President, Hydrology Section, American Geophysical Union</span><br>
+    <br>
     <strong>Email:</strong> <a href="mailto:vl9tn@virginia.edu" style="color: blue;">vl9tn@virginia.edu</a><br>
+    <br>
     <strong>Website:</strong> <a href="https://engineering.virginia.edu/faculty/venkataraman-lakshmi" style="color: blue;">engineering.virginia.edu</a>
   </div>
 </div>
@@ -24,11 +28,11 @@ menutitle: Collaborators
 
 ### Luca Brocca
 
-<div style="width: 150px; height: 150px; border-radius: 10px; overflow: hidden; background: #f0f0f0; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+<div style="display: flex; align-items: center;">
   <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Luca.jpg" 
        alt="Luca Brocca" 
-       style="max-width: 100%; max-height: 100%;">
-</div>
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
     <br>
     <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
     <strong>Affiliation:</strong> <span style="color: blue;">Director of Research, Research Institute for Geo-Hydrological Protection, National Research Council of Italy  </span><br>
@@ -36,6 +40,7 @@ menutitle: Collaborators
     <strong>Website:</strong> <a href="http://hydrology.irpi.cnr.it/people/luca-brocca/" style="color: blue;">hydrology.irpi.cnr.it</a>
   </div>
 </div>
+
 
 
 ---
