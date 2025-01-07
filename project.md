@@ -6,14 +6,14 @@ menuorder: 4
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-__[4] Use of SM2RAIN-NWF rainfall estimation algorithm in various types of practical research, including runoff, irrigation and drought.__ `(2022-ongoing)`
+__[4] Application of the SM2RAIN-NWF rainfall estimation algorithm in diverse practical research areas, including runoff estimation, quantification of irrigation, and drought monitoring.__ `(2022-ongoing)`
 <br/> 
 <img width="430" alt="pr2" src="/assets//MS_Idea.jpeg">
 <br/> 
 
 _________________________________________________________________________________________________________________________________________________________________________
 
-__[3] Analyzing the performance of the SM2RAIN-NWF algorithm on a local, regional, and continental scale; investigating ways to boost its accuracy__ `(2021-ongoing)`
+__[3] Evaluation of the SM2RAIN-NWF algorithm's performance across local, regional, and continental scales, with a focus on enhancing its accuracy.__ `(2021-ongoing)`
 <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> Temperature as a secondary variable: Could specify a temperature threshold to reinforce the SM2RAIN-NWF to affect the quality of rainfall estimation? 
 <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> How does the performance of the SM2RAIN-NWF algorithm change spatially in diverse climates (on a national scale) compared to the SM2RAIN algorithm? 
 <br/> <img width="21" height="21" alt="question" src="/assets//question.png"> In terms of rainfall estimation, what is the effect of combining active and passive soil moisture data?
