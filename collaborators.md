@@ -66,11 +66,19 @@ menutitle: Collaborators
 ---
 
 ### Sina Nabaei
-![Sina Nabaei](images/sina_nabaei.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
-**Role:** Co-author  
-**Affiliation:** Doctoral candidate, Wageningen University & Research  
-**Email:** [sina@example.com](mailto:sina@example.com)  
-**Website:** [example.com](https://example.com)
+
+<div style="display: flex; align-items: center;">
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Sina.png" 
+       alt="Sina" 
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
+    <br>
+    <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
+    <strong>Affiliation:</strong> <span style="color: blue;"> Doctoral candidate, Wageningen University & Research </span><br>
+    <strong>Email:</strong> <a href="mailto:" style="color: blue;">Sina Nabaei</a><br>
+    <strong>Website:</strong> <a href="https://www.linkedin.com/in/sinanabaei/" style="color: blue;">LinkedIn</a>
+  </div>
+</div>
 
 ---
 
