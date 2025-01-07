@@ -8,7 +8,7 @@ menutitle: Collaborators
 
 ### Venkat Lakshmi
 <div style="display: flex; align-items: center;">
-  ![Venkat Lakshmi](images/Lakshmi01-580x870.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
+  <img src="images/Lakshmi01-580x870.jpg" alt="Venkat Lakshmi" style="width: 150px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">  
   <div>
     <strong>Role:</strong> Advisor<br>
     <strong>Affiliation:</strong> John L Newcomb Professor of Engineering, Department of Civil and Environmental Engineering, University of Virginia, VA, USA | President, Hydrology Section, American Geophysical Union<br>
