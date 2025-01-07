@@ -35,11 +35,8 @@ menutitle: Collaborators
   <div>
     <br>
     <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
-    <br>
     <strong>Affiliation:</strong> <span style="color: blue;">Director of Research, Research Institute for Geo-Hydrological Protection, National Research Council of Italy  </span><br>
-    <br>
     <strong>Email:</strong> <a href="mailto:luca.brocca@cnr.it" style="color: blue;">luca.brocca@cnr.it</a><br>
-    <br>
     <strong>Website:</strong> <a href="http://hydrology.irpi.cnr.it/people/luca-brocca/" style="color: blue;">hydrology.irpi.cnr.it</a>
   </div>
 </div>
