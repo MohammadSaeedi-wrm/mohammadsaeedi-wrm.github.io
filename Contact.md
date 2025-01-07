@@ -1,7 +1,7 @@
 ---
 layout: page
 menutitle: Contact
-menuorder: 5
+menuorder: 6
 ---
 # __Contact me__
 
