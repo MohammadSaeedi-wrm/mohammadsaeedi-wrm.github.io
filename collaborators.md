@@ -13,13 +13,9 @@ menutitle: Collaborators
        alt="Venkat Lakshmi" 
        style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
-    <br>
     <strong>Role:</strong> <span style="color: blue;">Advisor</span><br>
-    <br>
     <strong>Affiliation:</strong> <span style="color: blue;">John L Newcomb Professor of Engineering, Department of Civil and Environmental Engineering, University of Virginia, VA, USA | President, Hydrology Section, American Geophysical Union</span><br>
-    <br>
     <strong>Email:</strong> <a href="mailto:vl9tn@virginia.edu" style="color: blue;">vl9tn@virginia.edu</a><br>
-    <br>
     <strong>Website:</strong> <a href="https://engineering.virginia.edu/faculty/venkataraman-lakshmi" style="color: blue;">engineering.virginia.edu</a>
   </div>
 </div>
