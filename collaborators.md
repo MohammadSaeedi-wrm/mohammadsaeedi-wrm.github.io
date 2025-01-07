@@ -41,11 +41,19 @@ menutitle: Collaborators
 
 ---
 ### Hyunglok Kim
-![Venkat Lakshmi](images/venkat_lakshmi.jpg){: width="150px" style="border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"}  
-**Role:** Co-author  
-**Affiliation:** Assistant Professor, School of Earth Sciences and Environmental Engineering, GIST  
-**Email:** [venkat@example.com](mailto:venkat@example.com)  
-**Website:** [example.com](https://example.com)
+
+<div style="display: flex; align-items: center;">
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Hyunglok-Kim.jpg" 
+       alt="Hyunglok-Kim" 
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
+    <br>
+    <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
+    <strong>Affiliation:</strong> <span style="color: blue;">Assistant Professor, School of Earth Sciences and Environmental Engineering, GIST   </span><br>
+    <strong>Email:</strong> <a href="mailto:hk5kp@virginia.edu" style="color: blue;">hk5kp@virginia.edu</a><br>
+    <strong>Website:</strong> <a href="https://hyunglok-kim.github.io/" style="color: blue;">HydroAI Lab</a>
+  </div>
+</div>
 
 ---
 ### Ameneh Tavakol
