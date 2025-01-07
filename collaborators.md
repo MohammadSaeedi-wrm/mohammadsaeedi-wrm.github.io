@@ -43,7 +43,7 @@ menutitle: Collaborators
 ### Hyunglok Kim
 
 <div style="display: flex; align-items: center;">
-  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Hyunglok-Kim.jpg" 
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Hyunglok-Kim.png" 
        alt="Hyunglok-Kim" 
        style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
