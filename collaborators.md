@@ -8,10 +8,10 @@ menutitle: Collaborators
 
 ### Venkat Lakshmi
 
-### Venkat Lakshmi
-
 <div style="display: flex; align-items: center;">
-  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Lakshmi01-580x870.jpg" alt="Venkat Lakshmi" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Lakshmi01-580x870.jpg" 
+       alt="Venkat Lakshmi" 
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
     <br>
     <strong>Role:</strong> <span style="color: blue;">Advisor</span><br>
@@ -24,14 +24,14 @@ menutitle: Collaborators
   </div>
 </div>
 
-
-
-
 ---
+
 ### Luca Brocca
 
 <div style="display: flex; align-items: center;">
-  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Luca.jpg" alt="Venkat Lakshmi" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/Luca.jpg" 
+       alt="Luca Brocca" 
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
     <br>
     <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
@@ -40,6 +40,7 @@ menutitle: Collaborators
     <strong>Website:</strong> <a href="http://hydrology.irpi.cnr.it/people/luca-brocca/" style="color: blue;">hydrology.irpi.cnr.it</a>
   </div>
 </div>
+
 
 ---
 ### Hyunglok Kim
