@@ -17,8 +17,7 @@ Ph.D. in Civil & Environmental Engineering
 ## Awards and Honors
 • Selected as a 2024 Vadose Zone Journal Outstanding Reviewer for exceptional peer-review contributions
 
-## Invitation of Joining the Editorial Board/Reviewer 
-
+##  Invitation to Join Editorial Board/Serve as a Reviewer
 Transactions on Geoscience and Remote Sensing <br/>
 Science of the Total Environment <br/>
 Journal of Hydrology <br/>
