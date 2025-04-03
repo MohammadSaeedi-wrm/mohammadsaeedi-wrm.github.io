@@ -14,6 +14,8 @@ Currently, Mohammad Saeedi is focused on improving the quality of the SM2RAIN-NW
 __University of Virginia, VA, USA__ <br/>
 Ph.D. in Civil & Environmental Engineering
 
+## Awards and Honors
+• Selected as a 2024 Vadose Zone Journal Outstanding Reviewer for exceptional peer-review contributions
 
 ## Invitation of Joining the Editorial Board/Reviewer 
 
@@ -25,6 +27,8 @@ Water Resources Management <br/>
 International Journal of Climatology <br/>
 PLOS ONE<br/>
 American Journal of Remote Sensing<br/>
+Vadose Zone Journal<br/>
+
 
 <!-- ### Footer
 
