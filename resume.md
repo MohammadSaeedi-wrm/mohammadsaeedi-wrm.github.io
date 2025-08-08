@@ -21,6 +21,7 @@ Ph.D. in Civil & Environmental Engineering
 Transactions on Geoscience and Remote Sensing <br/>
 Science of the Total Environment <br/>
 Journal of Hydrology <br/>
+Scientific Data<br/>
 IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing <br/>
 Water Resources Management <br/>
 International Journal of Climatology <br/>
