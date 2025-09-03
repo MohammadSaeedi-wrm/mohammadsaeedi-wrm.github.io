@@ -10,6 +10,7 @@ __Publications__
 
 ## Published Peer-Reviewed Journal Articles 
 <span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: Aug 22, 2025` </span> 
+
 `2025`
 __[5]__ __Saeedi, Mohammad.__, Kim, H., & Lakshmi, V. Introducing a new clustering-based method for regionalization framework for continental-scale rainfall estimates from soil moisture dynamics using machine learning methods.<br/> ___Agricultural and Forest Meteorology___. <a href="https://doi.org/10.1016/j.agrformet.2025.110766" style="color: blue;">(Link)</a>
 
