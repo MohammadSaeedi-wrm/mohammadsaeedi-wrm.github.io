@@ -9,7 +9,9 @@ __Publications__
 ## <img src="/assets//icons8-google-scholar-48.png" alt="NEWW_P"> *<a href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" style="color: blue; text-decoration: underline;text-decoration-style: line;">Google Scholar </a>*
 
 ## Published Peer-Reviewed Journal Articles 
-<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: Feb 22, 2023` </span> 
+<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: Aug 22, 2025` </span> 
+`2025`
+__[5]__ __Saeedi, Mohammad.__, Kim, H., & Lakshmi, V. Introducing a new clustering-based method for regionalization framework for continental-scale rainfall estimates from soil moisture dynamics using machine learning methods.<br/> ___Agricultural and Forest Meteorology___. <a href="https://doi.org/10.1016/j.agrformet.2025.110766" style="color: blue;">(Link)</a>
 
 `2023`
 __[4]__ __Saeedi, Mohammad.__, Nabaei, S., Kim, H., Tavakol, A., & Lakshmi, V. Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover-soil-climate classification.<br/> ___Remote Sensing of Environment___. <a href="https://doi.org/10.1016/j.rse.2022.113393" style="color: blue;">(Link)</a>
@@ -25,7 +27,10 @@ __[1]__ __Saeedi, Mohammad.__, Sharafati, A., & Tavakol, A. Evaluation of gridde
 
 
 ## Conference Papers
-<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: 2023` </span> 
+<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: 2024` </span> 
+
+`2024`
+__[2]__ __Saeedi, Mohammad.__, & Lakshmi, V. Leveraging Satellite Soil Moisture Data for Global Rainfall Estimation Using a Bottom-Up Approach: Exploring the Global Potential of SM2RAIN-NWF.<br/> ___AGU Fall Meeting___. 
 
 `2023`
 __[1]__ __Saeedi, Mohammad.__, Kim, H., & Lakshmi, V. Beyond the Conventional: Advancements in Rainfall Estimation through a Bottom-Up Approach and Net Water Flux.<br/> ___AGU Fall Meeting___. 
