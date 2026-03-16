@@ -21,6 +21,23 @@ menutitle: Collaborators
 </div>
 
 ---
+### John Bolten
+
+<div style="display: flex; align-items: center;">
+  <img src="https://raw.githubusercontent.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io/main/images/1719280443347.jpeg" 
+       alt="John Bolten" 
+       style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
+  <div>
+    <br>
+    <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
+    <strong>Affiliation:</strong> <span style="color: blue;"> Chief of the Hydrological Sciences Laboratory, NASA Goddard Space Flight Center  </span><br>
+    <strong>Email:</strong> <a href="mailto:" style="color: blue;"></a><br>
+    <strong>Website:</strong> <a href="https://science.gsfc.nasa.gov/sci/bio/john.bolten" style="color: blue;">Website</a>
+  </div>
+</div>
+
+
+---
 
 ### Luca Brocca
 
