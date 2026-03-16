@@ -29,7 +29,6 @@ menutitle: Collaborators
        style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
     <br>
-    <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
     <strong>Affiliation:</strong> <span style="color: blue;"> Chief of the Hydrological Sciences Laboratory, NASA Goddard Space Flight Center  </span><br>
     <strong>Email:</strong> <a href="mailto:" style="color: blue;"></a><br>
     <strong>Website:</strong> <a href="https://science.gsfc.nasa.gov/sci/bio/john.bolten" style="color: blue;">Website</a>
@@ -47,7 +46,6 @@ menutitle: Collaborators
        style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
     <br>
-    <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
     <strong>Affiliation:</strong> <span style="color: blue;">Director of Research, Research Institute for Geo-Hydrological Protection, National Research Council of Italy  </span><br>
     <strong>Email:</strong> <a href="mailto:luca.brocca@cnr.it" style="color: blue;">luca.brocca@cnr.it</a><br>
     <strong>Website:</strong> <a href="http://hydrology.irpi.cnr.it/people/luca-brocca/" style="color: blue;">hydrology.irpi.cnr.it</a>
@@ -65,7 +63,6 @@ menutitle: Collaborators
        style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
     <br>
-    <strong>Role:</strong> <span style="color: blue;">Co-author  </span><br>
     <strong>Affiliation:</strong> <span style="color: blue;">Assistant Professor, School of Earth Sciences and Environmental Engineering, GIST   </span><br>
     <strong>Email:</strong> <a href="mailto:hk5kp@virginia.edu" style="color: blue;">hk5kp@virginia.edu</a><br>
     <strong>Website:</strong> <a href="https://hyunglok-kim.github.io/" style="color: blue;">HydroAI Lab</a>
@@ -81,7 +78,6 @@ menutitle: Collaborators
        style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
     <br>
-    <strong>Role:</strong> <span style="color: blue;"> Co-author  </span><br>
     <strong>Affiliation:</strong> <span style="color: blue;"> Water Resources Control Engineer </span><br>
     <strong>Email:</strong> <a href="mailto:" style="color: blue;"> Ameneh Tavakol </a><br>
     <strong>Website:</strong> <a href="https://www.linkedin.com/in/ameneh-tavakol-b07199b1" style="color: blue;">LinkedIn</a>
@@ -98,7 +94,6 @@ menutitle: Collaborators
        style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
     <br>
-    <strong>Role:</strong> <span style="color: blue;"> Co-author  </span><br>
     <strong>Affiliation:</strong> <span style="color: blue;"> Doctoral candidate, Wageningen University & Research </span><br>
     <strong>Email:</strong> <a href="mailto:" style="color: blue;">Sina Nabaei</a><br>
     <strong>Website:</strong> <a href="https://www.linkedin.com/in/sinanabaei/" style="color: blue;">LinkedIn</a>
@@ -115,7 +110,6 @@ menutitle: Collaborators
        style="width: 150px; height: 150px; border-radius: 10px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-right: 15px;">
   <div>
     <br>
-    <strong>Role:</strong> <span style="color: blue;"> Co-author  </span><br>
     <strong>Affiliation:</strong> <span style="color: blue;"> Postdoc, University of Reading, UK  </span><br>
     <strong>Email:</strong> <a href="mailto:" style="color: blue;"> Hamidreza Mosaffa </a><br>
     <strong>Website:</strong> <a href="https://scholar.google.com/citations?user=A1x2BaMAAAAJ&hl=en" style="color: blue;">Google Scholar</a>
