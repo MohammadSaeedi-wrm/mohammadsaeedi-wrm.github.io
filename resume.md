@@ -19,6 +19,7 @@ Ph.D. in Civil & Environmental Engineering
 • Research Grant Awardee, Virginia Space Grant Consortium (VSGC) / NASA (2026)<br/>
 
 ##  Invitation to Join Editorial Board/Serve as a Reviewer
+Scientific Review Committee Member (Reviewer), IEEE GRSS IGARSS 2026 <br/>
 Transactions on Geoscience and Remote Sensing <br/>
 Science of the Total Environment <br/>
 Journal of Hydrology <br/>
