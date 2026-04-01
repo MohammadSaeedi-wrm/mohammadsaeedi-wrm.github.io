@@ -33,8 +33,21 @@ __[1]__ __Saeedi, Mohammad.__, Sharafati, A., & Tavakol, A. Evaluation of gridde
 ## Conference Papers
 <span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: 2024` </span> 
 
+
+`2025`
+__[6]__ Ziyue Zhu, __Saeedi, Mohammad.__, Kim, H., & Lakshmi, V. Interpreting Upstream Influence on Downstream River Discharge Forecasting: Insights from ConvLSTM and SHAP Analyses Across Spatial Scales and Temporal Horizons.<br/> ___AGU Fall Meeting___. 
+
+`2025`
+__[5]__ __Saeedi, Mohammad.__, Saeedi, M., Kim, H.,..., & Lakshmi, V. A Novel Hybrid CNN-LSTM Approach to Dynamically Parameterize the Soil Water Balance for Improved and Self-Calibration of Global Rainfall Estimation..<br/> ___AGU Fall Meeting___. 
+
+`2025`
+__[4]__ __Saeedi, Mohammad.__, Kim, H.,..., & Lakshmi, V. Turning Streams into Rain Gauges: Leveraging Long-Term Streamflow Data to Recover Historical Precipitation.<br/> ___AGU Fall Meeting___. 
+
 `2024`
-__[2]__ __Saeedi, Mohammad.__, & Lakshmi, V. Leveraging Satellite Soil Moisture Data for Global Rainfall Estimation Using a Bottom-Up Approach: Exploring the Global Potential of SM2RAIN-NWF.<br/> ___AGU Fall Meeting___. 
+__[3]__ __Saeedi, Mohammad.__, & Lakshmi, V. Leveraging Satellite Soil Moisture Data for Global Rainfall Estimation Using a Bottom-Up Approach: Exploring the Global Potential of SM2RAIN-NWF.<br/> ___AGU Fall Meeting___. 
+
+`2024`
+__[2]__ __Saeedi, Mohammad.__, Kim, H.,..., & Lakshmi, V. Leveraging Machine Learning to Improve Rainfall Estimation: A Study on Noise Reduction in Soil Moisture Time Series in Areas with In-Situ Data Limitation.<br/> ___AGU Fall Meeting___. 
 
 `2023`
 __[1]__ __Saeedi, Mohammad.__, Kim, H., & Lakshmi, V. Beyond the Conventional: Advancements in Rainfall Estimation through a Bottom-Up Approach and Net Water Flux.<br/> ___AGU Fall Meeting___. 
