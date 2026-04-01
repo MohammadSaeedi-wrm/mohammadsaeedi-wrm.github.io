@@ -9,7 +9,10 @@ __Publications__
 ## <img src="/assets//icons8-google-scholar-48.png" alt="NEWW_P"> *<a href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" style="color: blue; text-decoration: underline;text-decoration-style: line;">Google Scholar </a>*
 
 ## Published Peer-Reviewed Journal Articles 
-<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: Aug 22, 2025` </span> 
+<span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: April 01, 2026` </span>  
+
+`2026`
+__[6]__ __Saeedi, Mohammad.__, Kim, H., & Lakshmi, V. Depth-Aware Global Calibration of SM2RAIN-NWF Using Growing Neural Gas-Derived Hydroclimatic Clusters Across Heterogeneous Soils.<br/> ___Water Resources Research___. <a href="https:www" style="color: blue;">(Link)</a>
 
 `2025`
 __[5]__ __Saeedi, Mohammad.__, Kim, H., & Lakshmi, V. Introducing a new clustering-based method for regionalization framework for continental-scale rainfall estimates from soil moisture dynamics using machine learning methods.<br/> ___Agricultural and Forest Meteorology___. <a href="https://doi.org/10.1016/j.agrformet.2025.110766" style="color: blue;">(Link)</a>
