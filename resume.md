@@ -15,8 +15,8 @@ __University of Virginia, VA, USA__ <br/>
 Ph.D. in Civil & Environmental Engineering
 
 ## Awards and Honors
-• Selected as a 2024 Vadose Zone Journal Outstanding Reviewer for exceptional peer-review contributions<br/>
 • Research Grant Awardee, Virginia Space Grant Consortium (VSGC) / NASA (2026)<br/>
+• Selected as a 2024 Vadose Zone Journal Outstanding Reviewer for exceptional peer-review contributions<br/>
 
 ##  Invitation to Join Editorial Board/Serve as a Reviewer
 Scientific Review Committee Member (Reviewer), IEEE GRSS IGARSS 2026 <br/>
