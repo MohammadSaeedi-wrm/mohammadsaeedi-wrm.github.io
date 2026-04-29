@@ -6,7 +6,7 @@ menuorder: 4
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-__[4] Application of the SM2RAIN-NWF rainfall estimation algorithm in diverse practical research areas, including runoff estimation, quantification of irrigation, and drought monitoring.__ `(2022-ongoing)`
+__[4] Bridging Physics and AI: The Future of Global RS and EO__ `(2022-ongoing)`
 
 <p align="center">
   <img src="assets/unnamed (3).png" alt="Presentation Slide" width="100%">
