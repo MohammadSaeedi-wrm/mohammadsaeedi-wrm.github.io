@@ -9,7 +9,7 @@ ________________________________________________________________________________
 __[4] Bridging Physics and AI: The Future of Global RS and EO__ `(2022-ongoing)`
 
 <p align="center">
-  <img src="assets/unnamed (3).png" alt="Presentation Slide" width="80%">
+  <img src="assets/unnamed (3).png" alt="Presentation Slide" width="50%">
 </p>
 <br/>
 _________________________________________________________________________________________________________________________________________________________________________
