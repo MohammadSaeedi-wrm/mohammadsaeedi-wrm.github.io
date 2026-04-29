@@ -8,8 +8,8 @@ ________________________________________________________________________________
 
 __[4] Bridging Physics and AI: The Future of Global RS and EO__ `(2022-ongoing)`
 
- <br/> <img src="assets/unnamed (3).png" alt="Presentation Slide" width="70%">
-
+ %<br/> <img src="assets/unnamed (3).png" alt="Presentation Slide" width="70%">
+<img width="750" alt="project01" src="/assets//unnamed (3).png">
 _________________________________________________________________________________________________________________________________________________________________________
 
 __[3] Evaluation of the SM2RAIN-NWF algorithm's performance across local, regional, and continental scales, with a focus on enhancing its accuracy.__ `(2021-ongoing)`
