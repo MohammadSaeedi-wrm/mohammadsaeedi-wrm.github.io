@@ -4,9 +4,9 @@ menuorder: 2
 menutitle: CV
 ---
 ## Curriculum Vitae
-Mohammad Saeedi's research primarily focused on detecting the best-fitting satellite soil moisture products with in situ measurement data over the Lake Urmia basin. The work then shifted toward rainfall estimation using satellite soil moisture data, leading to the development of a new algorithm based on a bottom-up approach.
-SM2RAIN-NWF: A new algorithm integrating the SM2RAIN algorithm with the analytical net water flux model.
-Currently, Mohammad Saeedi is focused on improving the quality of the SM2RAIN-NWF algorithm to enhance rainfall accuracy and expand its application in various studies, including drought, runoff, and irrigation.  <br/>
+Mohammad Saeedi is a water resources engineer and computational hydrologist bridging hydrological process physics with advanced machine learning to develop next-generation Earth observation systems for precipitation retrieval and soil moisture estimation.
+His research is grounded in physical rigor rather than purely data-driven approaches — designing innovative physics-informed deep learning architectures that embed well-established hydrological formulations, including infiltration, routing, and soil-water balance models, directly into learned, interpretable systems. 
+His research spans the full arc from algorithm development to global-scale deployment: self-calibrating regionalization frameworks, inverse hydrological inference for precipitation reconstruction, and multi-sensor fusion of active and passive satellite observations (SMAP, ASCAT, AMSR2). His current flagship project develops a global daily precipitation model fusing multiple physics-based expert systems through a regime-aware gating network — with direct potential to complement and extend the GPM mission by exploiting synergies with upcoming NASA Earth observation missions and expanding reliable precipitation estimates to data-sparse regions worldwide.  <br/>
 
 ## Education
 
