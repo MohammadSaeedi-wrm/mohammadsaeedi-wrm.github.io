@@ -10,7 +10,7 @@ Mohammad Saeedi received a Master’s degree in Water Resources Engineering and 
 His applied research focuses on the following:<br/> 
 (1) enhance the accuracy of the estimated variables in hydrological simulation, (2) investigate data processing approaches to improving the quality of satellite- and model-based data, (3) predict natural disasters by utilizing remotely-sensed satellite data, and (4) The exploitation of the above to use in applied research to solve the significant challenges related to Earth science that we will face in the coming decades. <br/>
 <p align="center">
-  <img src="assets/Presentation1.jpg" alt="Presentation Slide" width="100%">
+  <img src="assets/Presentation2.jpg" alt="Presentation Slide" width="100%">
 </p>
 <br/>
 
