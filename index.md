@@ -9,10 +9,11 @@ Mohammad Saeedi is pursuing a doctoral degree in the Department of Civil and Env
 Mohammad Saeedi received a Master’s degree in Water Resources Engineering and Management (2021), and a Bachelor’s degree in Civil Engineering. During his graduate course/thesis, he concentrated on employing soil moisture data in hydrological simulation and developing algorithms.<br/>
 His applied research focuses on the following:<br/> 
 (1) enhance the accuracy of the estimated variables in hydrological simulation, (2) investigate data processing approaches to improving the quality of satellite- and model-based data, (3) predict natural disasters by utilizing remotely-sensed satellite data, and (4) The exploitation of the above to use in applied research to solve the significant challenges related to Earth science that we will face in the coming decades. <br/>
-<iframe src="assets/Presentation1.pdf" width="100%" height="600px" style="border:none;">
-    <p>Your browser does not support PDFs. 
-    <a href="assets/Presentation1.pdf">Click here to view the PDF!</a></p>
-</iframe>
+
+<p align="center">
+  <img src="assets/Presentation1.jpg" alt="Presentation Slide" width="100%">
+</p>
+
 <br/>
 
 ## Research interests:
