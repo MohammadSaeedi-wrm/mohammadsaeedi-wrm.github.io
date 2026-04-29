@@ -8,7 +8,7 @@ Mohammad Saeedi is a water resources engineer and computational hydrologist brid
 His research is grounded in physical rigor rather than purely data-driven approaches — designing innovative physics-informed deep learning architectures that embed well-established hydrological formulations, including infiltration, routing, and soil-water balance models, directly into learned, interpretable systems. 
 His research spans the full arc from algorithm development to global-scale deployment: self-calibrating regionalization frameworks, inverse hydrological inference for precipitation reconstruction, and multi-sensor fusion of active and passive satellite observations (SMAP, ASCAT, AMSR2). His current flagship project develops a global daily precipitation model fusing multiple physics-based expert systems through a regime-aware gating network — with direct potential to complement and extend the GPM mission by exploiting synergies with upcoming NASA Earth observation missions and expanding reliable precipitation estimates to data-sparse regions worldwide.  <br/>
 
-<img width="850" alt="project01" src="/assets//unnamed (1).png"> 
+<img width="450" alt="project01" src="/assets//unnamed (1).png"> 
 
 
 ## Education
