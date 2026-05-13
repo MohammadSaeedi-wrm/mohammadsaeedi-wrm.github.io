@@ -12,7 +12,7 @@ __Publications__
 <span style="color: blue"> (Chronologically) </span> <span style="color: blue"> `Update: April 01, 2026` </span>  
 
 `2026`
-__[7]__ __Saeedi, Mohammad.__, Kim, H., Bolten, J., Eylander, J., & Lakshmi, V. Beyond Satellite-based Precipitation Data: A Novel Soil Moisture Physics Framework with Green-Ampt and Bayesian Optimization for Rainfall Estimation.<br/> ___npj Climate and Atmospheric Science___. <a href="https:www" style="color: blue;">(Link)</a>
+__[7]__ __Saeedi, Mohammad.__, Kim, H., Bolten, J., Eylander, J., & Lakshmi, V. Beyond Satellite-based Precipitation Data: A Novel Soil Moisture Physics Framework with Green-Ampt and Bayesian Optimization for Rainfall Estimation.<br/> ___npj Climate and Atmospheric Science___. <a href="https://doi.org/10.1038/s41612-026-01425-5" style="color: blue;">(Link)</a>
 
 `2026`
 __[6]__ __Saeedi, Mohammad.__, Kim, H., Kim, S., Choi., & Lakshmi, V. Depth-Aware Global Calibration of SM2RAIN-NWF Using Growing Neural Gas-Derived Hydroclimatic Clusters Across Heterogeneous Soils.<br/> ___Water Resources Research___. <a href="https://doi.org/10.1029/2025WR041529" style="color: blue;">(Link)</a>
