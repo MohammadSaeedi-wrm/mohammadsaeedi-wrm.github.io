@@ -13,7 +13,12 @@ His research spans the full arc from algorithm development to global-scale deplo
 
 ## Education
 
-`2024 - 2028`
+`2026 - 2028`
+__Johns Hopkins, MD, USA__ <br/>
+Ph.D. in Geography and Environmental Engineering
+
+
+`2024 - 2026`
 __University of Virginia, VA, USA__ <br/>
 Ph.D. in Civil & Environmental Engineering
 
