@@ -16,12 +16,10 @@ His applied research focuses on the following:<br/>
 
 ## Research interests:
 
-
--	Soil moisture remote sensing
--	Hydrological modeling
--	Rainfall-Runoff modeling using satellite soil moisture data
--	Drought monitoring using the SM2RAIN-NWF algorithm, satellite data and in situ measurements
+-	Remote sensing of soil moisture, precipitation, evapotranspiration, and terrestrial hydrology
+-	Physics-informed AI/ML for land-surface and hydroclimate modeling
+-	Foundation-model-driven validation frameworks for EO
+-	Hydroclimate extremes, drought–flood transitions, and data-scarce regions
 -	Spatial downscaling of soil moisture remote sensing products
 -	Data-assimilation approach to ensure maximum convergence between model predictions and observations
--	Applications of machine learning to remote sensing and hydrology
 -	Satellite data reconstruction, Numerical methods, and image processing
