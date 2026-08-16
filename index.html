@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohammad Saeedi — Hydrology, Remote Sensing &amp; Physics-Informed AI</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#1F7FD0">
+<meta name="description" content="Mohammad Saeedi — remote sensing, hydrology and physics-informed AI for global precipitation and soil moisture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff; --alt:#F7F8FA; --ink:#0E1116; --ink-2:#333A44; --muted:#6A7280; --faint:#98A0AC;
+  --line:#E6E9EE; --line-2:#EFF1F5;
+  --blue:#1257A6; --blue-2:#0E4685; --blue-soft:#EAF2FB; --blue-tint:#F3F8FD;
+  --green:#0B7A5A; --green-soft:#E6F4EF; --amber:#9A6410; --amber-soft:#FBF2E3;
+  --r:12px; --r-lg:16px;
+  --sh-sm:0 1px 2px rgba(14,17,22,.05);
+  --sh:0 6px 20px -6px rgba(14,17,22,.10), 0 2px 6px rgba(14,17,22,.05);
+  --sh-lg:0 22px 48px -18px rgba(14,17,22,.20);
+  --maxw:1180px;
+  --f:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--f);
+  font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
+img{max-width:100%; display:block}
+a{color:var(--blue); text-decoration:none}
+.wrap{max-width:var(--maxw); margin:0 auto; padding-left:32px; padding-right:32px}
+h1,h2,h3,h4{margin:0; font-weight:700; letter-spacing:-.025em; line-height:1.15; color:var(--ink)}
+
+/* nav */
+header.nav{position:sticky; top:0; z-index:60; background:rgba(255,255,255,.9);
+  backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--maxw); margin:0 auto; padding:0 32px; height:72px; display:flex;
+  align-items:center; justify-content:space-between; gap:24px}
+.brand{display:flex; align-items:center; gap:11px; color:var(--ink); font-weight:700; font-size:17px; letter-spacing:-.02em}
+.brand .mk{width:36px; height:36px; flex:none; display:block; line-height:0;
+  border-radius:10px; overflow:hidden; box-shadow:0 2px 6px rgba(11,62,122,.28)}
+.brand .mk svg{width:100%; height:100%; display:block}
+.brand small{display:block; font-size:11px; font-weight:500; color:var(--muted); letter-spacing:.01em; margin-top:1px}
+nav.links{display:flex; gap:1px; align-items:center}
+nav.links button{font-family:var(--f); font-size:14.5px; font-weight:500; color:var(--ink-2);
+  background:none; border:0; padding:9px 13px; border-radius:8px; cursor:pointer; transition:.15s}
+nav.links button:hover{background:var(--alt); color:var(--ink)}
+nav.links button.on{color:var(--blue); font-weight:600}
+nav.links button.on::after{content:''; display:block; height:2px; background:var(--blue); border-radius:2px; margin-top:5px}
+.burger{display:none; background:none; border:1px solid var(--line); border-radius:9px; padding:8px 11px; font-size:15px; cursor:pointer}
+
+section.page{display:none}
+section.page.on{display:block; animation:f .4s ease both}
+@keyframes f{from{opacity:0; transform:translateY(8px)}to{opacity:1;transform:none}}
+.pad{padding-top:76px; padding-bottom:76px}
+.pad-s{padding-top:52px; padding-bottom:52px}
+.alt-bg{background:var(--alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+
+.kicker{font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin:0 0 14px}
+h1.big{font-size:clamp(36px,5.2vw,58px); letter-spacing:-.035em; line-height:1.06}
+h2.sec{font-size:clamp(27px,3.4vw,38px); letter-spacing:-.03em}
+.sub{color:var(--muted); font-size:17px; max-width:66ch; margin:14px 0 0}
+.head{margin-bottom:40px}
+
+/* hero */
+.hero{padding-top:78px; padding-bottom:70px}
+.hero-g{display:grid; grid-template-columns:1.5fr .58fr; gap:52px; align-items:start}
+.hero p.lede{font-size:18px; color:var(--ink-2); margin:22px 0 0; max-width:60ch; line-height:1.7}
+.hero-photo{border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh); max-width:268px;
+  margin-left:auto; margin-top:46px}
+.hero p.lede b{color:var(--ink); font-weight:600}
+.hero-vid{margin:26px 0 0; border-radius:var(--r-lg); overflow:hidden; border:1px solid var(--line);
+  box-shadow:var(--sh); background:#0E1116}
+.hero-vid video{width:100%; display:block; aspect-ratio:16/9; object-fit:cover}
+.hero-vid figcaption{font-size:12.5px; color:#9AA3B0; padding:10px 16px; background:#0E1116;
+  letter-spacing:.01em; border-top:1px solid #1C2027}
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px}
+.tags span{font-size:13px; font-weight:600; color:var(--blue); background:var(--blue-soft);
+  border:1px solid #DCEAF8; border-radius:999px; padding:6px 14px; letter-spacing:-.005em}
+.cta{display:flex; flex-wrap:wrap; gap:11px; margin-top:28px}
+.btn{display:inline-flex; align-items:center; gap:8px; font-size:14.5px; font-weight:600; padding:12px 20px;
+  border-radius:9px; border:1px solid var(--line); background:#fff; color:var(--ink-2); transition:.18s; box-shadow:var(--sh-sm)}
+.btn:hover{border-color:#CBD2DC; color:var(--ink); transform:translateY(-1px); box-shadow:var(--sh)}
+.btn.p{background:var(--blue); border-color:var(--blue); color:#fff}
+.btn.p:hover{background:var(--blue-2); color:#fff}
+.btn.w{background:#fff; border-color:#fff; color:var(--blue)}
+.btn.ghost{background:transparent; border-color:rgba(255,255,255,.45); color:#fff}
+.btn.ghost:hover{background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.7)}
+
+/* pillars */
+.pillars{display:grid; grid-template-columns:repeat(4,1fr); gap:22px}
+.pillars.three{grid-template-columns:repeat(3,1fr); gap:34px 30px}
+.pillar .ic{width:44px; height:44px; border-radius:11px; background:var(--blue-soft); color:var(--blue);
+  display:grid; place-items:center; font-size:19px; margin-bottom:15px}
+.pillar h4{font-size:17px; margin-bottom:9px; letter-spacing:-.02em}
+.pillar p{margin:0; font-size:14.5px; color:var(--muted); line-height:1.6}
+
+/* checklist */
+.checks{list-style:none; padding:0; margin:20px 0 0; display:grid; gap:11px}
+.checks li{display:flex; gap:11px; font-size:15.5px; color:var(--ink-2); line-height:1.55}
+.checks li::before{content:'✓'; flex:none; width:21px; height:21px; margin-top:2px; border-radius:6px;
+  background:var(--green-soft); color:var(--green); font-size:12px; font-weight:700; display:grid; place-items:center}
+
+/* split rows */
+.split{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center}
+.split.rev .txt{order:2}
+.split img.shot{border-radius:var(--r-lg); border:1px solid var(--line); box-shadow:var(--sh)}
+.split h3{font-size:25px; letter-spacing:-.03em; margin-bottom:12px}
+.split p{color:var(--muted); font-size:16px; margin:0}
+
+/* quote */
+.quote{border-left:3px solid var(--blue); padding:4px 0 4px 22px; margin:0 0 44px; max-width:74ch}
+.quote p{margin:0; font-size:19px; font-style:italic; color:var(--ink-2); line-height:1.6}
+.quote cite{display:block; font-style:normal; font-size:13.5px; font-weight:600; color:var(--muted); margin-top:9px}
+
+/* toolbar */
+.tools{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-bottom:12px}
+.fs{display:flex; flex-wrap:wrap; gap:7px}
+.f{font-family:var(--f); font-size:13px; font-weight:600; color:var(--muted); background:#fff; cursor:pointer;
+  border:1px solid var(--line); border-radius:999px; padding:7px 15px; transition:.15s}
+.f:hover{border-color:var(--blue); color:var(--blue)}
+.f.on{background:var(--blue); border-color:var(--blue); color:#fff}
+.search{display:flex; align-items:center; gap:9px; background:#fff; border:1px solid var(--line);
+  border-radius:9px; padding:9px 14px; min-width:270px}
+.search input{border:0; outline:0; background:none; font-family:var(--f); font-size:14px; width:100%}
+.cnt{font-size:13px; color:var(--faint); margin-bottom:26px}
+
+/* publication cards */
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
+.pcard{display:flex; flex-direction:column; background:#fff; border:1px solid var(--line);
+  border-radius:var(--r-lg); overflow:hidden; transition:transform .2s, box-shadow .2s, border-color .2s}
+.pcard:hover{transform:translateY(-4px); box-shadow:var(--sh-lg); border-color:#D6DCE5}
+.pcard .thumb{aspect-ratio:68/45; background:var(--alt); border-bottom:1px solid var(--line-2); overflow:hidden}
+.pcard .thumb img{width:100%; height:100%; object-fit:cover}
+.pcard .body{padding:22px 22px 24px; display:flex; flex-direction:column; flex:1}
+.pcard h3{font-size:17.5px; line-height:1.35; letter-spacing:-.02em; margin-bottom:10px}
+.vline{font-size:13px; color:var(--muted); margin:0 0 12px; font-weight:500}
+.vline b{color:var(--blue); font-weight:600}
+.pcard .desc{font-size:14.3px; color:var(--muted); line-height:1.62; margin:0 0 18px}
+.pcard .auth{font-size:12.5px; color:var(--faint); margin:0 0 16px; line-height:1.5}
+.pcard .auth b{color:var(--ink-2); font-weight:600}
+.plink{margin-top:auto; font-size:13.5px; font-weight:600; color:var(--blue); display:inline-flex; align-items:center; gap:6px}
+.plink:hover{gap:9px; transition:gap .15s}
+
+/* list rows */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid; grid-template-columns:132px 1fr auto; gap:24px; align-items:center;
+  padding:20px 4px; border-bottom:1px solid var(--line); transition:background .15s}
+.row:hover{background:var(--blue-tint)}
+.row .logo{width:132px; border:1px solid var(--line); border-radius:9px; overflow:hidden; background:#fff}
+.row .logo img{width:100%; display:block; aspect-ratio:260/146; object-fit:contain}
+.row h4{font-size:16px; line-height:1.45; letter-spacing:-.015em; margin-bottom:7px; font-weight:600}
+.row .auth{font-size:13px; color:var(--muted); margin:0}
+.row .auth b{color:var(--ink-2); font-weight:600}
+.row .right{display:flex; align-items:center; gap:10px; white-space:nowrap}
+.badge{font-size:11.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  padding:4px 10px; border-radius:6px; background:var(--amber-soft); color:var(--amber)}
+.badge.b{background:var(--blue-soft); color:var(--blue)}
+.date{font-size:13px; color:var(--faint); font-weight:500}
+.empty{padding:44px; text-align:center; color:var(--faint)}
+
+/* people */
+.grid-p{display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:20px}
+.person{display:flex; gap:16px; padding:20px; border:1px solid var(--line); border-radius:var(--r-lg); transition:.18s}
+.person:hover{box-shadow:var(--sh); transform:translateY(-2px)}
+.person img{width:80px; height:80px; border-radius:12px; object-fit:cover; flex:none}
+.person h4{font-size:16px; margin-bottom:4px}
+.person .rl{font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--blue); margin-bottom:6px}
+.person p{margin:0; font-size:13.2px; color:var(--muted); line-height:1.5}
+
+/* timeline / cv */
+.tl{position:relative; padding-left:28px}
+.tl::before{content:''; position:absolute; left:5px; top:8px; bottom:8px; width:2px; background:var(--line)}
+.tl-i{position:relative; padding-bottom:28px}
+.tl-i::before{content:''; position:absolute; left:-28px; top:6px; width:12px; height:12px; border-radius:50%;
+  background:#fff; border:3px solid var(--blue)}
+.tl-i .w{font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue)}
+.tl-i h4{font-size:17px; margin:6px 0 3px}
+.tl-i p{margin:0; font-size:14.5px; color:var(--muted)}
+.edu{display:flex; gap:18px; align-items:flex-start}
+.elogo{width:96px; flex:none; border:1px solid var(--line); border-radius:10px; background:#fff; padding:7px}
+.elogo img{width:100%; aspect-ratio:300/220; object-fit:contain}
+.tl-i p.loc{font-size:13px; color:var(--faint); margin-top:4px}
+.card{border:1px solid var(--line); border-radius:var(--r-lg); padding:26px 28px; background:#fff}
+.card h4{font-size:16px; margin-bottom:15px}
+.ul{list-style:none; padding:0; margin:0; display:grid; gap:10px}
+.ul li{display:flex; gap:11px; font-size:14.6px; color:var(--ink-2); line-height:1.55}
+.ul li::before{content:''; flex:none; width:5px; height:5px; margin-top:9px; border-radius:50%; background:var(--blue)}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:52px}
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+.st b{display:block; font-size:38px; font-weight:700; letter-spacing:-.04em; color:var(--blue); line-height:1}
+.st span{display:block; font-size:13.5px; color:var(--muted); margin-top:8px}
+
+.ga-btn{display:inline-flex; align-items:center; gap:9px; cursor:pointer; font-family:var(--f);
+  font-size:13.5px; font-weight:700; letter-spacing:-.01em; color:#fff; border:0;
+  background:linear-gradient(135deg,#EB6834 0%,#D64F1E 100%); padding:10px 16px; border-radius:9px;
+  box-shadow:0 3px 10px rgba(214,79,30,.30); transition:transform .16s, box-shadow .16s, filter .16s}
+.ga-btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(214,79,30,.36); filter:saturate(1.08)}
+.ga-btn svg{width:16px; height:16px; flex:none}
+.ga-btn .arw{width:14px; height:14px; transition:transform .16s}
+.ga-btn:hover .arw{transform:translateX(3px)}
+.plinks{margin-top:auto; display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+.pcard .thumb{aspect-ratio:68/45; background:var(--alt); border-bottom:1px solid var(--line-2); overflow:hidden}
+/* graphical abstract modal */
+.gamodal{position:fixed; inset:0; z-index:200; display:none; background:rgba(8,12,18,.72);
+  backdrop-filter:blur(4px); padding:26px}
+.gamodal.open{display:flex; align-items:center; justify-content:center; animation:f .2s ease both}
+.gabox{width:100%; max-width:1400px; height:100%; background:#fff; border-radius:var(--r-lg);
+  overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--sh-lg)}
+.gabar{display:flex; align-items:center; justify-content:space-between; gap:18px;
+  padding:14px 20px; border-bottom:1px solid var(--line); background:var(--alt)}
+.gatitle b{display:block; font-size:15px; letter-spacing:-.02em}
+.gatitle span{font-size:12.5px; color:var(--muted)}
+.gaacts{display:flex; gap:9px}
+.gaacts button{font-family:var(--f); font-size:13px; font-weight:600; cursor:pointer;
+  border:1px solid var(--line); background:#fff; color:var(--ink-2); padding:8px 14px; border-radius:8px; transition:.15s}
+.gaacts button:hover{border-color:var(--blue); color:var(--blue)}
+.gaacts button.x:hover{border-color:#D34; color:#D34}
+#gaFrame{flex:1; width:100%; border:0; background:#f4f4f1}
+.plink.ga{color:var(--green); cursor:pointer; background:none; border:0; font-family:var(--f);
+  font-size:13.5px; font-weight:600; padding:0; display:inline-flex; align-items:center; gap:6px}
+.plink.ga:hover{gap:9px}
+.plinks{margin-top:auto; display:flex; flex-wrap:wrap; gap:16px; align-items:center}
+@media (max-width:700px){ .gamodal{padding:0} .gabox{border-radius:0} .gatitle span{display:none} }
+
+/* appointments / projects */
+.appt{margin-bottom:60px}
+.appt-head{display:flex; align-items:center; gap:20px; padding-bottom:20px; margin-bottom:26px;
+  border-bottom:2px solid var(--line)}
+.appt-meta{flex:1}
+.appt-meta h3{font-size:22px; letter-spacing:-.03em; margin-bottom:5px}
+.appt-meta p{margin:0; font-size:14.5px; color:var(--muted)}
+.appt-date{font-size:13px; font-weight:700; color:var(--blue); background:var(--blue-soft);
+  padding:7px 14px; border-radius:999px; white-space:nowrap}
+.pgrid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.pj{background:#fff; border:1px solid var(--line); border-left:3px solid var(--blue);
+  border-radius:var(--r); padding:24px 26px; transition:transform .2s, box-shadow .2s}
+.pj:hover{transform:translateY(-3px); box-shadow:var(--sh)}
+.pj-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px}
+.pj-n{font-size:13px; font-weight:800; color:var(--faint); letter-spacing:.06em}
+.chip{font-size:11.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  padding:4px 10px; border-radius:6px}
+.chip.live{background:var(--green-soft); color:var(--green)}
+.chip.done{background:var(--alt); color:var(--muted)}
+.pj h4{font-size:17.5px; line-height:1.35; letter-spacing:-.02em; margin-bottom:11px}
+.pj p{margin:0 0 15px; font-size:14.4px; color:var(--muted); line-height:1.62}
+.pj-tags{display:flex; flex-wrap:wrap; gap:7px}
+.pj-tags span{font-size:11.5px; font-weight:600; color:var(--blue); background:var(--blue-soft);
+  padding:4px 10px; border-radius:6px}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:26px}
+
+/* awards band */
+.awards-band{position:relative; overflow:hidden; background:#0C1B2E;
+  background-image:radial-gradient(900px 420px at 12% -10%, rgba(18,87,166,.55), transparent 62%),
+                   radial-gradient(760px 400px at 92% 108%, rgba(11,122,90,.38), transparent 60%)}
+.awards-band .wrap{position:relative; z-index:1}
+.awards{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+.award{position:relative; background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r-lg); padding:30px 30px 32px; overflow:hidden; backdrop-filter:blur(6px);
+  transition:transform .2s, border-color .2s, background .2s}
+.award::before{content:''; position:absolute; inset:0 0 auto 0; height:3px;
+  background:linear-gradient(90deg,#5FA8E8,#7FE3C3)}
+.award:hover{transform:translateY(-4px); border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.09)}
+.atop{display:flex; align-items:center; justify-content:space-between; margin-bottom:22px}
+.atop svg{width:38px; height:38px; color:#8FD3F4}
+.ayear{font-size:12.5px; font-weight:700; letter-spacing:.08em; color:#0C1B2E; background:#7FE3C3;
+  padding:5px 12px; border-radius:999px}
+.award h3{color:#fff; font-size:23px; letter-spacing:-.03em; margin-bottom:8px}
+.aissuer{margin:0 0 14px; font-size:14.5px; font-weight:600; color:#8FD3F4}
+.adesc{margin:0; font-size:14.5px; color:rgba(255,255,255,.68); line-height:1.62}
+
+/* contact boxes */
+.grid-c{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px}
+.cbox{display:flex; gap:14px; align-items:center; padding:19px 21px; border:1px solid var(--line);
+  border-radius:var(--r); transition:.18s}
+.cbox:hover{border-color:var(--blue); box-shadow:var(--sh); transform:translateY(-2px)}
+.cbox .ic{width:40px; height:40px; border-radius:10px; background:var(--blue-soft); color:var(--blue);
+  display:grid; place-items:center; font-size:16px; font-weight:700; flex:none}
+.cbox b{display:block; font-size:14.5px; color:var(--ink)}
+.cbox span{font-size:12.5px; color:var(--muted)}
+
+/* CTA band */
+.band{background:var(--blue); color:#fff; margin-top:0}
+.band .wrap{padding-top:64px; padding-bottom:64px}
+.band h2{color:#fff; font-size:clamp(25px,3.2vw,36px); letter-spacing:-.03em; max-width:22ch}
+.band p{color:rgba(255,255,255,.82); font-size:16.5px; max-width:62ch; margin:16px 0 0}
+.band .cta{margin-top:28px}
+
+footer{background:#0E1116; color:#8B94A2; padding:44px 0 40px}
+footer .wrap{display:flex; flex-wrap:wrap; gap:26px; justify-content:space-between; align-items:center}
+footer b{display:block; color:#fff; font-size:15px; margin-bottom:6px; letter-spacing:-.01em}
+footer .orgs{display:flex; flex-wrap:wrap; gap:10px}
+footer .orgs span{font-size:12px; padding:6px 12px; border:1px solid #262B33; border-radius:7px; color:#A9B2BF}
+footer .fl{font-size:13px}
+footer a{color:#A9B2BF} footer a:hover{color:#fff}
+
+.rv{opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease}
+.rv.in{opacity:1; transform:none}
+
+@media (max-width:1000px){
+  .grid3{grid-template-columns:repeat(2,1fr)}
+  .pgrid{grid-template-columns:1fr}
+  .pillars, .pillars.three{grid-template-columns:repeat(2,1fr); gap:26px}
+}
+@media (max-width:860px){
+  .hero-g{grid-template-columns:1fr; gap:36px}
+  .hero-photo{max-width:210px; margin:0; margin-top:0}
+  .split{grid-template-columns:1fr; gap:28px}
+  .split.rev .txt{order:0}
+  .two{grid-template-columns:1fr; gap:36px}
+  .stats{grid-template-columns:repeat(2,1fr); gap:26px}
+  .awards{grid-template-columns:1fr; gap:18px}
+}
+@media (max-width:700px){
+  .wrap,.nav-in{padding-left:20px; padding-right:20px}
+  .pad{padding-top:52px; padding-bottom:52px}
+  .hero{padding-top:44px; padding-bottom:44px}
+  .grid3, .grid2{grid-template-columns:1fr}
+  .appt-head{flex-wrap:wrap; gap:14px}
+  .pillars, .pillars.three{grid-template-columns:1fr}
+  .burger{display:block}
+  nav.links{position:fixed; inset:72px 0 auto 0; background:#fff; flex-direction:column; align-items:stretch;
+    padding:10px; gap:2px; border-bottom:1px solid var(--line); display:none; box-shadow:var(--sh)}
+  nav.links.open{display:flex}
+  nav.links button{text-align:left; padding:13px 15px; font-size:15.5px}
+  nav.links button.on::after{display:none}
+  .row{grid-template-columns:1fr; gap:10px}
+  .search{min-width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#" onclick="go('home');return false">
+      <span class="mk"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><clipPath id="cNav"><rect width="64" height="64" rx="15"/></clipPath> <linearGradient id="gNav" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0B3E7A"/><stop offset="0.6" stop-color="#1F7FD0"/><stop offset="1" stop-color="#4FD8C0"/></linearGradient></defs> <g clip-path="url(#cNav)"><rect width="64" height="64" fill="url(#gNav)"/> <path d="M-2 48 q9 -6.5 18 0 t18 0 t18 0 t18 0" fill="none" stroke="#fff" stroke-width="2.4" opacity=".45"/> <path d="M-2 55 q9 -6.5 18 0 t18 0 t18 0 t18 0" fill="none" stroke="#fff" stroke-width="2.2" opacity=".25"/> <ellipse cx="32" cy="32" rx="29" ry="12.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-opacity=".75" transform="rotate(-30 32 32)"/> <circle cx="57.11" cy="17.5" r="2.8" fill="#fff"/><circle cx="51.52" cy="32.55" r="1.9" fill="#fff"/><circle cx="22.71" cy="49.18" r="1.9" fill="#fff"/><circle cx="6.89" cy="46.5" r="1.9" fill="#fff"/><circle cx="12.48" cy="31.45" r="1.9" fill="#fff"/><circle cx="41.29" cy="14.82" r="1.9" fill="#fff"/><text x="32" y="39" font-family="Inter,Helvetica,Arial,sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing="-1.4">MS</text></g></svg></span>
+      <span>Mohammad Saeedi<small>Hydrology · Remote Sensing · AI</small></span>
+    </a>
+    <button class="burger" onclick="document.querySelector('nav.links').classList.toggle('open')">☰</button>
+    <nav class="links" id="nav">
+      <button data-p="home" class="on" onclick="go('home')">Home</button>
+      <button data-p="about" onclick="go('about')">About</button>
+      <button data-p="projects" onclick="go('projects')">Projects</button>
+      <button data-p="pubs" onclick="go('pubs')">Publications</button>
+      <button data-p="people" onclick="go('people')">Collaborators</button>
+      <button data-p="cv" onclick="go('cv')">CV</button>
+      <button data-p="contact" onclick="go('contact')">Contact</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HOME ===================== -->
+<section class="page on" id="home">
+
+  <div class="wrap hero">
+    <div class="hero-g">
+      <div>
+        <p class="kicker">Ph.D. Candidate · Johns Hopkins University</p>
+        <h1 class="big">Remote sensing, hydrology, and AI for the global water cycle</h1>
+        <p class="lede">I work across satellite remote sensing, numerical hydrological modeling, and machine learning — including foundation models — to estimate <b>precipitation</b> and <b>soil moisture</b> from space. My models embed infiltration, routing, and soil-water balance physics directly into learned, interpretable systems, and are built to work globally, including where rain gauges do not reach.</p>
+        <figure class="hero-vid">
+          <video autoplay muted loop playsinline preload="none" poster="assets/poster.jpg">
+            <source src="assets/video.mp4" type="video/mp4">
+          </video>
+          <figcaption>Satellite observation → land surface response → physics-informed inference</figcaption>
+        </figure>
+        <div class="tags">
+          <span>Remote Sensing</span><span>Hydrology</span><span>AI &amp; Machine Learning</span><span>Foundation Models</span><span>Numerical Modeling</span><span>Precipitation</span><span>Soil Moisture</span>
+        </div>
+        <div class="cta">
+          <a class="btn p" href="#" onclick="go('pubs');return false">Publications</a>
+          <a class="btn" href="#" onclick="go('projects');return false">Research projects</a>
+          <a class="btn" href="mailto:msaeedi1@jh.edu">Contact</a>
+        </div>
+      </div>
+      <div class="hero-photo"><img src="assets/portrait.jpg" alt="Mohammad Saeedi"></div>
+    </div>
+  </div>
+
+  <div class="awards-band">
+    <div class="wrap pad">
+      <div class="head rv">
+        <p class="kicker" style="color:#7FC4E8">Recognition</p>
+        <h2 class="sec" style="color:#fff">Awards &amp; honors</h2>
+        <p class="sub" style="color:rgba(255,255,255,.72)">Competitive research funding and recognition for peer-review contributions to the field.</p>
+      </div>
+      <div class="awards rv">
+        <article class="award">
+          <div class="atop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="9" r="5.5"/><path d="M9 13.6 7.5 22l4.5-2.6 4.5 2.6-1.5-8.4"/><path d="m12 6.4.9 1.9 2 .3-1.5 1.4.4 2-1.8-1-1.8 1 .4-2L9.1 8.6l2-.3z"/>
+            </svg>
+            <span class="ayear">2026</span>
+          </div>
+          <h3>Research Grant Awardee</h3>
+          <p class="aissuer">Virginia Space Grant Consortium (VSGC) / NASA</p>
+          <p class="adesc">Competitive research funding supporting satellite-based precipitation retrieval and soil moisture science.</p>
+        </article>
+        <article class="award">
+          <div class="atop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.6 4.6 5.4v6.1c0 4.5 3.1 8.7 7.4 9.9 4.3-1.2 7.4-5.4 7.4-9.9V5.4z"/><path d="m8.7 11.9 2.4 2.4 4.4-4.6"/>
+            </svg>
+            <span class="ayear">2024</span>
+          </div>
+          <h3>Outstanding Reviewer</h3>
+          <p class="aissuer">Vadose Zone Journal</p>
+          <p class="adesc">Selected for exceptional peer-review contributions, one of eleven journals served as reviewer.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bg">
+    <div class="wrap pad">
+      <div class="head rv">
+        <p class="kicker">Research focus</p>
+        <h2 class="sec">Four questions driving the work</h2>
+        <p class="sub">From algorithm development to global-scale deployment — physical rigor first, learning second.</p>
+      </div>
+      <div class="pillars rv">
+        <div class="pillar"><div class="ic">🛰</div><h4>Remote sensing</h4><p>Soil moisture, precipitation, evapotranspiration, and terrestrial hydrology from SMAP, ASCAT, and AMSR2.</p></div>
+        <div class="pillar"><div class="ic">🧠</div><h4>Physics-informed AI</h4><p>Deep learning architectures with hydrological formulations embedded as interpretable, constrained components.</p></div>
+        <div class="pillar"><div class="ic">🌧</div><h4>Hydroclimate extremes</h4><p>Drought–flood transitions and precipitation reconstruction in data-scarce regions worldwide.</p></div>
+        <div class="pillar"><div class="ic">◫</div><h4>Validation frameworks</h4><p>Foundation-model-driven validation, downscaling, and data assimilation for Earth observation products.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap pad">
+    <div class="split rv">
+      <div class="txt">
+        <p class="kicker">Flagship project</p>
+        <h3>A global daily precipitation model that calibrates itself</h3>
+        <p>Multiple physics-based expert systems — Green-Ampt infiltration, Muskingum-Cunge routing, soil-water balance — fused through a regime-aware gating network that selects the right expert for each hydroclimatic regime.</p>
+        <ul class="checks">
+          <li>Complements the GPM mission and upcoming NASA Earth observation missions</li>
+          <li>Extends reliable precipitation estimates to ungauged and data-sparse regions</li>
+          <li>Interpretable by construction — no black-box parameterization</li>
+        </ul>
+      </div>
+      <img class="shot" src="assets/hero.jpg" alt="Global precipitation framework">
+    </div>
+  </div>
+
+  <div class="alt-bg">
+    <div class="wrap pad">
+      <div class="split rev rv">
+        <img class="shot" src="assets/cv.jpg" alt="Physics-informed architecture">
+        <div class="txt">
+          <p class="kicker">Method</p>
+          <h3>Inverse hydrological inference</h3>
+          <p>Rather than retrieving rainfall from the top down, SM2RAIN-NWF and its successors read rainfall out of the soil's own water balance — inverting the hydrological process to recover the forcing that produced it.</p>
+          <ul class="checks">
+            <li>Rainfall estimated from satellite soil moisture as the only input</li>
+            <li>Streamflow records inverted to reconstruct historical precipitation</li>
+            <li>Active and passive sensor fusion to close observational gaps</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap pad">
+    <div class="stats rv">
+      <div class="st"><b>8</b><span>Peer-reviewed journal articles</span></div>
+      <div class="st"><b>10</b><span>Conference presentations</span></div>
+      <div class="st"><b>11</b><span>Journals served as reviewer</span></div>
+      <div class="st"><b>6</b><span>Active research projects</span></div>
+    </div>
+  </div>
+
+  <div class="wrap pad-s">
+    <div class="head rv">
+      <p class="kicker">Latest</p>
+      <h2 class="sec">Recent publications</h2>
+    </div>
+    <div class="grid3 rv" id="featured"></div>
+    <div style="margin-top:30px"><a class="btn" href="#" onclick="go('pubs');return false">All publications →</a></div>
+  </div>
+
+  <div class="band" id="cta-home">
+    <div class="wrap">
+      <h2>Interested in collaborating on Earth observation and hydrology?</h2>
+      <p>I welcome collaboration on physics-informed retrieval algorithms, satellite soil moisture validation, and precipitation reconstruction — and I am always glad to review for journals in the field.</p>
+      <div class="cta">
+        <a class="btn w" href="mailto:msaeedi1@jh.edu">Email me</a>
+        <a class="btn ghost" href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" target="_blank">Google Scholar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="page" id="about">
+  <div class="wrap pad">
+    <div class="head">
+      <p class="kicker">About · Doctoral research</p>
+      <h2 class="sec">AI-driven and physics-informed rainfall retrieval for data-scarce regions</h2>
+      <p class="sub">Supporting GPM through NASA multi-mission observations — my dissertation at Johns Hopkins, advised by Venkataraman Lakshmi.</p>
+    </div>
+    <div class="split">
+      <div class="txt">
+        <p style="color:var(--ink-2); font-size:16.5px; line-height:1.75; margin:0 0 18px">Satellite soil moisture holds an indirect record of the rainfall that produced it — but reading rainfall back out of that record is an ill-posed inverse problem. Soil moisture also responds to drainage, evapotranspiration, runoff, retrieval noise, and delayed land-surface response, and intense storms can leave a weak or even negative same-day signal.</p>
+        <p style="color:var(--muted); font-size:16px; line-height:1.75; margin:0 0 18px">My work makes that inversion tractable by constraining it with physics rather than replacing physics with a black box. Hydrological formulations — Green-Ampt infiltration, Muskingum-Cunge routing, analytical net water flux — stay intact inside learned architectures, while neural operators, graph attention networks, and geospatial foundation models supply the parameterization those formulations need in places where no gauge exists.</p>
+        <p style="color:var(--muted); font-size:16px; line-height:1.75; margin:0">Increasingly the question is not just <em style="font-style:normal; color:var(--ink-2); font-weight:600">how much rain</em> but <em style="font-style:normal; color:var(--ink-2); font-weight:600">how much to trust the answer</em> — so recent work produces calibrated distributions rather than single numbers, and uses conformal risk control to retain only the retrievals that meet a stated error tolerance.</p>
+      </div>
+      <img class="shot" src="assets/p4.jpg" alt="Research overview">
+    </div>
+  </div>
+
+  <div class="alt-bg"><div class="wrap pad">
+    <div class="head"><p class="kicker">Interests</p><h2 class="sec">Research interests</h2>
+      <p class="sub">Physics-informed learning and geospatial foundation models sit at the centre; everything else follows from applying them to real Earth observations.</p></div>
+    <div class="pillars three">
+      <div class="pillar"><div class="ic">🧠</div><h4>Physics-informed AI &amp; neural operators</h4><p>Hydrological formulations embedded as constrained, interpretable components — with Fourier-domain operator learning, learned advection, and source–sink corrections for land-surface memory.</p></div>
+      <div class="pillar"><div class="ic">◫</div><h4>Geospatial foundation models</h4><p>Frozen encoders such as Prithvi-EO-2.0 over HLS imagery to represent persistent land-surface conditions, and foundation-model-driven validation frameworks for Earth observation.</p></div>
+      <div class="pillar"><div class="ic">📈</div><h4>Uncertainty-aware retrieval</h4><p>Probabilistic and ensemble retrieval through conditional flow matching, plus conformal risk control and selective prediction to bound error at a user-chosen tolerance.</p></div>
+      <div class="pillar"><div class="ic">🛰</div><h4>Satellite &amp; GNSS-R remote sensing</h4><p>SMAP, ASCAT, AMSR2, CYGNSS delay–Doppler maps, and emerging NISAR and OPERA products for soil moisture and land surface state.</p></div>
+      <div class="pillar"><div class="ic">⇄</div><h4>Inverse modeling &amp; data assimilation</h4><p>Recovering rainfall from soil moisture, streamflow, and learned subsurface boundary conditions, with regionalization that transfers to ungauged basins.</p></div>
+      <div class="pillar"><div class="ic">🌧</div><h4>Hydroclimate extremes</h4><p>Drought–flood transitions, heavy-event recall, and precipitation reconstruction across data-scarce regions worldwide.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section class="page" id="projects">
+  <div class="wrap pad">
+    <div class="head">
+      <p class="kicker">Projects</p>
+      <h2 class="sec">Research projects</h2>
+      <p class="sub">Current work carried out as a Graduate Research Assistant at Johns Hopkins and the University of Virginia, plus earlier algorithm development and fieldwork.</p>
+    </div>
+
+    <!-- JHU -->
+    <div class="appt rv">
+      <div class="appt-head">
+        <div class="elogo" style="width:104px"><img src="assets/logo_jhu.png" alt="Johns Hopkins University"></div>
+        <div class="appt-meta">
+          <h3>Graduate Research Assistant</h3>
+          <p>Johns Hopkins University · Whiting School of Engineering</p>
+        </div>
+        <span class="appt-date">2026 — present</span>
+      </div>
+      <div class="pgrid">
+        <article class="pj">
+          <div class="pj-top"><span class="pj-n">01</span><span class="chip live">In progress</span></div>
+          <h4>Physics-informed hybrid deep learning for rainfall retrieval</h4>
+          <p>A physics-informed learning framework that replaces fixed process-model parameters with learned, interpretable ones — keeping the hydrological process model intact while letting data determine how it is parameterized.</p>
+          <div class="pj-tags"><span>Physics-informed DL</span><span>Rainfall retrieval</span></div>
+        </article>
+        <article class="pj">
+          <div class="pj-top"><span class="pj-n">02</span><span class="chip live">In progress</span></div>
+          <h4>Risk-calibrated selective prediction for GNSS-R soil moisture</h4>
+          <p>A selective prediction framework that reads CYGNSS delay–Doppler maps, observation geometry, and land-surface characteristics to identify which soil moisture retrievals are reliable, using conformal risk control to retain observations under a user-defined error tolerance.</p>
+          <div class="pj-tags"><span>CYGNSS / GNSS-R</span><span>Conformal risk control</span><span>Uncertainty</span></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- UVA -->
+    <div class="appt rv">
+      <div class="appt-head">
+        <div class="elogo" style="width:104px"><img src="assets/logo_uva.png" alt="University of Virginia"></div>
+        <div class="appt-meta">
+          <h3>Graduate Research Assistant</h3>
+          <p>University of Virginia · Civil &amp; Environmental Engineering</p>
+        </div>
+        <span class="appt-date">2024 — 2026</span>
+      </div>
+      <div class="pgrid">
+        <article class="pj">
+          <div class="pj-top"><span class="pj-n">01</span><span class="chip done">Completed</span></div>
+          <h4>Calibration-free regionalization for SM2RAIN-NWF</h4>
+          <p>A self-calibration framework that eliminates long calibration periods by regionalizing model parameters with unsupervised learning — K-means, Gaussian mixture models, agglomerative clustering, and Growing Neural Gas. Hold-out and leave-one-out protocols demonstrate improved transferability to ungauged regions.</p>
+          <div class="pj-tags"><span>Unsupervised learning</span><span>Generalization</span></div>
+        </article>
+        <article class="pj">
+          <div class="pj-top"><span class="pj-n">02</span><span class="chip done">Completed</span></div>
+          <h4>Green-Ampt-enhanced retrieval and uncertainty quantification</h4>
+          <p>Physically based infiltration modeling integrated into SM2RAIN for robustness under heterogeneous soil and antecedent-moisture conditions, with systematic sensitivity analysis and Monte Carlo uncertainty quantification across climate, soil, and land-cover regimes.</p>
+          <div class="pj-tags"><span>Green-Ampt</span><span>Monte Carlo UQ</span></div>
+        </article>
+        <article class="pj">
+          <div class="pj-top"><span class="pj-n">03</span><span class="chip done">Completed</span></div>
+          <h4>Inverse river-network modeling for precipitation reconstruction</h4>
+          <p>An inverse hydrologic framework that recovers effective rainfall from outlet discharge by coupling Muskingum–Cunge routing with Green–Ampt infiltration, with emphasis on river-network dynamics, runoff-generation processes, and data-scarce basins.</p>
+          <div class="pj-tags"><span>Inverse modeling</span><span>Streamflow</span><span>Muskingum–Cunge</span></div>
+        </article>
+        <article class="pj">
+          <div class="pj-top"><span class="pj-n">04</span><span class="chip live">In progress</span></div>
+          <h4>Mixture-of-Physics Experts for global precipitation retrieval</h4>
+          <p>A global daily precipitation model that fuses multiple physics-based experts through a regime-aware, reliability-weighted gating network, with gauge-only magnitude supervision, multi-timescale sequence encoding, and domain adaptation for physically interpretable prediction in data-sparse and ungauged regions.</p>
+          <div class="pj-tags"><span>Mixture of experts</span><span>Domain adaptation</span><span>Global</span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bg">
+    <div class="wrap pad">
+      <div class="head rv">
+        <p class="kicker">Foundations</p>
+        <h2 class="sec">Earlier work</h2>
+        <p class="sub">Algorithm development and field measurement from the M.Sc. period that the current research builds on.</p>
+      </div>
+      <div class="grid2 rv">
+        <article class="pcard">
+          <div class="thumb"><img src="assets/p2.jpg" alt="SM2RAIN-NWF"></div>
+          <div class="body">
+            <h3>SM2RAIN-NWF: integrating SM2RAIN with the net water flux model</h3>
+            <p class="vline"><b>2020 — 2022</b></p>
+            <p class="desc">Building on the net water flux analytical model of Sadeghi et al. (2019), <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022169422004437" target="_blank">SM2RAIN-NWF</a> estimates rainfall using satellite soil moisture as its only input — the algorithm the later work extends.</p>
+          </div>
+        </article>
+        <article class="pcard">
+          <div class="thumb"><img src="assets/p1a.jpg" alt="Lake Urmia basin"></div>
+          <div class="body">
+            <h3>In-situ soil moisture vs. satellite and model products, Lake Urmia basin</h3>
+            <p class="vline"><b>2019 — 2020</b></p>
+            <p class="desc">A field measurement campaign compared against AMSR2, SMAP L3, SMAP L4, and GLDAS, stratified by climate, soil texture, and land cover.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PUBLICATIONS ===================== -->
+<section class="page" id="pubs">
+  <div class="wrap pad">
+    <blockquote class="quote">
+      <p>“What we observe is not nature itself, but nature exposed to our method of questioning.”</p>
+      <cite>— Werner Heisenberg</cite>
+    </blockquote>
+
+    <div class="head">
+      <p class="kicker">Updated April 2026</p>
+      <h2 class="sec">Publications</h2>
+      <p class="sub">Peer-reviewed journal articles and conference contributions. Filter by year or search titles, venues, and co-authors.</p>
+    </div>
+
+    <h3 style="font-size:22px; margin-bottom:20px">Peer-reviewed journals</h3>
+    <div class="tools">
+      <div class="fs" id="filters"></div>
+      <label class="search"><span style="color:var(--faint)">⌕</span><input id="q" type="search" placeholder="Search titles, journals, authors…" oninput="render()"></label>
+    </div>
+    <div class="cnt" id="cnt"></div>
+    <div class="grid3" id="jlist"></div>
+
+    <h3 style="font-size:22px; margin:64px 0 8px">Conferences</h3>
+    <p style="color:var(--muted); font-size:14.5px; margin:0 0 20px">AGU Annual Meeting and IEEE IGARSS presentations</p>
+    <div class="rows" id="clist"></div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <h2>Looking for a preprint or full text?</h2>
+      <p>Most articles are available open access through the DOI links above. For anything paywalled, email me and I will send a copy.</p>
+      <div class="cta">
+        <a class="btn w" href="mailto:msaeedi1@jh.edu">Request a paper</a>
+        <a class="btn ghost" href="https://www.researchgate.net/profile/Mohammad-Saeedi-8" target="_blank">ResearchGate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PEOPLE ===================== -->
+<section class="page" id="people">
+  <div class="wrap pad">
+    <div class="head">
+      <p class="kicker">Network</p>
+      <h2 class="sec">Collaborators &amp; co-authors</h2>
+      <p class="sub">Across NASA Goddard, US Army ERDC, CNR Italy, University of Virginia, GIST, Wageningen, and Reading.</p>
+    </div>
+    <div class="grid-p">
+      <div class="person"><img src="assets/ppl_lakshmi.jpg" alt="Venkat Lakshmi"><div><div class="rl">Advisor</div><h4>Venkataraman Lakshmi</h4><p>B. Howell Griswold, Jr. Professor, Whiting School of Engineering, Johns Hopkins University · President, Hydrology Section, AGU</p><p style="margin-top:7px"><a href="https://engineering.virginia.edu/faculty/venkataraman-lakshmi" target="_blank">Profile →</a></p></div></div>
+      <div class="person"><img src="assets/ppl_bolten.jpg" alt="John Bolten"><div><div class="rl">Co-author</div><h4>John Bolten</h4><p>Chief, Hydrological Sciences Laboratory, NASA Goddard Space Flight Center</p><p style="margin-top:7px"><a href="https://science.gsfc.nasa.gov/sci/bio/john.bolten" target="_blank">Profile →</a></p></div></div>
+      <div class="person"><img src="assets/ppl_eylander.jpg" alt="John Eylander"><div><div class="rl">Co-author</div><h4>John Eylander</h4><p>Coastal and Hydraulics Laboratory, US Army Engineer Research and Development Center, Vicksburg, MS, USA</p></div></div>
+      <div class="person"><img src="assets/ppl_brocca.jpg" alt="Luca Brocca"><div><div class="rl">Co-author</div><h4>Luca Brocca</h4><p>Director of Research, Research Institute for Geo-Hydrological Protection, CNR Italy</p></div></div>
+      <div class="person"><img src="assets/ppl_kim.jpg" alt="Hyunglok Kim"><div><div class="rl">Co-author</div><h4>Hyunglok Kim</h4><p>School of Environment and Energy Engineering, Gwangju Institute of Science and Technology (GIST)</p></div></div>
+      <div class="person"><img src="assets/ppl_tavakol.jpg" alt="Ameneh Tavakol"><div><div class="rl">Co-author</div><h4>Ameneh Tavakol</h4><p>Water Resources Control Engineer, California Water Resources Control Board, Sacramento, CA</p></div></div>
+      <div class="person"><img src="assets/ppl_nabaei.jpg" alt="Sina Nabaei"><div><div class="rl">Co-author</div><h4>Sina Nabaee</h4><p>Doctoral candidate, Wageningen University &amp; Research</p></div></div>
+      <div class="person"><img src="assets/ppl_mosaffa.jpg" alt="Hamidreza Mosaffa"><div><div class="rl">Co-author</div><h4>Hamidreza Mosaffa</h4><p>Postdoctoral Researcher, University of Reading, UK</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CV ===================== -->
+<section class="page" id="cv">
+  <div class="wrap pad">
+    <div class="head">
+      <p class="kicker">Curriculum Vitae</p>
+      <h2 class="sec">Experience, education, awards &amp; service</h2>
+    </div>
+    <h3 style="font-size:20px; margin-bottom:24px">Research experience</h3>
+    <div class="grid2" style="margin-bottom:56px">
+      <div class="card">
+        <div class="edu" style="margin-bottom:16px">
+          <div class="elogo" style="width:80px"><img src="assets/logo_jhu.png" alt="Johns Hopkins University"></div>
+          <div><div class="w" style="font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue)">2026 — present</div>
+            <h4 style="font-size:17px; margin:6px 0 3px">Graduate Research Assistant</h4>
+            <p style="margin:0; font-size:14px; color:var(--muted)">Johns Hopkins University</p></div>
+        </div>
+        <ul class="ul">
+          <li>Physics-informed hybrid deep learning for rainfall retrieval</li>
+          <li>Risk-calibrated selective prediction for GNSS-R soil moisture retrieval</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="edu" style="margin-bottom:16px">
+          <div class="elogo" style="width:80px"><img src="assets/logo_uva.png" alt="University of Virginia"></div>
+          <div><div class="w" style="font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue)">2024 — 2026</div>
+            <h4 style="font-size:17px; margin:6px 0 3px">Graduate Research Assistant</h4>
+            <p style="margin:0; font-size:14px; color:var(--muted)">University of Virginia</p></div>
+        </div>
+        <ul class="ul">
+          <li>Calibration-free regionalization for SM2RAIN-NWF</li>
+          <li>Green-Ampt-enhanced retrieval and uncertainty quantification</li>
+          <li>Inverse river-network modeling for precipitation reconstruction</li>
+          <li>Mixture-of-Physics Experts for global precipitation retrieval</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two">
+      <div>
+        <h3 style="font-size:20px; margin-bottom:24px">Education</h3>
+        <div class="tl">
+          <div class="tl-i">
+            <div class="edu"><div class="elogo"><img src="assets/logo_jhu.png" alt="Johns Hopkins University"></div>
+              <div><div class="w">2026 — present</div><h4>Johns Hopkins University</h4>
+                <p>Ph.D., Geography &amp; Environmental Engineering</p><p class="loc">Department of Environmental Health and Engineering · Baltimore, MD, USA<br>Dissertation: <em>AI-Driven and Physics-Informed Rainfall Retrieval for Data-Scarce Regions: Supporting GPM Through NASA Multi-Mission Observations</em><br>Advisor: Venkataraman Lakshmi</p></div></div>
+          </div>
+          <div class="tl-i">
+            <div class="edu"><div class="elogo"><img src="assets/logo_uva.png" alt="University of Virginia"></div>
+              <div><div class="w">2024 — 2026</div><h4>University of Virginia</h4>
+                <p>Ph.D., Civil Engineering</p><p class="loc">Charlottesville, VA, USA · transferred to Johns Hopkins to continue Ph.D. studies</p></div></div>
+          </div>
+          <div class="tl-i">
+            <div class="edu"><div class="elogo"><img src="assets/logo_iau.png" alt="Islamic Azad University"></div>
+              <div><div class="w">2018 — 2021</div><h4>Science and Research Branch, IAU</h4>
+                <p>M.Sc., Civil Engineering — Water Resources Engineering &amp; Management</p><p class="loc">Tehran, Iran · GPA 3.88 / 4.0<br>Thesis: <em>Estimation of rainfall based on water balance equations and net water flux in soil using satellite-based soil moisture data</em></p></div></div>
+          </div>
+          <div class="tl-i">
+            <div class="edu"><div class="elogo"><img src="assets/logo_iau.png" alt="Islamic Azad University"></div>
+              <div><div class="w">B.Sc.</div><h4>Islamic Azad University</h4>
+                <p>B.Sc., Civil Engineering</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:20px; margin-bottom:24px">Awards &amp; honors</h3>
+        <div class="card" style="margin-bottom:24px">
+          <ul class="ul">
+            <li>Research Grant Awardee, Virginia Space Grant Consortium (VSGC) / NASA — 2026</li>
+            <li>Vadose Zone Journal Outstanding Reviewer — 2024</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Service, session chairing &amp; peer review</h4>
+          <ul class="ul">
+            <li>Session Chair, AGU Fall Meeting 2026 — Geospatial Foundation Models and Remote Sensing for Hydrologic Prediction</li>
+            <li>Session Chair, AGU Fall Meeting 2025 — Advances in Remote Sensing, AI, and Modeling for Hydrology</li>
+            <li>Scientific Review Committee, IEEE IGARSS 2026</li>
+            <li>IEEE Transactions on Geoscience and Remote Sensing</li>
+            <li>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</li>
+            <li>Science of the Total Environment · Journal of Hydrology</li>
+            <li>Scientific Data · PLOS ONE · Vadose Zone Journal</li>
+            <li>Environmental Modelling &amp; Software</li>
+            <li>Water Resources Management · International Journal of Climatology</li>
+            <li>American Journal of Remote Sensing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:20px; margin:56px 0 24px">Teaching &amp; mentoring</h3>
+    <div class="grid2">
+      <div class="card">
+        <div class="w" style="font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue)">Teaching assistant · co-instructor</div>
+        <h4 style="font-size:17px; margin:7px 0 4px">Fluid Mechanics (CE 3210)</h4>
+        <p style="margin:0 0 14px; font-size:14px; color:var(--muted)">University of Virginia</p>
+        <ul class="ul">
+          <li>Co-taught roughly half the semester through lectures and in-class instruction, under the instructor of record</li>
+          <li>Designed midterm and final exam questions aligned to the course learning objectives</li>
+          <li>Graded exams and returned detailed, timely feedback</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="w" style="font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue)">Graduate mentoring</div>
+        <h4 style="font-size:17px; margin:7px 0 4px">Research mentoring</h4>
+        <p style="margin:0 0 14px; font-size:14px; color:var(--muted)">Johns Hopkins University</p>
+        <ul class="ul">
+          <li>Mentored a first-year student in the research group on selecting a research topic and developing a proposal</li>
+          <li>Advised on framing the research question and scoping a tractable first study</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="page" id="contact">
+  <div class="wrap pad">
+    <div class="head">
+      <p class="kicker">Get in touch</p>
+      <h2 class="sec">Contact</h2>
+      <p class="sub">Happy to hear about collaborations, data sharing, and reviewing requests.</p>
+    </div>
+    <div class="grid-c">
+      <a class="cbox" href="mailto:msaeedi1@jh.edu"><span class="ic">✉</span><div><b>University email</b><span>msaeedi1@jh.edu</span></div></a>
+      <a class="cbox" href="mailto:mohammadsaeedi.wrm@gmail.com"><span class="ic">✉</span><div><b>Personal email</b><span>mohammadsaeedi.wrm@gmail.com</span></div></a>
+      <a class="cbox" href="https://scholar.google.com/citations?user=SI0yqk0AAAAJ&hl=en" target="_blank"><span class="ic">GS</span><div><b>Google Scholar</b><span>Citations &amp; metrics</span></div></a>
+      <a class="cbox" href="https://orcid.org/0000-0001-8100-6102" target="_blank"><span class="ic">iD</span><div><b>ORCID</b><span>0000-0001-8100-6102</span></div></a>
+      <a class="cbox" href="https://www.scopus.com/authid/detail.uri?authorId=57224572489" target="_blank"><span class="ic">Sc</span><div><b>Scopus</b><span>Author profile</span></div></a>
+      <a class="cbox" href="https://www.researchgate.net/profile/Mohammad-Saeedi-8" target="_blank"><span class="ic">RG</span><div><b>ResearchGate</b><span>Preprints &amp; full texts</span></div></a>
+      <a class="cbox" href="https://linkedin.com/in/mohammad-saeedi-wrm" target="_blank"><span class="ic">in</span><div><b>LinkedIn</b><span>mohammad-saeedi-wrm</span></div></a>
+      <a class="cbox" href="https://twitter.com/MSaeediiii" target="_blank"><span class="ic">✕</span><div><b>X / Twitter</b><span>@MSaeediiii</span></div></a>
+    </div>
+  </div>
+  <div class="band">
+    <div class="wrap">
+      <h2>Prospective collaborators and students</h2>
+      <p>If you have a keen interest in the intersection of climate change, satellite remote sensing, and hydrological modeling, I am glad to talk about joint work, data, and code.</p>
+      <div class="cta"><a class="btn w" href="mailto:msaeedi1@jh.edu">Start a conversation</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>Mohammad Saeedi</b>
+      <div class="fl">Ph.D. Candidate · Johns Hopkins University · © 2026</div>
+    </div>
+    <div class="orgs"><span>Johns Hopkins University</span><span>University of Virginia</span></div>
+  </div>
+</footer>
+
+<script>
+const GA_DOCS = {npj: 'graphical-abstract-npj.html', wrr: 'graphical-abstract-wrr.html'};
+const GA_META = {
+  npj:{title:'Beyond satellite-based precipitation data', venue:'npj Climate and Atmospheric Science, 2026'},
+  wrr:{title:'Depth-aware global calibration of SM2RAIN-NWF', venue:'Water Resources Research, 2026'}
+};
+let gaCurrent=null;
+function openGA(key){
+  const f=document.getElementById('gaFrame');
+  if(gaCurrent!==key){ f.src = GA_DOCS[key]; gaCurrent=key; }
+  const m=GA_META[key]||{};
+  document.getElementById('gaSub').textContent = (m.title?m.title+' · ':'') + (m.venue||'');
+  document.getElementById('gaModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeGA(){
+  document.getElementById('gaModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function openGATab(){
+  if(!gaCurrent) return;
+  window.open(GA_DOCS[gaCurrent],'_blank');
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeGA(); });
+
+const PUBS = [{"type": "journal", "year": 2026, "date": "2026", "thumb": "assets/th7.jpg", "title": "Beyond satellite-based precipitation data: a soil moisture physics framework with Green-Ampt and Bayesian optimization", "venue": "npj Climate and Atmospheric Science", "desc": "Replaces SM2RAIN's empirical power-law drainage with a physically based Green-Ampt wetting-front infiltration term, tuned by Bayesian optimization, then tests how far down the soil column the rainfall signal survives across four layers from 0\u201320 cm, globally. Strongest at 0\u20135 cm: false alarms cut by 50% and continuous skill up 48% against GPM IMERG.", "authors": "Saeedi, M., Kim, H., Bolten, J., Eylander, J., & Lakshmi, V.", "doi": "https://doi.org/10.1038/s41612-026-01425-5", "ga": "npj"}, {"type": "journal", "year": 2026, "date": "2026", "thumb": "assets/th6.jpg", "title": "Depth-aware global calibration of SM2RAIN-NWF using Growing Neural Gas hydroclimatic clusters", "venue": "Water Resources Research", "desc": "Bottom-up rainfall retrieval normally needs a local rain gauge to calibrate every station. This clusters the world into 30 hydroclimatic zones from ERA5-Land using a Growing Neural Gas network, so a single set of cluster-average, depth-aware coefficients reproduces fully calibrated skill \u2014 SM2RAIN-NWF can then run where no gauge exists, with zero reference rainfall at the target site.", "authors": "Saeedi, M., Kim, S., Kim, H., & Lakshmi, V.", "doi": "https://doi.org/10.1029/2025WR041529", "ga": "wrr"}, {"type": "journal", "year": 2025, "date": "2025", "thumb": "assets/th5.jpg", "title": "Introducing a new clustering-based method for self-calibrating continental-scale rainfall estimates from soil moisture dynamics using machine learning methods", "venue": "Agricultural and Forest Meteorology", "desc": "Daily AMSR2 soil moisture and SCAN/USCRN gauge data are combined with land cover, soil texture, and climate features, then clustered both unsupervised (K-means) and supervised (by rainfall intensity class) to divide CONUS into hydroclimatically similar regions. A genetic algorithm optimizes SM2RAIN-NWF parameters per cluster, giving continental-scale daily rainfall without site-by-site calibration.", "authors": "Saeedi, M., Kim, H., & Lakshmi, V.", "doi": "https://doi.org/10.1016/j.agrformet.2025.110766"}, {"type": "journal", "year": 2024, "date": "2024", "thumb": "assets/th_esi.jpg", "title": "Estimation of soil moisture from remote sensing products using an ensemble machine learning model", "venue": "Earth Science Informatics", "desc": "An ensemble machine learning model estimates soil moisture from remote sensing products over the Lake Urmia Basin, combining multiple learners rather than relying on a single algorithm.", "authors": "Asadollah, S. B. H. S., Sharafati, A., Saeedi, M., & Shahid, S.", "doi": "https://link.springer.com/article/10.1007/s12145-023-01172-8"}, {"type": "journal", "year": 2023, "date": "2023", "thumb": "assets/th4.jpg", "title": "Performance assessment of SM2RAIN-NWF using ASCAT soil moisture via supervised land cover\u2013soil\u2013climate classification", "venue": "Remote Sensing of Environment", "desc": "Where an algorithm is applied changes how well it works. Using ASCAT soil moisture over Iran (2015-2020), stations are sorted into eleven supervised land cover-soil-climate classes to map where SM2RAIN-NWF is reliable. Around 7.5% improvement overall, up to 50% KGE gain in southern Iran, and the strongest reliability in arid and semi-arid regions below 267 mm/yr; drainage matters, the evapotranspiration term contributes under 4%.", "authors": "Saeedi, M., Nabaee, S., Kim, H., Tavakol, A., & Lakshmi, V.", "doi": "https://doi.org/10.1016/j.rse.2022.113393"}, {"type": "journal", "year": 2022, "date": "2022", "thumb": "assets/th3.jpg", "title": "A comprehensive assessment of SM2RAIN-NWF using ASCAT and combined ASCAT\u2013SMAP soil moisture products", "venue": "Science of the Total Environment", "desc": "Does fusing active and passive sensors improve rainfall estimation? ASCAT alone is compared against a combined ASCAT\u2013SMAP input, with discrete cosine transform interpolation used to fill gaps in the soil moisture time series.", "authors": "Saeedi, M., Kim, H., Nabaee, S., Brocca, L., Lakshmi, V., & Mosaffa, H.", "doi": "https://doi.org/10.1016/j.scitotenv.2022.156416"}, {"type": "journal", "year": 2022, "date": "2022", "thumb": "assets/th2.jpg", "title": "Estimating rainfall depth from satellite-based soil moisture: integrating SM2RAIN and the analytical net water flux model", "venue": "Journal of Hydrology", "desc": "The paper that introduced SM2RAIN-NWF. Integrating the SM2RAIN algorithm with an analytical net water flux model lets rainfall depth be estimated from satellite soil moisture as the only input.", "authors": "Saeedi, M., Sharafati, A., Brocca, L., & Tavakol, A.", "doi": "https://doi.org/10.1016/j.jhydrol.2022.127868"}, {"type": "journal", "year": 2021, "date": "2021", "thumb": "assets/th1.jpg", "title": "Evaluation of gridded soil moisture products over varied land covers, climates, and soil textures: Lake Urmia Basin", "venue": "Theoretical and Applied Climatology", "desc": "A field campaign in the Lake Urmia Basin evaluates AMSR2, SMAP L3, SMAP L4, and GLDAS soil moisture against in-situ measurements, stratified by land cover, climate, and soil texture.", "authors": "Saeedi, M., Sharafati, A., & Tavakol, A.", "doi": "https://link.springer.com/article/10.1007/s00704-021-03678-x"}, {"n": 10, "year": 2026, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu26.png", "title": "A Physics-Informed Temporal Neural Operator Coupled with Adaptive Flow Matching for Probabilistic Precipitation Retrieval", "authors": "Saeedi, M., Kim, H., Ringerud, S., & Lakshmi, V.", "type": "conference"}, {"n": 9, "year": 2026, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu26.png", "title": "A Selective Prediction Framework for GNSS-R Observability from Delay\u2013Doppler Maps", "authors": "Saeedi, M., Zhu, Z., Kumar, S. V., Bolten, J. D., & Lakshmi, V.", "type": "conference"}, {"n": 8, "year": 2026, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu26.png", "title": "Toward a Multi-Decadal, High-Resolution Soil Moisture Record Through Harmonization Across Satellite Generations", "authors": "Tikhe, P. V., Zhu, Z., Saeedi, M., Fang, B., & Lakshmi, V.", "type": "conference"}, {"n": 7, "year": 2026, "venue": "IEEE IGARSS", "logo": "assets/logo_igarss26.png", "link": "https://2026.ieeeigarss.org/view_session.php?SessionID=1618", "title": "Seasonal, Pixel-Wise Dynamic SM2RAIN\u2013NWF Parameterization over CONUS via Physics-Informed Deep Learning", "authors": "Saeedi, M., Kim, H., & Lakshmi, V.", "type": "conference"}, {"n": 6, "year": 2025, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu25.png", "title": "Interpreting Upstream Influence on Downstream River Discharge Forecasting: Insights from ConvLSTM and SHAP Analyses Across Spatial Scales and Temporal Horizons", "authors": "Zhu, Z., Saeedi, M., Kim, H., & Lakshmi, V.", "type": "conference"}, {"n": 5, "year": 2025, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu25.png", "title": "A Novel Hybrid Approach to Dynamically Parameterize the Soil Water Balance for Improved and Self-Calibrated Global Rainfall Estimation", "authors": "Saeedi, M., Kim, H., \u2026 & Lakshmi, V.", "type": "conference"}, {"n": 4, "year": 2025, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu25.png", "title": "Turning Streams into Rain Gauges: Leveraging Long-Term Streamflow Data to Recover Historical Precipitation", "authors": "Saeedi, M., Kim, H., \u2026 & Lakshmi, V.", "type": "conference"}, {"n": 3, "year": 2024, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu24.png", "title": "Beyond the Conventional: Advancements in Rainfall Estimation Through a Bottom-Up Approach and Net Water Flux", "authors": "Saeedi, M., Kim, H., \u2026 & Lakshmi, V.", "type": "conference"}, {"n": 2, "year": 2024, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu24.png", "title": "Leveraging Satellite Soil Moisture Data for Global Rainfall Estimation Using a Bottom-Up Approach: Exploring the Global Potential of SM2RAIN-NWF", "authors": "Saeedi, M., Kim, H., \u2026 & Lakshmi, V.", "type": "conference"}, {"n": 1, "year": 2023, "venue": "AGU Annual Meeting", "logo": "assets/logo_agu23.png", "title": "Leveraging Machine Learning to Improve Rainfall Estimation: A Study on Noise Reduction in Soil Moisture Time Series in Areas with Limited In Situ Data", "authors": "Saeedi, M., Kim, H., \u2026 & Lakshmi, V.", "type": "conference"}];
+
+function go(id){
+  document.querySelectorAll('section.page').forEach(s=>s.classList.toggle('on', s.id===id));
+  document.querySelectorAll('nav.links button').forEach(b=>b.classList.toggle('on', b.dataset.p===id));
+  document.querySelector('nav.links').classList.remove('open');
+  window.scrollTo({top:0,behavior:'instant'});
+  observeAll();
+}
+
+const J = PUBS.filter(p=>p.type==='journal');
+const C = PUBS.filter(p=>p.type==='conference');
+let year='all';
+const YEARS=[...new Set(J.map(p=>p.year))].sort((a,b)=>b-a);
+
+function buildFilters(){
+  document.getElementById('filters').innerHTML =
+    `<button class="f ${year==='all'?'on':''}" onclick="setY('all')">All years</button>` +
+    YEARS.map(y=>`<button class="f ${year==y?'on':''}" onclick="setY('${y}')">${y}</button>`).join('');
+}
+function setY(v){ year = v==='all'?'all':+v; buildFilters(); render(); }
+
+function bold(a){ return a.replace('Saeedi, M.','<b>Saeedi, M.</b>'); }
+
+function jcard(p){
+  return `<article class="pcard">
+    <div class="thumb"><img src="${p.thumb}" alt=""></div>
+    <div class="body">
+      <h3>${p.title}</h3>
+      <p class="vline"><b>${p.venue}</b> · ${p.date}</p>
+      <p class="desc">${p.desc}</p>
+      <p class="auth">${bold(p.authors)}</p>
+      <div class="plinks">
+        ${p.doi?`<a class="plink" href="${p.doi}" target="_blank">Link to paper →</a>`:''}
+        ${p.ga?`<button class="ga-btn" onclick="openGA('${p.ga}')" title="Open the interactive graphical abstract">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4" width="18.8" height="14.4" rx="2.2"/><path d="M7 14.6v-3.4M11 14.6V8.4M15 14.6v-5M2.6 8.2h18.8"/></svg>
+          <span>Graphical abstract</span>
+          <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 6l6 6-6 6"/></svg>
+        </button>`:''}
+      </div>
+    </div>
+  </article>`;
+}
+function crow(p){
+  const t = p.link? `<a href="${p.link}" target="_blank">${p.title}</a>` : p.title;
+  return `<div class="row">
+    <div class="logo"><img src="${p.logo}" alt="${p.venue}"></div>
+    <div><h4>${t}</h4><p class="auth">${bold(p.authors)}</p></div>
+    <div class="right"><span class="badge b">${p.venue}</span><span class="date">${p.year}</span></div>
+  </div>`;
+}
+
+function render(){
+  const q=(document.getElementById('q').value||'').toLowerCase();
+  const list=J.filter(p=>(year==='all'||p.year===year) &&
+    (!q||(p.title+' '+p.venue+' '+p.authors+' '+p.desc).toLowerCase().includes(q)));
+  document.getElementById('cnt').textContent = `${list.length} of ${J.length} journal articles`;
+  document.getElementById('jlist').innerHTML = list.length? list.map(jcard).join('')
+    : `<div class="empty" style="grid-column:1/-1">No articles match that filter.</div>`;
+}
+
+document.getElementById('clist').innerHTML = C.map(crow).join('');
+document.getElementById('featured').innerHTML = J.slice(0,3).map(jcard).join('');
+buildFilters(); render();
+
+let io;
+function observeAll(){
+  if(io) io.disconnect();
+  io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target)}}),{threshold:.06});
+  document.querySelectorAll('section.page.on .rv').forEach(el=>io.observe(el));
+}
+observeAll();
+</script>
+
+<div id="gaModal" class="gamodal" onclick="if(event.target===this)closeGA()">
+  <div class="gabox">
+    <div class="gabar">
+      <div class="gatitle"><b>Graphical abstract</b><span id="gaSub"></span></div>
+      <div class="gaacts">
+        <button onclick="openGATab()">Open in new tab ↗</button>
+        <button class="x" onclick="closeGA()">Close ✕</button>
+      </div>
+    </div>
+    <iframe id="gaFrame" title="Graphical abstract"></iframe>
+  </div>
+</div>
+</body>
+</html>

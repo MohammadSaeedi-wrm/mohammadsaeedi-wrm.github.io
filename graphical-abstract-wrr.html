@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphical Abstract — Depth-Aware Global Calibration of SM2RAIN-NWF Using GNG-Derived Hydroclimatic Clusters</title>
+<style>
+:root{
+  color-scheme: light;
+  --surface-1:#fcfcfb; --page:#f4f4f1; --panel:#ffffff;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,0.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --d1:#184f95; --d2:#2a78d6; --d3:#5598e7; --d4:#86b6ef;
+  --pos:#2a78d6; --neg:#e34948; --neutral:#f0efec;
+  --good:#0ca30c; --warning:#fab219; --critical:#d03b3b;
+  --wash:#f7f7f4;
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --surface-1:#1a1a19; --page:#0d0d0d; --panel:#1a1a19;
+  --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --d1:#184f95; --d2:#2a78d6; --d3:#5598e7; --d4:#86b6ef;
+  --pos:#3987e5; --neg:#e66767; --neutral:#383835;
+  --wash:#141413;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--page);color:var(--text-primary);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:14px;line-height:1.45;padding:22px 16px 60px}
+.wrap{max-width:1560px;margin:0 auto}
+
+header.hero{background:var(--panel);border:1px solid var(--border);border-radius:14px;
+  padding:22px 26px;position:relative;overflow:hidden}
+header.hero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;
+  background:linear-gradient(180deg,var(--s1),var(--s3))}
+.journal{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.chip{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--border);color:var(--text-secondary)}
+.chip.blue{color:#1c5cab;border-color:rgba(28,92,171,.35)}
+h1.title{font-size:25px;line-height:1.24;margin:2px 0 10px;font-weight:750;letter-spacing:-.01em;max-width:1120px}
+.authors{font-size:13px;color:var(--text-secondary)}
+.authors b{color:var(--text-primary);font-weight:650}
+.meta{font-size:11.5px;color:var(--text-muted);margin-top:6px}
+.toolbar{position:absolute;right:20px;top:18px;display:flex;gap:8px}
+button.tgl{font:inherit;font-size:12px;padding:6px 12px;border-radius:8px;cursor:pointer;
+  background:var(--wash);color:var(--text-secondary);border:1px solid var(--border)}
+button.tgl:hover{color:var(--text-primary)}
+
+.sec{margin-top:18px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 10px 2px;flex-wrap:wrap}
+.sec-num{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--panel);
+  background:var(--text-primary);border-radius:6px;padding:3px 8px}
+.sec-title{font-size:16px;font-weight:750;letter-spacing:-.005em}
+.sec-sub{font-size:12px;color:var(--text-muted)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g23{grid-template-columns:1.15fr 1fr}
+.g32{grid-template-columns:1fr 1.4fr}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:15px 16px}
+.card h3{font-size:13.5px;margin:0 0 4px;font-weight:700;letter-spacing:-.005em}
+.card h4{font-size:12px;margin:12px 0 5px;font-weight:700;color:var(--text-secondary);
+  text-transform:uppercase;letter-spacing:.05em}
+.card p{margin:5px 0;font-size:12.5px;color:var(--text-secondary)}
+.card ul{margin:6px 0 0;padding-left:16px;font-size:12.5px;color:var(--text-secondary)}
+.card li{margin:3px 0}
+.lead{color:var(--text-primary)!important}
+.acc-1{border-top:3px solid var(--s1)}
+.acc-2{border-top:3px solid var(--s2)}
+.acc-3{border-top:3px solid var(--s3)}
+.acc-ink{border-top:3px solid var(--text-primary)}
+
+.eq{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;
+  background:var(--wash);border:1px solid var(--border);border-radius:8px;
+  padding:10px 12px;margin:8px 0;position:relative;font-size:15px;line-height:1.75;overflow-x:auto}
+.eq.tall{padding-top:26px}
+.eq .tag{position:absolute;right:9px;top:7px;font-family:system-ui,sans-serif;
+  font-size:10px;color:var(--text-muted);font-weight:700;letter-spacing:.04em}
+.v{font-style:italic}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .18em}
+.frac>span:first-child{padding:0 .35em;border-bottom:1.4px solid currentColor}
+.frac>span:last-child{padding:1px .35em 0}
+.eqnote{font-family:system-ui,sans-serif;font-size:11px;color:var(--text-muted);margin-top:4px}
+.big{font-size:1.45em;vertical-align:-.2em;font-weight:300}
+.cases{display:inline-grid;grid-template-columns:auto auto;gap:4px 20px;vertical-align:middle;text-align:left}
+.brace{font-size:3.1em;line-height:.85;font-weight:200;vertical-align:-.30em}
+
+table.sym{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px}
+table.sym td{padding:3px 6px;border-bottom:1px solid var(--grid);vertical-align:top;color:var(--text-secondary)}
+table.sym td:first-child{width:80px;color:var(--text-primary);font-weight:600;
+  font-family:"Cambria Math",Georgia,serif;font-style:italic;font-size:13px}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:11.5px;color:var(--text-secondary);margin:6px 0 4px}
+.legend .k{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin:2px 0 8px}
+.tabs .lbl{font-size:10.5px;color:var(--text-muted);font-weight:700;text-transform:uppercase;
+  letter-spacing:.05em;align-self:center;margin-right:2px}
+.tab{font:inherit;font-size:11.5px;font-weight:650;padding:5px 11px;border-radius:7px;cursor:pointer;
+  border:1px solid var(--border);background:var(--wash);color:var(--text-secondary)}
+.tab[aria-selected="true"]{background:var(--text-primary);color:var(--panel);border-color:var(--text-primary)}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.tick{font-size:10.5px;fill:var(--text-muted)}
+.axlab{font-size:10.5px;fill:var(--text-muted)}
+.vlab{font-size:10.5px;fill:var(--text-secondary);font-weight:650}
+.gl{stroke:var(--grid);stroke-width:1}
+.base{stroke:var(--axis);stroke-width:1}
+
+#tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .08s;z-index:99;
+  background:var(--text-primary);color:var(--panel);font-size:11.5px;line-height:1.4;
+  padding:7px 10px;border-radius:7px;max-width:280px;box-shadow:0 4px 14px rgba(0,0,0,.22)}
+#tip b{font-weight:700}
+
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:13px 15px}
+.tile .lab{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;font-weight:650}
+.tile .val{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-top:3px}
+.tile .sub{font-size:11.5px;color:var(--text-secondary);margin-top:2px}
+
+.pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;
+  background:var(--wash);border:1px solid var(--border);color:var(--text-secondary);margin:0 5px 5px 0}
+.pill.on{background:var(--s1);color:#fff;border-color:var(--s1)}
+.pill.warn{background:var(--warning);color:#0b0b0b;border-color:var(--warning)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:12px;color:var(--text-secondary);margin-top:6px}
+.kv b{color:var(--text-primary);font-weight:650;white-space:nowrap}
+
+details.tbl{margin-top:8px}
+details.tbl summary{font-size:11px;color:var(--text-muted);cursor:pointer;list-style:none}
+details.tbl summary::-webkit-details-marker{display:none}
+details.tbl summary::before{content:"▸ "}
+details.tbl[open] summary::before{content:"▾ "}
+table.data{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{padding:3px 6px;border-bottom:1px solid var(--grid);text-align:right;color:var(--text-secondary)}
+table.data th:first-child,table.data td:first-child{text-align:left;color:var(--text-primary)}
+table.data th{color:var(--text-muted);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.04em}
+table.data tr.grp td{background:var(--wash);color:var(--text-primary);font-weight:700;font-size:10.5px}
+
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0;align-items:stretch}
+.step{position:relative;background:var(--wash);border:1px solid var(--border);border-radius:10px;
+  padding:11px 12px;margin-right:16px}
+.step:last-child{margin-right:0}
+.step::after{content:"";position:absolute;right:-13px;top:50%;width:10px;height:10px;
+  border-top:2px solid var(--text-muted);border-right:2px solid var(--text-muted);
+  transform:translateY(-50%) rotate(45deg)}
+.step:last-child::after{display:none}
+.step .n{font-size:10px;font-weight:800;color:var(--text-muted);letter-spacing:.08em}
+.step .t{font-size:12.5px;font-weight:750;margin-top:2px;color:var(--text-primary)}
+.step .d{font-size:11px;color:var(--text-secondary);margin-top:3px}
+
+footer{margin-top:20px;padding:16px 18px;background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;font-size:11.5px;color:var(--text-muted)}
+.note{font-size:11px;color:var(--text-muted);margin-top:6px}
+@media (max-width:1200px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .g23,.g32,.g2{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:22px 16px}
+  .step{margin-right:0}.step::after{display:none}
+}
+@media print{body{background:#fff}.toolbar{display:none}}
+</style>
+</head>
+<script>
+(function(){var h=(location.hash||"").replace("#","");
+ var t=h==="dark"?"dark":h==="light"?"light":
+  (window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+ document.documentElement.setAttribute("data-theme",t);})();
+</script>
+<body>
+<div id="tip" role="status"></div>
+<div class="wrap">
+
+<!-- ================= HEADER ================= -->
+<header class="hero">
+  <div class="toolbar"><button class="tgl" id="themeBtn" type="button">Dark mode</button></div>
+  <div class="journal">
+    <span class="chip blue">Water Resources Research</span>
+    <span class="chip">Research Article · 62, e2025WR041529</span>
+    <span class="chip">Open Access · CC BY-NC</span>
+  </div>
+  <h1 class="title">Depth-Aware Global Calibration of SM2RAIN-NWF Using Growing Neural Gas-Derived Hydroclimatic Clusters Across Heterogeneous Soils</h1>
+  <div class="authors">
+    <b>Mohammad Saeedi</b><sup>1</sup>, <b>Subin Kim</b><sup>2</sup>, <b>Euiyoung Choi</b><sup>2</sup>, <b>Hyunglok Kim</b><sup>2</sup>✉, <b>Venkataraman Lakshmi</b><sup>1</sup>
+  </div>
+  <div class="meta">
+    <sup>1</sup>Department of Civil and Environmental Engineering, University of Virginia, Charlottesville, VA, USA ·
+    <sup>2</sup>Department of Environment and Energy Engineering, Gwangju Institute of Science and Technology (GIST), Gwangju, South Korea<br>
+    https://doi.org/10.1029/2025WR041529 · Received 2 Jul 2025 · Accepted 31 Mar 2026 ·
+    Special Collection: <i>Advances in large-scale hydrological modeling and prediction under global change</i>
+  </div>
+</header>
+
+<!-- ================= THESIS ================= -->
+<div class="sec">
+  <div class="card acc-ink" style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+    <div style="flex:1;min-width:340px">
+      <div style="font-size:11px;font-weight:800;letter-spacing:.09em;color:var(--text-muted);text-transform:uppercase">The thesis in one line</div>
+      <div style="font-size:18px;font-weight:650;line-height:1.42;margin-top:5px">
+        Bottom-up rainfall retrieval normally needs a <span style="color:var(--text-muted);text-decoration:line-through">local rain gauge to calibrate every station</span>.
+        Cluster the world into <span style="color:var(--s1);font-weight:750">30 hydroclimatic zones</span> from ERA5-Land, and a
+        <span style="color:var(--s1);font-weight:750">single set of cluster-average coefficients (Z̄, ā)</span> reproduces fully calibrated skill —
+        so SM2RAIN-NWF can run where no gauge exists.
+      </div>
+    </div>
+    <div style="flex:0 0 auto;display:flex;gap:10px;flex-wrap:wrap">
+      <div class="tile" style="min-width:152px"><div class="lab">Calibration data</div><div class="val">0</div><div class="sub">reference rainfall needed at the target site</div></div>
+      <div class="tile" style="min-width:152px"><div class="lab">Best R gain (GNG)</div><div class="val" style="color:var(--good)">+17.7%</div><div class="sub">cluster 21, 5–10 cm</div></div>
+      <div class="tile" style="min-width:152px"><div class="lab">K-means POD shift</div><div class="val">≈0%</div><div class="sub">0.00–0.85% in most cases</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 1. PROBLEM ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">The gap</span>
+    <span class="sec-sub">the calibration phase is what keeps bottom-up retrieval out of data-sparse regions</span></div>
+  <div class="grid g4">
+    <div class="card">
+      <h3>Gauges are sparse and uneven</h3>
+      <p>The rain gauge is still the primary instrument, but the network is sparse, concentrated in developed countries, and carries measurement error and poor spatial representation.</p>
+    </div>
+    <div class="card">
+      <h3>Top-down satellites have their own limits</h3>
+      <p>IMERG and similar products face near-real-time aggregation and inter-calibration challenges across a heterogeneous satellite constellation, plus high operational cost.</p>
+    </div>
+    <div class="card">
+      <h3>Bottom-up works — but needs calibrating</h3>
+      <p>SM2RAIN and SM2RAIN-NWF both require reference rainfall at spatial and temporal resolution comparable to the soil-moisture data, just to fix <i>Z</i> and <i>a</i>. That reliance constrains the method to gauged regions.</p>
+    </div>
+    <div class="card acc-1">
+      <h3>The circular problem</h3>
+      <p><b class="lead">You need rainfall observations to build a model whose purpose is estimating rainfall where observations don't exist.</b> This paper breaks that circle by transferring parameters from hydroclimatically analogous sites.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 2. DATA ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Data</span>
+    <span class="sec-sub">ERA5-Land for the clustering space · ISMN for the parameters and the truth</span></div>
+  <div class="grid g32">
+    <div class="card acc-1">
+      <h3>ERA5-Land reanalysis — defines the zones</h3>
+      <div class="kv">
+        <b>Period</b><span>2015 – 2024, monthly</span>
+        <b>Grid</b><span>native 0.1° → resampled to 0.25° by aggregated nearest-neighbour averaging</span>
+        <b>Treatment</b><span>temporally averaged to static spatial features; all variables standard-scaled</span>
+        <b>Cold months</b><span>retained, not excluded — snow depth and snowmelt keep the full annual hydroclimatic signature</span>
+      </div>
+      <h4>Process groups screened</h4>
+      <p><span class="pill">Evapotranspiration</span><span class="pill">Soil moisture</span><span class="pill">Precipitation</span><span class="pill">Wind</span><span class="pill">Temperature</span><span class="pill">Runoff</span><span class="pill">Snow</span><span class="pill">Pressure</span><span class="pill">Vegetation</span><span class="pill">Lake</span><span class="pill">Radiation</span><span class="pill">Lat / Lon</span></p>
+      <h4>Multicollinearity screening</h4>
+      <p>Iterative <b class="lead">Variance Inflation Factor</b> screening, target VIF &lt; 10, while keeping every process group represented. All variables passed except two, kept deliberately so their categories stayed in the feature space:</p>
+      <p><span class="pill warn">t2m · VIF 23.27</span><span class="pill warn">str · VIF 13.79</span> → <b class="lead">18 variables</b> retained for UMAP and clustering.</p>
+      <p class="note">A static soil-properties map was not an explicit feature; its influence enters through land-surface response variables (long-term volumetric soil water, runoff, evaporation) that integrate soil, geology and vegetation effects on the regional water balance.</p>
+    </div>
+    <div class="card">
+      <h3>ISMN in-situ network — supplies parameters and validation</h3>
+      <p>Hourly soil moisture and precipitation records; stations assigned to clusters by geographic location. Station counts differ by measurement depth:</p>
+      <div id="chartStations"></div>
+      <p class="note">Global coverage is dense over North America and Europe, with smaller groupings in West Africa, East Africa, eastern China and south-eastern Australia (Fig. 1 of the paper).</p>
+      <h4>Rain-event definition</h4>
+      <p>For POD and FAR, daily precipitation is first converted to a binary rain / no-rain series with a <b class="lead">1 mm day⁻¹</b> threshold — any day above it (in situ or SM2RAIN-NWF) counts as a rain event.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 3. PIPELINE ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">The self-calibration pipeline</span>
+    <span class="sec-sub">from reanalysis fields to a transferable parameter set</span></div>
+  <div class="card">
+    <div class="steps">
+      <div class="step"><div class="n">01</div><div class="t">ERA5-Land features</div><div class="d">monthly 2015–2024, resampled to 0.25°, time-averaged, standard-scaled</div></div>
+      <div class="step"><div class="n">02</div><div class="t">VIF screening</div><div class="d">iterative removal to VIF &lt; 10 → 18 variables spanning all process groups</div></div>
+      <div class="step"><div class="n">03</div><div class="t">UMAP embedding</div><div class="d">non-linear manifold projection to a 3-D feature space preserving local <i>and</i> global structure</div></div>
+      <div class="step"><div class="n">04</div><div class="t">Clustering, k = 30</div><div class="d">K-means · GNG · GMM · AC — four algorithms compared</div></div>
+      <div class="step"><div class="n">05</div><div class="t">Cluster-average Z̄, ā</div><div class="d">ISMN stations assigned by location; per-cluster, per-depth means with bootstrap CIs</div></div>
+      <div class="step"><div class="n">06</div><div class="t">Apply to unseen sites</div><div class="d">run SM2RAIN-NWF with the transferred parameters — no local calibration</div></div>
+    </div>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card" style="border:none;background:var(--wash)">
+        <h4>Why k = 30</h4>
+        <p>Two independent justifications converge: the Köppen–Geiger classification contains approximately <b class="lead">30 global climate subtypes</b>, and <b class="lead">GNG — which does not require k a priori — independently identified 30</b>. The choice is grounded both climatologically and in the data.</p>
+      </div>
+      <div class="card" style="border:none;background:var(--wash)">
+        <h4>Why four algorithms</h4>
+        <p><b class="lead">K-means</b> finds spherical clusters efficiently; <b class="lead">GNG</b> grows an adaptive topology capturing non-linear structure; <b class="lead">GMM</b> allows probabilistic, ellipsoidal assignment; <b class="lead">AC</b> reveals hierarchical nesting. Using all four tests whether the conclusion depends on the clustering method — it does not.</p>
+      </div>
+      <div class="card" style="border:none;background:var(--wash)">
+        <h4>Two validation designs</h4>
+        <p><b class="lead">LOOCV</b> — for a cluster with N stations, recompute the cluster mean N times, each time excluding one station, then apply to the held-out station.<br>
+        <b class="lead">20% hold-out</b> — split each cluster 80/20, derive (ā, Z̄) from the training subset with <b class="lead">B = 10,000</b> bootstrap resamples for 95% CIs, apply to the untouched test set.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 4. THE MODEL ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">The model being calibrated: SM2RAIN-NWF</span>
+    <span class="sec-sub">soil water balance inverted through an analytical net water flux</span></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>From water balance to rainfall</h3>
+      <div class="eq"><span class="tag">EQ 1</span>
+        <span class="frac"><span><span class="v">Z dθ</span>(<span class="v">t</span>)</span><span><span class="v">dt</span></span></span>
+        = <span class="v">P</span>(<span class="v">t</span>) − <span class="v">R</span>(<span class="v">t</span>) − ET(<span class="v">t</span>) − <span class="v">G</span>(<span class="v">t</span>)
+      </div>
+      <div class="eq"><span class="tag">EQ 2 — classic SM2RAIN inversion</span>
+        <span class="v">P</span>(<span class="v">t</span>) =
+        <span class="frac">
+          <span><span class="frac" style="font-size:.88em"><span><span class="v">Zdθ</span>(<span class="v">t</span>)</span><span><span class="v">dt</span></span></span> + <span class="v">a θ</span>(<span class="v">t</span>)<sup class="v">b</sup></span>
+          <span>1 − <span class="v">θ</span>(<span class="v">t</span>)<sup class="v">c</sup></span>
+        </span>
+      </div>
+      <p>Under the assumption that evapotranspiration is negligible <i>during</i> rainfall. A calibration procedure estimates all four parameters <i>Z</i>, <i>a</i>, <i>b</i>, <i>c</i> — and that procedure is exactly what this paper removes.</p>
+      <table class="sym">
+        <tr><td>Z</td><td>depth-related soil parameter</td></tr>
+        <tr><td>θ(t)</td><td>volumetric soil moisture</td></tr>
+        <tr><td>P, R, ET, G</td><td>rainfall, runoff, evapotranspiration, drainage</td></tr>
+      </table>
+      <h4>What is actually calibrated here</h4>
+      <p><b class="lead">Only Z and a.</b> The fluctuation of <i>c</i> was found negligible — a stable value of <b class="lead">15.90 ± 0.005</b> across all stations — so <i>c</i> was held constant and the investigation restricted to the two sensitive parameters.</p>
+    </div>
+    <div class="card acc-1">
+      <h3>The NWF term — drainage done analytically</h3>
+      <p>SM2RAIN-NWF replaces empirical drainage with the net water flux derived by inverting Warrick's (1975) solution of the linearized Richards equation. Reported to improve rainfall estimation accuracy by <b class="lead">~30%</b> over SM2RAIN at basin (Lake Urmia) and national (Iran) scales.</p>
+      <div class="eq tall"><span class="tag">EQ 3 — recursive net water flux</span>
+        <span class="v">F<sub>N</sub></span> =
+        <span class="brace">{</span>
+        <span class="cases">
+          <span><span class="frac"><span>Θ<sub><span class="v">N</span></sub>(<span class="v">Z</span>)&thinsp;<span class="v">e</span><sup>0.5<span class="v">Z</span>−0.25<span class="v">T</span></sup></span><span><span class="v">U</span>(<span class="v">Z</span>, Δ<span class="v">T</span>)</span></span></span><span style="font-family:system-ui;font-size:11.5px;align-self:center">[<span class="v">N</span> = 1]</span>
+          <span>= <span class="v">F</span><sub>1</sub> + <span class="frac"><span>Θ<sub><span class="v">N</span></sub>(<span class="v">Z</span>)<span class="v">e</span><sup>0.5<span class="v">Z</span>−0.25<span class="v">T</span></sup> − <span class="v">F</span><sub>1</sub><span class="v">U</span>(<span class="v">Z</span>,<span class="v">T</span>)</span><span><span class="v">U</span>(<span class="v">Z</span>, Δ<span class="v">T</span>)</span></span></span><span style="font-family:system-ui;font-size:11.5px;align-self:center">[<span class="v">N</span> = 2]</span>
+          <span>= <span class="v">F</span><sub><span class="v">N</span>−1</sub> + <span class="frac"><span>1</span><span><span class="v">U</span>(<span class="v">Z</span>, Δ<span class="v">T</span>)</span></span>{ Θ<sub><span class="v">N</span></sub>(<span class="v">Z</span>)<span class="v">e</span><sup>0.5<span class="v">Z</span>−0.25<span class="v">T</span></sup> − <span class="v">F</span><sub>1</sub><span class="v">U</span>(<span class="v">Z</span>,<span class="v">T</span>) − <span class="big">Σ</span><sub style="font-size:.68em"><span class="v">i</span>=3</sub><sup style="font-size:.68em"><span class="v">N</span></sup>(<span class="v">F</span><sub><span class="v">i</span>−1</sub> − <span class="v">F</span><sub><span class="v">i</span>−2</sub>) <span class="v">U</span>(<span class="v">Z</span>, [<span class="v">N</span>−<span class="v">i</span>+2]Δ<span class="v">T</span>) }</span><span style="font-family:system-ui;font-size:11.5px;align-self:center">[<span class="v">N</span> &gt; 2]</span>
+        </span>
+      </div>
+      <div class="eq"><span class="tag">EQ 4 — the estimator used</span>
+        <span class="v">P</span>(<span class="v">t</span>) =
+        <span class="frac">
+          <span><span class="frac" style="font-size:.88em"><span><span class="v">Z dθ</span>(<span class="v">t</span>)</span><span><span class="v">dt</span></span></span> + ET<sub>pot</sub><span class="v">θ</span>(<span class="v">t</span>) + <span class="v">a F</span>(<span class="v">t</span>)</span>
+          <span>1 − <span class="v">θ</span>(<span class="v">t</span>)<sup class="v">c</sup></span>
+        </span>
+      </div>
+      <table class="sym">
+        <tr><td>T</td><td>dimensionless time</td></tr>
+        <tr><td>U</td><td>dimensionless function from Warrick's solution</td></tr>
+        <tr><td>N, i</td><td>number of discrete time steps, and each step within the total N</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 5. WHICH CLUSTERING ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Which clustering wins?</span>
+    <span class="sec-sub">Table 1 — internal validation across the four algorithms</span></div>
+  <div class="grid g23">
+    <div class="card">
+      <h3>Three internal validation metrics, three separate scales</h3>
+      <div class="legend">
+        <span class="k"><span class="sw" style="background:var(--s1)"></span> K-means</span>
+        <span class="k"><span class="sw" style="background:var(--s2)"></span> GNG</span>
+        <span class="k"><span class="sw" style="background:var(--s3)"></span> GMM</span>
+        <span class="k"><span class="sw" style="background:var(--s4)"></span> AC</span>
+      </div>
+      <div class="grid g3" style="gap:18px">
+        <div><div style="font-size:11.5px;font-weight:700;margin-bottom:2px">Silhouette ↑</div>
+          <div style="font-size:10.5px;color:var(--text-muted);margin-bottom:6px">cohesion vs separation</div>
+          <div id="chSil"></div></div>
+        <div><div style="font-size:11.5px;font-weight:700;margin-bottom:2px">Davies–Bouldin ↓</div>
+          <div style="font-size:10.5px;color:var(--text-muted);margin-bottom:6px">average cluster similarity</div>
+          <div id="chDB"></div></div>
+        <div><div style="font-size:11.5px;font-weight:700;margin-bottom:2px">Calinski–Harabasz ↑</div>
+          <div style="font-size:10.5px;color:var(--text-muted);margin-bottom:6px">between / within dispersion</div>
+          <div id="chCH"></div></div>
+      </div>
+      <p class="note"><b class="lead">K-means sweeps all three</b> — highest silhouette (0.43), lowest Davies–Bouldin (0.82), highest Calinski–Harabasz (197,736). <b class="lead">GNG is the clear runner-up</b> (0.40 / 0.86 / 190,865) and beats GMM and AC on Calinski–Harabasz, so both were carried into the calibration analysis. GMM is weakest on every measure.</p>
+      <details class="tbl"><summary>Table 1 — raw values</summary><div id="tblT1"></div></details>
+    </div>
+    <div class="card">
+      <h3>What the clusters look like</h3>
+      <p>The 3-D UMAP embedding separates the ERA5-Land feature space into 30 well-defined groups for both K-means and GNG (Fig. 2a, 2c). Mapped back onto the globe (Fig. 2b, 2d), those groups form coherent geographic regions of shared hydroclimatic behaviour — <b class="lead">which is precisely what makes a shared calibration coefficient defensible</b>.</p>
+      <div id="clusterSchematic"></div>
+      <p class="note">GNG produces clusters that differ from partition-based methods, reflecting subtle non-linear patterns — some clusters (e.g. 21) show distinctly wider parameter spreads, others (e.g. 2) much narrower, indicating more homogeneous soil or climatic properties.</p>
+      <h4>A stated boundary condition</h4>
+      <p>Only clusters with <b class="lead">sufficient in-situ station coverage</b> were retained. Clusters lacking adequate observational support were excluded to avoid unstable parameter estimation — so the framework needs a minimum of observations <i>somewhere</i> inside each zone, and is not yet directly transferable to regions with none.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 6. THE DELIVERABLE ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">The deliverable: a lookup table of cluster coefficients</span>
+    <span class="sec-sub">Figs. 5b &amp; 7b — mean Z̄ and ā per cluster, per depth</span></div>
+  <div class="card">
+    <div class="tabs" id="coefTabs" role="tablist"><span class="lbl">Algorithm</span></div>
+    <div class="grid g2" style="gap:22px">
+      <div>
+        <div style="font-size:13px;font-weight:750;margin-bottom:2px">ā — mean drainage coefficient</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-bottom:6px">grouped by soil-moisture depth interval</div>
+        <div id="chCoefA"></div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:750;margin-bottom:2px">Z̄ — mean depth-related soil parameter</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-bottom:6px">grouped by soil-moisture depth interval</div>
+        <div id="chCoefZ"></div>
+      </div>
+    </div>
+    <div class="legend" style="margin-top:10px">
+      <span class="k"><span class="sw" style="background:var(--d1)"></span> ≤ 5 cm</span>
+      <span class="k"><span class="sw" style="background:var(--d2)"></span> 5–10 cm</span>
+      <span class="k"><span class="sw" style="background:var(--d3)"></span> 10–20 cm</span>
+      <span class="k"><span class="sw" style="background:var(--d4)"></span> 20–30 cm</span>
+      <span class="k" style="margin-left:auto;color:var(--text-muted)">hover any bar for the exact value</span>
+    </div>
+    <p class="note"><b class="lead">This table is the product of the paper.</b> Give a new, ungauged site its cluster and its sensor depth, read off (Z̄, ā), and SM2RAIN-NWF runs — no reference rainfall required. <i>Z</i> generally ranges higher in deeper layers (e.g. K-means cluster 23 at 10–20 cm, cluster 11 at 20–30 cm), whereas <i>a</i> may rise, fall, or turn bimodal depending on cluster composition.</p>
+    <details class="tbl"><summary>Table view — all cluster coefficients, both algorithms</summary><div id="tblCoef"></div></details>
+  </div>
+</div>
+
+<!-- ================= 7. DEPTH BEHAVIOUR ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">How the coefficients behave with depth</span>
+    <span class="sec-sub">Figs. 3–4 — density against elevation, and histograms by cluster</span></div>
+  <div class="grid g4">
+    <div class="card" style="border-top:3px solid var(--d1)">
+      <h3>≤ 5 cm</h3>
+      <p><i>Z</i> is broadly distributed at low elevations; <i>a</i> shows a <b class="lead">sharp, highly concentrated peak</b> at low values in the same elevation band — strongly constrained behaviour near the surface.</p>
+      <p class="note">Diversity of calibration coefficients is highest here: a broad, near-uniform distribution across clusters.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--d2)">
+      <h3>5–10 cm</h3>
+      <p>The distribution begins to concentrate at lower values, suggesting the parameter is becoming more constrained by <b class="lead">underlying soil texture</b> rather than diverse surface-level influences.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--d3)">
+      <h3>10–20 cm</h3>
+      <p>The low-elevation distribution of <i>Z</i> becomes distinctly <b class="lead">bimodal</b>. Evapotranspiration, infiltration and soil layering likely play a greater combined role in setting the coefficients.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--d4)">
+      <h3>20–30 cm</h3>
+      <p>The primary low-elevation mode consolidates toward the middle of the parameter range and a <b class="lead">separate mode of lower Z appears at high elevations</b>. The sharp surface peak in <i>a</i> has become broad and diffuse.</p>
+      <p class="note">Many clusters show scattered patterns in both <i>Z</i> and <i>a</i>, possibly from significant changes in infiltration.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>Why the spread grows downward</h3>
+    <div class="grid g2">
+      <div>
+        <p>Wider violins and multi-peaked distributions (e.g. cluster 12 in some depth ranges, cluster 21 across multiple depths under GNG) indicate greater heterogeneity <b class="lead">among stations within one cluster</b> — the same zone can contain very different calibration behaviours. Narrow violins with tight boxes (cluster 4 at the surface; cluster 10 at shallow and mid depths; cluster 2 under GNG) mean more consistent station characteristics and more robust mean estimates.</p>
+        <p>The authors note a second, methodological contributor: Kim and Crow (2024) show that simplifying the water-balance physics and the limitations of soil-moisture data — noise and low sampling frequency — can themselves drive apparent variation in <i>Z</i>. The broadening seen in the deeper-layer clusters (notably 23 and 11) is probably partly this.</p>
+      </div>
+      <div id="depthSpread"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 8. VALIDATION ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">08</span><span class="sec-title">Does removing calibration hurt?</span>
+    <span class="sec-sub">Tables 2, 3, A4, A5 — 20% independent station hold-out, % change relative to the fully calibrated baseline</span></div>
+  <div class="card">
+    <div class="tabs" id="valAlgTabs" role="tablist"><span class="lbl">Algorithm</span></div>
+    <div class="tabs" id="valMetricTabs" role="tablist"><span class="lbl">Metric</span></div>
+    <div class="legend">
+      <span class="k"><span class="sw" style="background:var(--pos)"></span> cluster parameters are better than site calibration</span>
+      <span class="k"><span class="sw" style="background:var(--neg)"></span> worse than site calibration</span>
+      <span class="k" style="margin-left:auto;color:var(--text-muted)" id="dirNote"></span>
+    </div>
+    <div id="chVal"></div>
+    <p class="note" id="valNote"></p>
+    <details class="tbl"><summary>Full hold-out tables — coefficients with 95% CIs and all four metrics</summary><div id="tblVal"></div></details>
+  </div>
+
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card acc-2">
+      <h3>GNG — the more compelling story</h3>
+      <p>Some clusters show minor local degradation, but a significant number <b class="lead">improve on the fully calibrated baseline</b>. Most evident in correlation at 5–10 cm:</p>
+      <ul>
+        <li>Cluster 2 — <b class="lead">R +9.8%</b></li>
+        <li>Cluster 7 — <b class="lead">R +15.3%</b></li>
+        <li>Cluster 21 — <b class="lead">R +17.7%</b></li>
+        <li>Cluster 22 — <b class="lead">R +8.5%</b></li>
+        <li>Cluster 21 at 20–30 cm — <b class="lead">R +14.5%</b></li>
+      </ul>
+      <p><b class="lead">Why improvement is possible:</b> the cluster-average parameter is a more robust and generalizable estimator — it is less prone to overfitting the noise and idiosyncrasies of a single site's calibration record.</p>
+    </div>
+    <div class="card acc-1">
+      <h3>K-means — stability</h3>
+      <p>Performance shifts are minimal across all depths and clusters. Changes in R are typically <b class="lead">less than ±4%</b>, and POD is almost perfectly preserved — <b class="lead">0.00% to 0.85%</b> change in most cases.</p>
+      <p>Together with GNG's gains, this is the paper's central conclusion: cluster-based parameterization is a practical, robust pathway for scalable deployment in data-limited regions.</p>
+      <h4>Consistent across metrics</h4>
+      <p>Calibrated runs show systematically slightly lower RMSE and reduced bias, but the differences are not large. FAR and POD show <b class="lead">no significant difference</b> between the calibrated (green) and cluster-parameterized (red) cases in Figs. 6 and 8 — event detection survives intact.</p>
+    </div>
+    <div class="card acc-3">
+      <h3>GMM and AC — the same verdict, weaker margins</h3>
+      <p>Both were carried through the same hold-out design (Tables A4, A5). They show the same qualitative result — cluster-derived coefficients hold up — but with larger negative excursions in R. Note the paper reports these tables without interpretive discussion; the reading below is drawn directly from their values.</p>
+      <ul>
+        <li>GMM worst R change: <b class="lead">−9.09%</b> (cluster 2, 5–10 cm)</li>
+        <li>AC worst R change: <b class="lead">−6.60%</b> (cluster 5, ≤5 cm)</li>
+        <li>Both show consistently <b class="lead">negative RMSE change</b> — i.e. lower error than the calibrated baseline — up to −15.04% (GMM) and −13.26% (AC)</li>
+      </ul>
+      <p class="note">The paper's own method-independence claim rests on <b class="lead">K-means and GNG</b>, whose results it calls uniform across both frameworks. Tables A4 and A5 point the same way, with thinner margins.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 9. TAKEAWAYS ================= -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">09</span><span class="sec-title">What to take away</span>
+    <span class="sec-sub">key points, limits, and where it goes next</span></div>
+  <div class="grid g3">
+    <div class="card acc-ink">
+      <h3>The three key points</h3>
+      <ul>
+        <li><b class="lead">i.</b> Cluster-based calibration enables SM2RAIN-NWF <b class="lead">without additional site-specific rainfall data</b>.</li>
+        <li><b class="lead">ii.</b> ERA5-Land clustering defines the zones from which calibration coefficients are derived using in-situ data.</li>
+        <li><b class="lead">iii.</b> Applying cluster-derived parameters to <b class="lead">new sites maintains rainfall estimation accuracy</b>.</li>
+      </ul>
+      <h4>The conceptual shift</h4>
+      <p>From <b class="lead">point-wise calibration</b> to <b class="lead">regionalized calibration</b>: each region can be assigned a fixed — or narrowly distributed — parameter set for <i>a</i> and <i>Z</i>, instead of calibrating the model separately at every station.</p>
+    </div>
+    <div class="card">
+      <h3>Limits the authors state plainly</h3>
+      <ul>
+        <li>The framework needs a <b class="lead">minimum level of observational support inside each cluster</b>; clusters without it were excluded, and the method is not directly transferable to regions lacking in-situ data.</li>
+        <li>Clusters with wide distributions or overlapping confidence bounds need further refinement or additional explanatory variables.</li>
+        <li>Only <i>Z</i> and <i>a</i> are calibrated; <i>c</i> is held fixed at 15.90.</li>
+        <li>Two features (t2m, str) exceed the VIF &lt; 10 target and were retained on representational grounds.</li>
+        <li>Soil properties enter only indirectly, through land-surface response variables.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Where it goes next</h3>
+      <ul>
+        <li><b class="lead">Transfer and pooling</b> approaches to extend coverage to clusters with limited in-situ data.</li>
+        <li>Richer clustering variables: comprehensive land-use data, vegetation indices, <b class="lead">human activity including irrigation</b>, and subsurface hydrological dynamics.</li>
+        <li><b class="lead">Direct integration of high-resolution soil-property and geology data sets</b> to refine the physical basis of the parameterization in complex terrain.</li>
+        <li>Higher spatial resolution: downscaled 1 km SMAP / AMSR2 (and 400 m) products, plus CYGNSS GNSS-R for sub-daily soil moisture.</li>
+      </ul>
+      <h4>Why it matters</h4>
+      <p>It opens SM2RAIN-NWF to remote and data-limited areas, and supports scalable climate monitoring, reanalysis and prediction.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <b style="color:var(--text-secondary)">Data</b> — ERA5-Land via the Copernicus Climate Data Store (Hersbach et al., 2023); in-situ soil moisture via the ISMN data portal, https://ismn.geo.tuwien.ac.at/ ·
+  <b style="color:var(--text-secondary)">Code</b> — SM2RAIN: github.com/IRPIhydrology/SM2RAIN_Matlab; the NWF scheme follows Sadeghi et al. (2019a, 2019b), MATLAB code archived on ResearchGate.<br>
+  <b style="color:var(--text-secondary)">Support</b> — NASA Terrestrial Hydrology Program; National Research Foundation of Korea (RS-2025-02363044, RS-2024-00404673, RS-2025-24535700); GIST AI-based Research Scientist Project (2024) and Future-leading Specialized Research Project (2025); Startup and Venture Green Convergence Specialized Graduate School Program (KEITI), Ministry of Climate, Environment and Energy. The authors declare no conflicts of interest.<br>
+  <span style="opacity:.85">Graphical abstract generated from the published article; quantitative charts are re-drawn from the paper's reported values (Tables 1, 2, 3, A4, A5 and Figs. 1, 5b, 7b); the cluster-space and depth-spread diagrams are illustrative schematics, not plotted data. © The Author(s) 2026, CC BY-NC.</span>
+</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+const NS="http://www.w3.org/2000/svg";
+const $=s=>document.querySelector(s);
+const tip=$("#tip");
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in(a||{}))e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function txt(s,a,p){const e=el("text",a,p);e.textContent=s;return e}
+function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+function showTip(ev,html){tip.innerHTML=html;tip.style.opacity=1;moveTip(ev)}
+function moveTip(ev){const r=tip.getBoundingClientRect();let x=ev.clientX+14,y=ev.clientY+14;
+  if(x+r.width>innerWidth-8)x=ev.clientX-r.width-14;if(y+r.height>innerHeight-8)y=ev.clientY-r.height-14;
+  tip.style.left=x+"px";tip.style.top=y+"px"}
+function hideTip(){tip.style.opacity=0}
+function hover(n,html){n.addEventListener("mouseenter",e=>showTip(e,html));
+  n.addEventListener("mousemove",moveTip);n.addEventListener("mouseleave",hideTip);n.style.cursor="default"}
+function roundedBar(x,y,w,h,rightRound){
+  const r=Math.min(4,w,h/2);
+  return rightRound
+    ? `M${x},${y} H${x+w-r} A${r},${r} 0 0 1 ${x+w},${y+r} V${y+h-r} A${r},${r} 0 0 1 ${x+w-r},${y+h} H${x} Z`
+    : `M${x+r},${y} H${x+w} V${y+h} H${x+r} A${r},${r} 0 0 1 ${x},${y+h-r} V${y+r} A${r},${r} 0 0 1 ${x+r},${y} Z`;
+}
+function niceStep(range){
+  const rough=range/5||1, pow=Math.pow(10,Math.floor(Math.log10(rough)));
+  const cand=[1,2,2.5,5,10].map(m=>m*pow);
+  return cand.find(c=>c>=rough)||cand[cand.length-1];
+}
+function buildTabs(host,items,onPick,initial){
+  [...host.querySelectorAll(".tab")].forEach(n=>n.remove());
+  items.forEach(m=>{
+    const b=document.createElement("button");
+    b.className="tab";b.type="button";b.setAttribute("role","tab");
+    b.textContent=m;b.setAttribute("aria-selected",String(m===initial));
+    b.onclick=()=>{[...host.querySelectorAll(".tab")].forEach(c=>c.setAttribute("aria-selected","false"));
+      b.setAttribute("aria-selected","true");onPick(m)};
+    host.appendChild(b);
+  });
+}
+
+/* ================= DATA ================= */
+const DEPTHS=["≤ 5 cm","5–10 cm","10–20 cm","20–30 cm"];
+const DCOL=()=>[css("--d1"),css("--d2"),css("--d3"),css("--d4")];
+const STATIONS=[["0–5 cm",669],["5–10 cm",631],["10–20 cm",742],["20–30 cm",258]];
+
+const T1={algos:["K-means","GNG","GMM","AC"],
+  sil:[0.43,0.40,0.37,0.38], db:[0.82,0.86,0.90,0.85],
+  ch:[197736.06,190865.12,162775.67,185897.73]};
+
+/* Fig 5b (K-means) and Fig 7b (GNG): mean coefficients by cluster & depth */
+const COEF={
+ "K-means":{
+   a:[[["10",5.55],["4",6.85],["26",12.05],["12",12.78],["23",13.48],["11",13.70]],
+      [["10",2.85],["26",12.90],["23",14.55],["12",15.57]],
+      [["14",1.34],["10",6.07],["26",18.39],["23",18.74],["12",19.08]],
+      [["10",6.06],["11",18.85],["12",20.40]]],
+   Z:[[["10",46.00],["11",73.36],["12",96.94],["26",97.42],["23",123.61],["4",124.45]],
+      [["10",42.11],["26",95.43],["12",108.95],["23",135.67]],
+      [["14",16.39],["12",90.94],["10",96.28],["26",96.49],["23",147.47]],
+      [["11",23.17],["12",34.28],["10",69.34]]]},
+ "GNG":{
+   a:[[["2",4.66],["7",6.25],["25",7.75],["16",13.70],["22",13.94],["21",14.44]],
+      [["2",2.76],["7",8.84],["22",14.57],["21",14.76]],
+      [["2",3.00],["25",11.53],["7",13.99],["21",18.85],["22",19.66]],
+      [["16",18.85],["21",19.48]]],
+   Z:[[["2",25.27],["16",73.36],["21",88.08],["25",99.17],["22",123.17],["7",124.52]],
+      [["2",41.82],["21",97.46],["22",136.77],["7",146.95]],
+      [["2",67.29],["21",79.56],["25",126.45],["22",151.31],["7",154.76]],
+      [["16",23.17],["21",31.17]]]}
+};
+
+/* Hold-out tables. Each row: [depthIdx, cluster, aLCI,aM,aUCI, zLCI,zM,zUCI, R, RMSE, FAR, POD] */
+const HOLD={
+ "GNG":[
+  [0,"2",4.54,6.27,8.33,27.18,40.24,54.79,-0.54,-1.34,2.42,0.65],
+  [0,"7",6.29,36.02,92.31,111.18,127.83,143.98,-3.55,9.71,3.56,0.00],
+  [0,"16",12.67,23.15,35.53,43.30,67.40,92.74,-2.04,-1.84,11.83,0.00],
+  [0,"21",46.26,68.82,96.89,93.07,103.44,114.10,-2.27,-0.04,-14.70,0.07],
+  [0,"22",27.49,58.09,98.37,111.58,122.54,133.42,-2.05,-5.41,4.80,0.00],
+  [0,"25",7.05,10.08,13.46,73.61,99.02,123.46,-0.43,-1.63,4.48,0.00],
+  [1,"2",2.49,2.95,3.49,34.59,44.93,56.45,9.80,0.87,3.81,0.00],
+  [1,"7",7.41,29.77,72.48,116.00,145.54,173.04,15.26,24.05,3.52,0.00],
+  [1,"21",28.31,58.20,96.23,90.61,103.90,116.17,17.70,-3.32,0.02,1.67],
+  [1,"22",23.49,51.61,91.48,127.19,139.90,152.36,8.50,-3.41,2.91,0.00],
+  [2,"2",2.77,6.51,11.78,51.94,77.25,104.73,0.02,-3.95,4.37,0.00],
+  [2,"7",33.50,125.14,256.57,129.99,154.78,177.08,-4.30,9.46,4.13,0.00],
+  [2,"21",54.65,103.47,161.24,76.13,90.47,104.49,-0.90,-4.96,3.05,0.43],
+  [2,"22",53.30,94.93,147.97,138.87,152.75,165.81,-2.82,-3.08,3.02,0.00],
+  [2,"25",8.77,13.89,19.57,105.69,126.66,148.82,-0.76,-2.97,4.92,0.00],
+  [3,"16",24.29,55.24,99.20,24.32,49.67,77.91,-1.13,-2.24,2.68,0.00],
+  [3,"21",13.40,19.98,27.17,3.66,54.69,81.43,14.45,12.20,0.05,0.00]],
+ "K-means":[
+  [0,"4",15.79,58.10,126.10,106.52,128.82,150.40,-3.70,5.56,3.96,0.00],
+  [0,"10",5.85,7.46,9.40,43.90,57.05,71.19,-1.25,-1.23,2.31,0.00],
+  [0,"11",12.67,23.15,35.53,43.30,67.40,92.74,-2.05,-1.80,1.42,0.00],
+  [0,"12",36.63,61.86,92.16,86.69,99.82,112.70,0.44,0.38,2.63,0.00],
+  [0,"23",13.48,35.76,73.36,108.98,120.39,132.13,1.83,9.65,2.96,0.07],
+  [0,"26",47.28,81.13,127.50,102.22,115.77,129.04,-3.90,-2.74,-2.36,-0.37],
+  [1,"10",2.70,4.01,5.67,42.03,58.39,76.72,0.93,0.94,4.22,0.00],
+  [1,"12",24.94,76.43,143.69,97.36,113.83,130.28,-2.33,-5.45,4.53,0.00],
+  [1,"23",14.16,22.89,34.61,123.52,137.04,149.85,0.04,-0.65,2.82,0.76],
+  [1,"26",33.17,71.99,118.84,87.15,105.67,123.42,-2.33,-4.03,-1.05,0.00],
+  [2,"10",6.04,9.46,13.35,80.13,100.09,119.66,-1.03,-4.02,4.53,0.00],
+  [2,"12",32.89,79.55,138.80,80.93,98.71,117.47,-0.99,-10.72,1.29,0.85],
+  [2,"14",1.13,2.92,6.12,11.95,20.06,28.91,2.77,-0.03,3.42,5.57],
+  [2,"23",20.04,46.28,86.52,133.50,148.90,163.14,-1.80,-3.08,3.12,0.00],
+  [2,"26",95.78,170.91,255.06,93.19,112.13,131.49,-0.10,-11.43,4.18,0.46],
+  [3,"10",5.83,8.98,12.48,55.18,77.87,102.58,0.95,-5.98,2.90,0.00],
+  [3,"11",24.29,55.24,99.20,24.32,49.67,77.91,-1.15,-2.28,2.68,0.00],
+  [3,"12",16.40,44.28,94.13,33.41,59.92,90.17,-3.25,-1.16,3.33,0.00]],
+ "GMM":[
+  [0,"2",70.21,96.39,128.98,93.58,105.49,117.15,-1.00,-5.83,-2.44,0.66],
+  [0,"7",3.88,4.63,5.40,19.16,27.67,37.59,-4.11,-5.51,2.26,0.00],
+  [0,"21",18.82,47.44,84.79,112.73,123.33,134.17,-1.96,-13.32,8.46,0.00],
+  [0,"27",9.07,41.87,102.42,112.20,103.44,143.60,-4.93,-2.50,-3.80,0.02],
+  [1,"2",48.90,87.44,134.40,93.62,108.22,122.95,-9.09,-15.04,3.04,-0.03],
+  [1,"21",15.56,36.49,71.91,120.03,132.93,15.50,-1.32,-4.57,3.47,0.23],
+  [2,"21",23.48,58.55,107.23,126.54,139.49,152.37,-1.68,-3.72,2.56,0.00],
+  [2,"27",37.11,132.98,257.18,121.33,143.09,163.75,3.19,-6.54,1.12,0.00]],
+ "AC":[
+  [0,"3",46.14,66.76,91.68,99.83,108.59,117.19,-1.05,-7.17,-3.39,0.00],
+  [0,"5",46.99,92.82,151.73,121.23,135.29,149.30,-6.60,-6.38,0.26,0.00],
+  [0,"18",3.99,4.44,5.29,18.04,27.67,37.58,-1.44,-5.59,2.42,0.00],
+  [1,"3",25.36,48.00,77.34,103.33,113.89,124.57,-3.51,-13.26,-1.09,-0.89],
+  [1,"5",60.44,116.60,181.57,116.34,135.49,153.84,-5.03,-7.61,-0.72,0.00],
+  [2,"3",51.74,88.59,132.47,97.44,109.32,121.25,-3.51,-7.61,1.46,0.00],
+  [2,"5",149.87,235.42,333.25,132.75,150.05,166.04,-1.95,-13.20,0.04,0.00]]
+};
+const METRIC_IDX={R:8,RMSE:9,FAR:10,POD:11};
+const HIGHER_IS_BETTER={R:true,RMSE:false,FAR:false,POD:true};
+const METRIC_DIR={
+  R:"positive = higher correlation than the calibrated run",
+  RMSE:"negative = lower error than the calibrated run",
+  FAR:"negative = fewer false alarms than the calibrated run",
+  POD:"positive = more events detected than the calibrated run"};
+const VAL_NOTE={
+  "GNG":{R:"GNG is where cluster-average parameters actually beat site calibration. The 5–10 cm layer carries the story: clusters 2, 7, 21 and 22 all gain (+9.8%, +15.3%, +17.7%, +8.5%), and cluster 21 gains another +14.5% at 20–30 cm. Surface-layer losses stay small (worst −3.55%).",
+   RMSE:"Twelve of the seventeen combinations sit below zero — cluster-derived parameters produce marginally lower error than the calibrated baseline. Five degrade: cluster 7 at every depth it appears (+9.71%, +24.05%, +9.46%), cluster 21 at 20–30 cm (+12.20%), and cluster 2 at 5–10 cm (+0.87%). Cluster 7's very wide coefficient CIs — a spans 7.41–72.48 at 5–10 cm — signal genuine within-cluster heterogeneity.",
+   FAR:"False alarm changes are small and mostly positive but minor (≈2–5%). Two stand out: cluster 21 at ≤5 cm improves sharply (−14.70%, i.e. fewer false alarms), while cluster 16 at ≤5 cm is the largest degradation at +11.83%.",
+   POD:"Detection is essentially untouched — thirteen of the seventeen cluster-depth combinations change by exactly 0.00%. The largest movement is +1.67% (cluster 21, 5–10 cm). Removing the calibration phase does not cost event detection."},
+  "K-means":{R:"Textbook stability: every change is within ±4%. Six of the eighteen combinations are actually positive, the largest being +2.77% (cluster 14, 10–20 cm) and +1.83% (cluster 23, ≤5 cm). The worst case is −3.90%.",
+   RMSE:"Predominantly negative — cluster-parameterized runs have lower RMSE than calibrated ones at most depths, reaching −11.43% (cluster 26) and −10.72% (cluster 12) at 10–20 cm. Only four combinations degrade, all by under 10%.",
+   FAR:"Uniformly small, mostly in the +1% to +5% band, with two clusters improving (26 at ≤5 cm and 5–10 cm). No cluster shows a large false-alarm penalty.",
+   POD:"Almost perfectly preserved: most values are exactly 0.00%, and the paper reports the typical range as 0.00–0.85%. Cluster 14 at 10–20 cm is the one outlier at +5.57%, and only cluster 26 at ≤5 cm loses ground (−0.37%)."},
+  "GMM":{R:"Weaker than K-means and GNG, matching GMM's lowest internal validation scores. Only cluster 27 at 10–20 cm improves (+3.19%); the worst case is −9.09% (cluster 2, 5–10 cm).",
+   RMSE:"Consistently negative — every one of the eight combinations shows lower error than the calibrated run, down to −15.04%.",
+   FAR:"Mixed but small; two clusters improve (−2.44% and −3.80%, both at ≤5 cm) and the worst degradation is +8.46%.",
+   POD:"Essentially unchanged, from −0.03% to +0.66%."},
+  "AC":{R:"All seven combinations degrade, from −1.05% to −6.60% — the least favourable of the four algorithms on correlation, consistent with AC's middling separation scores.",
+   RMSE:"Strongly negative throughout, from −5.59% to −13.26%: lower error than the calibrated baseline in every cluster and depth.",
+   FAR:"Small and mostly favourable — three of seven combinations reduce false alarms, and the largest degradation is only +2.42%.",
+   POD:"Unchanged at 0.00% except cluster 3 at 5–10 cm (−0.89%)."}
+};
+
+/* ================= SIMPLE COLUMN CHART (T1) ================= */
+function miniBars(host,vals,labels,fmt,higherBetter){
+  host.innerHTML="";
+  const W=200,H=132,padL=6,padB=26,padT=16;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const mx=Math.max(...vals)*1.18;
+  const cols=[css("--s1"),css("--s2"),css("--s3"),css("--s4")];
+  const bw=Math.min(24,(W-padL*2)/vals.length-10);
+  const step=(W-padL*2)/vals.length;
+  const y1=H-padB;
+  el("line",{x1:padL,x2:W-padL,y1:y1,y2:y1,class:"base"},svg);
+  vals.forEach((v,i)=>{
+    const x=padL+step*i+(step-bw)/2;
+    const h=Math.max(v/mx*(y1-padT),2);
+    const p=el("path",{d:roundedBar(x,y1-h,bw,h,true).replace(/H([\d.]+) Z/,"H$1 Z"),fill:cols[i]},svg);
+    // vertical bar: build manually with rounded top
+    p.setAttribute("d",`M${x},${y1} V${y1-h+4} A4,4 0 0 1 ${x+4},${y1-h} H${x+bw-4} A4,4 0 0 1 ${x+bw},${y1-h+4} V${y1} Z`);
+    hover(p,`<b>${labels[i]}</b><br>${fmt(v)}${higherBetter!==undefined?"<br><span style='opacity:.75'>"+(higherBetter?"higher is better":"lower is better")+"</span>":""}`);
+    txt(fmt(v),{x:x+bw/2,y:y1-h-5,"text-anchor":"middle",class:"tick","font-weight":"650"},svg);
+    txt(labels[i],{x:x+bw/2,y:y1+13,"text-anchor":"middle",class:"tick"},svg);
+  });
+}
+miniBars($("#chSil"),T1.sil,T1.algos,v=>v.toFixed(2),true);
+miniBars($("#chDB"),T1.db,T1.algos,v=>v.toFixed(2),false);
+miniBars($("#chCH"),T1.ch,T1.algos,v=>(v/1000).toFixed(0)+"k",true);
+(function(){
+  let h='<table class="data"><thead><tr><th>Metric</th>'+T1.algos.map(a=>`<th>${a}</th>`).join("")+'</tr></thead><tbody>';
+  h+=`<tr><td>Silhouette score (↑)</td>${T1.sil.map(v=>`<td>${v.toFixed(2)}</td>`).join("")}</tr>`;
+  h+=`<tr><td>Davies–Bouldin score (↓)</td>${T1.db.map(v=>`<td>${v.toFixed(2)}</td>`).join("")}</tr>`;
+  h+=`<tr><td>Calinski–Harabasz score (↑)</td>${T1.ch.map(v=>`<td>${v.toLocaleString(undefined,{minimumFractionDigits:2})}</td>`).join("")}</tr>`;
+  h+="</tbody></table>";
+  $("#tblT1").innerHTML=h;
+})();
+
+/* ================= STATION COUNTS ================= */
+(function(){
+  const host=$("#chartStations");
+  const W=440,padL=64,padR=52,padT=6,padB=22,rowH=32;
+  const H=padT+padB+STATIONS.length*rowH;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const mx=800,x0=padL,x1=W-padR;
+  const cols=DCOL();
+  for(let v=0;v<=800;v+=200){
+    const x=x0+v/mx*(x1-x0);
+    el("line",{x1:x,x2:x,y1:padT,y2:H-padB+2,class:"gl"},svg);
+    txt(v,{x:x,y:H-padB+15,"text-anchor":"middle",class:"tick"},svg);
+  }
+  STATIONS.forEach(([lab,n],i)=>{
+    const y=padT+i*rowH+5, bh=20;
+    txt(lab,{x:x0-8,y:y+bh/2+1,"text-anchor":"end","dominant-baseline":"middle",class:"vlab"},svg);
+    const w=n/mx*(x1-x0);
+    const r=el("path",{d:roundedBar(x0,y,w,bh,true),fill:cols[i]},svg);
+    hover(r,`<b>${lab}</b><br>N = ${n} ISMN stations`);
+    txt("N = "+n,{x:x0+w+6,y:y+bh/2+1,"dominant-baseline":"middle",class:"tick","font-weight":"650"},svg);
+  });
+  txt("ISMN stations reporting at each depth interval",{x:x0,y:H-2,class:"axlab"},svg);
+})();
+
+/* ================= CLUSTER SCHEMATIC ================= */
+(function(){
+  const host=$("#clusterSchematic");
+  const W=520,H=150;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const stages=[["ERA5-Land","18 variables"],["UMAP","3-D embedding"],["k = 30","hydroclimatic zones"],["Z̄, ā","per zone × depth"]];
+  const bw=(W-3*26)/4;
+  stages.forEach((s,i)=>{
+    const x=i*(bw+26);
+    const g=el("g",{},svg);
+    el("rect",{x:x,y:20,width:bw,height:52,rx:9,fill:css("--wash"),stroke:css("--border")},g);
+    txt(s[0],{x:x+bw/2,y:44,"text-anchor":"middle","font-size":"13","font-weight":"750",fill:css("--text-primary")},g);
+    txt(s[1],{x:x+bw/2,y:60,"text-anchor":"middle","font-size":"10",fill:css("--text-muted")},g);
+    hover(g,`<b>${s[0]}</b><br>${s[1]}`);
+    if(i<3){
+      el("path",{d:`M${x+bw+5},46 H${x+bw+19}`,stroke:css("--text-muted"),"stroke-width":2},svg);
+      el("path",{d:`M${x+bw+14},41 L${x+bw+20},46 L${x+bw+14},51`,stroke:css("--text-muted"),"stroke-width":2,fill:"none"},svg);
+    }
+  });
+  // scatter of clusters
+  const seedRand=(()=>{let s=42;return()=>{s=(s*1103515245+12345)%2147483648;return s/2147483648}})();
+  const cols=[css("--s1"),css("--s2"),css("--s3"),css("--s4"),css("--d3"),css("--d1")];
+  for(let c=0;c<6;c++){
+    const cx=40+c*80+seedRand()*10, cy=110+seedRand()*14;
+    for(let k=0;k<14;k++){
+      const a=seedRand()*Math.PI*2, r=seedRand()*15;
+      el("circle",{cx:(cx+Math.cos(a)*r).toFixed(1),cy:(cy+Math.sin(a)*r*0.6).toFixed(1),
+        r:2.4,fill:cols[c%cols.length],opacity:.75},svg);
+    }
+  }
+  txt("stations grouped by hydroclimatic similarity → one (Z̄, ā) per group",{x:0,y:H-2,class:"axlab"},svg);
+})();
+
+/* ================= DEPTH SPREAD SCHEMATIC ================= */
+(function(){
+  const host=$("#depthSpread");
+  const W=500,H=210,padL=62,padR=14,padT=14,padB=30;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const x0=padL,x1=W-padR,rowH=(H-padT-padB)/4;
+  const spreads=[[0.18,"tightly constrained","sharp, highly concentrated peak in a at low values near the surface"],
+                 [0.30,"concentrating lower","distribution moving to lower values, constrained by soil texture"],
+                 [0.52,"bimodal at low elevation","low-elevation Z becomes distinctly bimodal"],
+                 [0.78,"broad, diffuse, scattered","primary mode consolidates mid-range; a separate low-Z mode appears at high elevation"]];
+  const cols=DCOL();
+  spreads.forEach(([s,lab,detail],i)=>{
+    const y=padT+i*rowH+rowH/2;
+    txt(DEPTHS[i],{x:x0-8,y:y+4,"text-anchor":"end",class:"vlab"},svg);
+    const cx=x0+(x1-x0)*0.30, halfw=(x1-x0)*0.30*s+(x1-x0)*0.06;
+    const g=el("g",{},svg);
+    // violin-ish shape
+    const pts=[];
+    for(let t=0;t<=24;t++){
+      const u=t/24, xx=cx-halfw+2*halfw*u;
+      const dens=Math.exp(-Math.pow((u-0.34)/(0.16+0.28*s),2))+0.55*s*Math.exp(-Math.pow((u-0.78)/0.20,2));
+      pts.push([xx,dens]);
+    }
+    const mxd=Math.max(...pts.map(p=>p[1]));
+    const top=pts.map((p,k)=>`${k?"L":"M"}${p[0].toFixed(1)},${(y-p[1]/mxd*rowH*0.38).toFixed(1)}`).join(" ");
+    const bot=pts.slice().reverse().map(p=>`L${p[0].toFixed(1)},${(y+p[1]/mxd*rowH*0.38).toFixed(1)}`).join(" ");
+    el("path",{d:top+" "+bot+" Z",fill:cols[i],opacity:.55},g);
+    el("line",{x1:cx-halfw,x2:cx+halfw,y1:y,y2:y,stroke:cols[i],"stroke-width":1.5},g);
+    hover(g,`<b>${DEPTHS[i]}</b><br>${detail}`);
+    txt(lab,{x:x0+(x1-x0)*0.60,y:y+4,"text-anchor":"start",class:"tick"},svg);
+  });
+  txt("schematic of how the parameter distributions widen with depth (Figs. 3–5)",{x:x0,y:H-6,class:"axlab"},svg);
+})();
+
+/* ================= COEFFICIENT CHARTS ================= */
+let coefAlgo="K-means";
+function coefChart(host,which){
+  host.innerHTML="";
+  const data=COEF[coefAlgo][which];
+  const flat=[];
+  data.forEach((arr,di)=>arr.slice().sort((a,b)=>b[1]-a[1]).forEach(([c,v])=>flat.push({d:di,c,v})));
+  const W=580,padL=124,padR=56,padT=10,padB=32,rowH=17,gap=12;
+  const groups=data.length;
+  const H=padT+padB+flat.length*rowH+(groups-1)*gap;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const mx=Math.max(...flat.map(f=>f.v));
+  const step=niceStep(mx*1.1), top=Math.ceil(mx*1.08/step)*step;
+  const x0=padL,x1=W-padR;
+  const sc=v=>x0+v/top*(x1-x0);
+  for(let v=0;v<=top+1e-9;v+=step){
+    el("line",{x1:sc(v),x2:sc(v),y1:padT-2,y2:H-padB+2,class:"gl"},svg);
+    txt(Math.round(v*10)/10,{x:sc(v),y:H-padB+15,"text-anchor":"middle",class:"tick"},svg);
+  }
+  el("line",{x1:x0,x2:x0,y1:padT-2,y2:H-padB+2,class:"base"},svg);
+  const cols=DCOL();
+  let y=padT, gi=-1, gStart=0;
+  flat.forEach((f,i)=>{
+    if(f.d!==gi){
+      if(gi>=0)y+=gap;
+      gi=f.d;gStart=y;
+      const cnt=flat.filter(x=>x.d===gi).length;
+      txt(DEPTHS[gi],{x:x0-104,y:y+cnt*rowH/2+3,"text-anchor":"start",class:"vlab","font-size":"10.5"},svg);
+      el("line",{x1:x0-112,x2:x0-112,y1:y+2,y2:y+cnt*rowH-4,stroke:cols[gi],"stroke-width":3,"stroke-linecap":"round"},svg);
+    }
+    const bh=12;
+    const w=Math.max(sc(f.v)-x0,1.5);
+    const r=el("path",{d:roundedBar(x0,y+(rowH-bh)/2,w,bh,true),fill:cols[f.d]},svg);
+    hover(r,`<b>${coefAlgo} · cluster ${f.c}</b><br>${DEPTHS[f.d]}<br>${which==="a"?"ā":"Z̄"} = ${f.v.toFixed(2)}`);
+    txt("C"+f.c,{x:x0-6,y:y+rowH/2+3,"text-anchor":"end",class:"tick"},svg);
+    txt(f.v.toFixed(2),{x:x0+w+5,y:y+rowH/2+3,"dominant-baseline":"middle",class:"tick","font-weight":"650"},svg);
+    y+=rowH;
+  });
+  txt(which==="a"?"mean drainage coefficient ā":"mean depth parameter Z̄",{x:x0,y:H-2,class:"axlab"},svg);
+}
+function drawCoef(){coefChart($("#chCoefA"),"a");coefChart($("#chCoefZ"),"Z");}
+buildTabs($("#coefTabs"),["K-means","GNG"],a=>{coefAlgo=a;drawCoef()},"K-means");
+drawCoef();
+(function(){
+  let h='<table class="data"><thead><tr><th>Algorithm</th><th>Depth</th><th>Cluster</th><th>ā</th><th>Z̄</th></tr></thead><tbody>';
+  ["K-means","GNG"].forEach(alg=>{
+    COEF[alg].a.forEach((arr,di)=>{
+      const zmap={};COEF[alg].Z[di].forEach(([c,v])=>zmap[c]=v);
+      arr.forEach(([c,v])=>{h+=`<tr><td>${alg}</td><td style="text-align:left">${DEPTHS[di]}</td><td>${c}</td><td>${v.toFixed(2)}</td><td>${(zmap[c]!==undefined?zmap[c].toFixed(2):"—")}</td></tr>`});
+    });
+  });
+  h+="</tbody></table>";
+  $("#tblCoef").innerHTML=h;
+})();
+
+/* ================= VALIDATION CHART ================= */
+let valAlgo="GNG", valMetric="R";
+function drawVal(){
+  const host=$("#chVal");host.innerHTML="";
+  const rows=HOLD[valAlgo], idx=METRIC_IDX[valMetric], hib=HIGHER_IS_BETTER[valMetric];
+  const W=1000,padL=112,padR=60,padT=12,padB=34,rowH=19,gap=12;
+  const groups=[...new Set(rows.map(r=>r[0]))];
+  const H=padT+padB+rows.length*rowH+(groups.length-1)*gap;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const vals=rows.map(r=>r[idx]);
+  const rawMx=Math.max(...vals,0),rawMn=Math.min(...vals,0);
+  const step=niceStep((rawMx-rawMn)||5);
+  const mx=Math.ceil((rawMx*1.06||step)/step)*step, mn=rawMn<0?Math.floor(rawMn*1.12/step)*step:0;
+  const x0=padL,x1=W-padR;
+  const sc=v=>x0+(v-mn)/(mx-mn)*(x1-x0);
+  for(let v=mn;v<=mx+1e-9;v+=step){
+    el("line",{x1:sc(v),x2:sc(v),y1:padT-2,y2:H-padB+2,class:"gl"},svg);
+    txt((Math.round(v*10)/10)+"%",{x:sc(v),y:H-padB+15,"text-anchor":"middle",class:"tick"},svg);
+  }
+  el("line",{x1:sc(0),x2:sc(0),y1:padT-2,y2:H-padB+2,class:"base","stroke-width":1.6},svg);
+  const cols=DCOL();
+  let y=padT,gi=-1;
+  rows.forEach(r=>{
+    if(r[0]!==gi){
+      if(gi>=0)y+=gap;
+      gi=r[0];
+      const cnt=rows.filter(x=>x[0]===gi).length;
+      el("line",{x1:x0-100,x2:x0-100,y1:y+2,y2:y+cnt*rowH-4,stroke:cols[gi],"stroke-width":3,"stroke-linecap":"round"},svg);
+      txt(DEPTHS[gi],{x:x0-93,y:y+cnt*rowH/2+3,class:"vlab","font-size":"10.5"},svg);
+    }
+    const v=r[idx],bh=12;
+    const good=hib?v>0:v<0;
+    const col=Math.abs(v)<0.005?css("--axis"):(good?css("--pos"):css("--neg"));
+    const xa=sc(Math.min(v,0)),xb=sc(Math.max(v,0));
+    const w=Math.max(Math.abs(xb-xa),1.5);
+    const b=el("path",{d:roundedBar(xa,y+(rowH-bh)/2,w,bh,v>=0),fill:col},svg);
+    hover(b,`<b>${valAlgo} · cluster ${r[1]}</b><br>${DEPTHS[r[0]]}<br>${valMetric} change vs calibrated: <b>${v>0?"+":""}${v.toFixed(2)}%</b><br>`+
+      `<span style="opacity:.8">ā = ${r[3].toFixed(2)} (CI ${r[2].toFixed(2)}–${r[4]===null?"n/r":r[4].toFixed(2)})<br>`+
+      `Z̄ = ${r[6].toFixed(2)} (CI ${r[5].toFixed(2)}–${r[7].toFixed(2)})</span><br>`+
+      `<span style="opacity:.8">${good?"better than":"worse than"} site-specific calibration</span>`);
+    txt("C"+r[1],{x:x0-6,y:y+rowH/2+3,"text-anchor":"end",class:"tick"},svg);
+    const lblTxt=(v>0?"+":"")+v.toFixed(2)+"%";
+    const tw=lblTxt.length*5.8;
+    let lx=v>=0?xb+5:xa-5, anch=v>=0?"start":"end";
+    if(v<0 && lx-tw<x0+2){ lx=sc(0)+6; anch="start"; }
+    txt(lblTxt,{x:lx,y:y+rowH/2+3,"dominant-baseline":"middle",
+      "text-anchor":anch,class:"tick","font-weight":"650"},svg);
+    y+=rowH;
+  });
+  txt(`${valMetric} — percent change relative to the fully calibrated (with-cal) run`,{x:x0,y:H-2,class:"axlab"},svg);
+  $("#dirNote").textContent=METRIC_DIR[valMetric];
+  $("#valNote").innerHTML=VAL_NOTE[valAlgo][valMetric];
+}
+buildTabs($("#valAlgTabs"),["GNG","K-means","GMM","AC"],a=>{valAlgo=a;drawVal()},"GNG");
+buildTabs($("#valMetricTabs"),["R","RMSE","FAR","POD"],m=>{valMetric=m;drawVal()},"R");
+drawVal();
+(function(){
+  let h='<table class="data"><thead><tr><th>Alg</th><th>Depth</th><th>Cluster</th>'+
+    '<th>a — LCI (M) UCI</th><th>Z — LCI (M) UCI</th><th>R %</th><th>RMSE %</th><th>FAR %</th><th>POD %</th></tr></thead><tbody>';
+  ["GNG","K-means","GMM","AC"].forEach(alg=>{
+    h+=`<tr class="grp"><td colspan="9">${alg} — 20% station hold-out</td></tr>`;
+    HOLD[alg].forEach(r=>{
+      const a=`${r[2].toFixed(2)} (${r[3].toFixed(2)}) ${r[4]===null?"n/r":r[4].toFixed(2)}`;
+      const z=`${r[5].toFixed(2)} (${r[6].toFixed(2)}) ${r[7].toFixed(2)}`;
+      h+=`<tr><td>${alg}</td><td style="text-align:left">${DEPTHS[r[0]]}</td><td>${r[1]}</td><td>${a}</td><td>${z}</td>`+
+         `<td>${r[8].toFixed(2)}</td><td>${r[9].toFixed(2)}</td><td>${r[10].toFixed(2)}</td><td>${r[11].toFixed(2)}</td></tr>`;
+    });
+  });
+  h+='</tbody></table><div class="note">LCI / M / UCI = lower confidence interval, mean, upper confidence interval from B = 10,000 bootstrap resamples.</div>';
+  $("#tblVal").innerHTML=h;
+})();
+
+/* ================= THEME ================= */
+const btn=$("#themeBtn");
+btn.textContent=document.documentElement.getAttribute("data-theme")==="dark"?"Light mode":"Dark mode";
+btn.onclick=()=>{
+  const cur=document.documentElement.getAttribute("data-theme");
+  location.hash=cur==="dark"?"light":"dark";
+  location.reload();
+};
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphical Abstract — SM2RAIN–GreenAmpt & Bayesian Optimization for Rainfall Estimation</title>
+<style>
+:root{
+  color-scheme: light;
+  --surface-1:#fcfcfb; --page:#f4f4f1; --panel:#ffffff;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,0.10);
+  --nwf:#2a78d6; --ga:#eb6834; --gpm:#1baf7a;
+  --d1:#184f95; --d2:#2a78d6; --d3:#5598e7; --d4:#86b6ef;
+  --pos:#2a78d6; --neg:#e34948; --neutral:#f0efec;
+  --good:#0ca30c; --warning:#fab219; --serious:#ec835a; --critical:#d03b3b;
+  --wash:#f7f7f4;
+  --ink-on-fill:#ffffff;
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --surface-1:#1a1a19; --page:#0d0d0d; --panel:#1a1a19;
+  --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+  --nwf:#3987e5; --ga:#d95926; --gpm:#199e70;
+  --d1:#184f95; --d2:#2a78d6; --d3:#5598e7; --d4:#86b6ef;
+  --pos:#3987e5; --neg:#e66767; --neutral:#383835;
+  --wash:#141413;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--page); color:var(--text-primary);
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:14px; line-height:1.45; padding:22px 16px 60px;
+}
+.wrap{max-width:1560px;margin:0 auto}
+
+/* ---------- header ---------- */
+header.hero{
+  background:var(--panel); border:1px solid var(--border); border-radius:14px;
+  padding:22px 26px; position:relative; overflow:hidden;
+}
+header.hero::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:6px;
+  background:linear-gradient(180deg,var(--nwf),var(--ga));
+}
+.journal{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.chip{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--border);color:var(--text-secondary)}
+.chip.red{color:#c0392b;border-color:rgba(192,57,43,.35)}
+h1.title{font-size:26px;line-height:1.22;margin:2px 0 10px;font-weight:750;letter-spacing:-.01em;max-width:1120px}
+.authors{font-size:13px;color:var(--text-secondary)}
+.authors b{color:var(--text-primary);font-weight:650}
+.meta{font-size:11.5px;color:var(--text-muted);margin-top:6px}
+.toolbar{position:absolute;right:20px;top:18px;display:flex;gap:8px}
+button.tgl{
+  font:inherit;font-size:12px;padding:6px 12px;border-radius:8px;cursor:pointer;
+  background:var(--wash);color:var(--text-secondary);border:1px solid var(--border);
+}
+button.tgl:hover{color:var(--text-primary)}
+
+/* ---------- layout ---------- */
+.sec{margin-top:18px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 10px 2px}
+.sec-num{
+  font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--ink-on-fill);
+  background:var(--text-primary); border-radius:6px;padding:3px 8px;
+}
+.sec-title{font-size:16px;font-weight:750;letter-spacing:-.005em}
+.sec-sub{font-size:12px;color:var(--text-muted)}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g23{grid-template-columns:1.15fr 1fr}
+.g32{grid-template-columns:1fr 1.4fr}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:15px 16px;
+}
+.card h3{font-size:13.5px;margin:0 0 4px;font-weight:700;letter-spacing:-.005em}
+.card h4{font-size:12px;margin:12px 0 5px;font-weight:700;color:var(--text-secondary);
+  text-transform:uppercase;letter-spacing:.05em}
+.card p{margin:5px 0;font-size:12.5px;color:var(--text-secondary)}
+.card ul{margin:6px 0 0;padding-left:16px;font-size:12.5px;color:var(--text-secondary)}
+.card li{margin:3px 0}
+.lead{color:var(--text-primary)!important}
+
+/* accent cards */
+.acc-nwf{border-top:3px solid var(--nwf)}
+.acc-ga{border-top:3px solid var(--ga)}
+.acc-gpm{border-top:3px solid var(--gpm)}
+.acc-ink{border-top:3px solid var(--text-primary)}
+
+/* ---------- math ---------- */
+.eq{
+  font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;
+  background:var(--wash);border:1px solid var(--border);border-radius:8px;
+  padding:10px 12px;margin:8px 0;position:relative;font-size:15px;line-height:1.7;
+  overflow-x:auto;
+}
+.eq.tall{padding-top:26px}
+.eq .tag{position:absolute;right:9px;top:7px;font-family:system-ui,sans-serif;
+  font-size:10px;color:var(--text-muted);font-weight:700;letter-spacing:.04em}
+.v{font-style:italic}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .18em}
+.frac>span:first-child{padding:0 .35em;border-bottom:1.4px solid currentColor}
+.frac>span:last-child{padding:1px .35em 0}
+.eqnote{font-family:system-ui,sans-serif;font-size:11px;color:var(--text-muted);margin-top:4px}
+.big{font-size:1.5em;vertical-align:-.22em;font-weight:300}
+.cases{display:inline-grid;grid-template-columns:auto auto;gap:2px 18px;vertical-align:middle;text-align:left}
+.brace{font-size:2.6em;line-height:.9;font-weight:200;vertical-align:-.28em}
+
+/* symbol table */
+table.sym{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px}
+table.sym td{padding:3px 6px;border-bottom:1px solid var(--grid);vertical-align:top;color:var(--text-secondary)}
+table.sym td:first-child{width:74px;color:var(--text-primary);font-weight:600;
+  font-family:"Cambria Math",Georgia,serif;font-style:italic;font-size:13px}
+
+/* ---------- chart bits ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:11.5px;color:var(--text-secondary);margin:6px 0 4px}
+.legend .k{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.sw.line{width:16px;height:3px;border-radius:2px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin:2px 0 8px}
+.tab{font:inherit;font-size:11.5px;font-weight:650;padding:5px 11px;border-radius:7px;cursor:pointer;
+  border:1px solid var(--border);background:var(--wash);color:var(--text-secondary)}
+.tab[aria-selected="true"]{background:var(--text-primary);color:var(--panel);border-color:var(--text-primary)}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.tick{font-size:10.5px;fill:var(--text-muted)}
+.axlab{font-size:10.5px;fill:var(--text-muted)}
+.vlab{font-size:10.5px;fill:var(--text-secondary);font-weight:650}
+.gl{stroke:var(--grid);stroke-width:1}
+.base{stroke:var(--axis);stroke-width:1}
+
+#tip{
+  position:fixed;pointer-events:none;opacity:0;transition:opacity .08s;z-index:99;
+  background:var(--text-primary);color:var(--panel);font-size:11.5px;line-height:1.4;
+  padding:7px 10px;border-radius:7px;max-width:270px;box-shadow:0 4px 14px rgba(0,0,0,.22)
+}
+#tip b{font-weight:700}
+
+/* stat tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:13px 15px}
+.tile .lab{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;font-weight:650}
+.tile .val{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-top:3px}
+.tile .sub{font-size:11.5px;color:var(--text-secondary);margin-top:2px}
+
+/* significance grid */
+.sig{display:grid;grid-template-columns:46px repeat(4,1fr);gap:4px;font-size:10.5px}
+.sig .hd{color:var(--text-muted);font-weight:700;text-align:center;padding:2px 0;font-size:10px}
+.sig .rw{color:var(--text-secondary);font-weight:700;display:flex;align-items:center;justify-content:flex-end;padding-right:6px}
+.cell{border-radius:6px;padding:6px 3px;text-align:center;font-weight:700;line-height:1.25;cursor:default}
+.cell small{display:block;font-weight:600;font-size:9.5px;opacity:.92}
+.c-s{background:var(--good);color:#fff}
+.c-g{background:var(--critical);color:#fff}
+.c-n{background:var(--neutral);color:var(--text-secondary)}
+.c-a{background:var(--warning);color:#0b0b0b}
+
+/* flow arrows */
+.flow{display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:22px;font-weight:300}
+.pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;
+  background:var(--wash);border:1px solid var(--border);color:var(--text-secondary);margin-right:5px}
+.pill.nwf{color:var(--nwf);border-color:var(--nwf)}
+.pill.ga{color:var(--ga);border-color:var(--ga)}
+.pill.new{background:var(--ga);color:#fff;border-color:var(--ga)}
+
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:12px;color:var(--text-secondary);margin-top:6px}
+.kv b{color:var(--text-primary);font-weight:650;white-space:nowrap}
+
+details.tbl{margin-top:8px}
+details.tbl summary{font-size:11px;color:var(--text-muted);cursor:pointer;list-style:none}
+details.tbl summary::-webkit-details-marker{display:none}
+details.tbl summary::before{content:"▸ ";}
+details.tbl[open] summary::before{content:"▾ ";}
+table.data{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{padding:3px 6px;border-bottom:1px solid var(--grid);text-align:right;color:var(--text-secondary)}
+table.data th:first-child,table.data td:first-child{text-align:left;color:var(--text-primary)}
+table.data th{color:var(--text-muted);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.04em}
+
+footer{margin-top:20px;padding:16px 18px;background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;font-size:11.5px;color:var(--text-muted)}
+footer a{color:var(--text-secondary)}
+.note{font-size:11px;color:var(--text-muted);margin-top:6px}
+@media (max-width:1200px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .g23,.g32,.g2{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+}
+@media print{ body{background:#fff} .toolbar{display:none} }
+</style>
+</head>
+<script>
+(function(){var h=(location.hash||"").replace("#","");
+ var t = h==="dark"?"dark": h==="light"?"light":
+   (window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+ document.documentElement.setAttribute("data-theme",t);})();
+</script>
+<body>
+<div id="tip" role="status"></div>
+<div class="wrap">
+
+<!-- ============ HEADER ============ -->
+<header class="hero">
+  <div class="toolbar">
+    <button class="tgl" id="themeBtn" type="button">Dark mode</button>
+  </div>
+  <div class="journal">
+    <span class="chip red">npj Climate and Atmospheric Science</span>
+    <span class="chip">Article · (2026) 9:157</span>
+    <span class="chip">Open Access · CC BY-NC-ND 4.0</span>
+  </div>
+  <h1 class="title">Beyond satellite-based precipitation data: a novel soil-moisture physics framework with Green–Ampt and Bayesian optimization for rainfall estimation</h1>
+  <div class="authors">
+    <b>Mohammad Saeedi</b><sup>1</sup>, <b>Hyunglok Kim</b><sup>2</sup>✉, <b>John Bolten</b><sup>3</sup>, <b>John Eylander</b><sup>4</sup>, <b>Venkataraman Lakshmi</b><sup>1</sup>
+  </div>
+  <div class="meta">
+    <sup>1</sup>Civil &amp; Environmental Engineering, University of Virginia · <sup>2</sup>Environment &amp; Energy Engineering, GIST, Gwangju, South Korea ·
+    <sup>3</sup>Hydrological Sciences Laboratory, NASA GSFC · <sup>4</sup>Coastal &amp; Hydraulics Laboratory, US Army ERDC<br>
+    https://doi.org/10.1038/s41612-026-01425-5 · Received 5 Feb 2026 · Accepted 23 Apr 2026 · Published 7 May 2026
+  </div>
+</header>
+
+<!-- ============ ONE-LINE THESIS ============ -->
+<div class="sec">
+  <div class="card acc-ink" style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+    <div style="flex:1;min-width:320px">
+      <div style="font-size:11px;font-weight:800;letter-spacing:.09em;color:var(--text-muted);text-transform:uppercase">The thesis in one line</div>
+      <div style="font-size:18px;font-weight:650;line-height:1.4;margin-top:5px">
+        Replace SM2RAIN's <span style="color:var(--text-muted);text-decoration:line-through">empirical power-law drainage</span> with a
+        <span style="color:var(--ga);font-weight:750">physically based Green–Ampt wetting-front infiltration term</span>, then test how far down the soil column
+        the rainfall signal survives — 0–20 cm, four layers, globally.
+      </div>
+    </div>
+    <div style="flex:0 0 auto;display:flex;gap:10px;flex-wrap:wrap">
+      <div class="tile" style="min-width:150px"><div class="lab">Best layer</div><div class="val">0–5<span style="font-size:15px"> cm</span></div><div class="sub">GA wins at 54% of stations</div></div>
+      <div class="tile" style="min-width:150px"><div class="lab">GA vs GPM · FAR</div><div class="val" style="color:var(--pos)">+50%</div><div class="sub">false alarms cut, 0–5 cm</div></div>
+      <div class="tile" style="min-width:150px"><div class="lab">GA vs GPM · NSE</div><div class="val" style="color:var(--pos)">+48%</div><div class="sub">continuous skill, 0–5 cm</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 1. PROBLEM ============ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">The gap</span>
+    <span class="sec-sub">why land rainfall constraints are still weak</span></div>
+  <div class="grid g3">
+    <div class="card">
+      <h3>Gauges are sparse and uneven</h3>
+      <p>Networks are difficult to sustain at scale, radar coverage is geographically limited and needs calibration — heterogeneous, data-sparse regions stay imperfectly constrained.</p>
+    </div>
+    <div class="card">
+      <h3>Satellite products carry regime-dependent bias</h3>
+      <p>Sampling, retrieval physics, surface and precipitation-type heterogeneity propagate into climate diagnostics and every workflow that uses precipitation as reference or forcing.</p>
+    </div>
+    <div class="card">
+      <h3>SM2RAIN's two bottlenecks</h3>
+      <p>Inverting the soil-moisture water balance works — but skill is governed by <b class="lead">(i)</b> how infiltration/drainage physics is represented and <b class="lead">(ii)</b> the <b class="lead">depth</b> at which soil moisture is observed. Existing implementations fix literature parameters and use shallow layers only.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 2. DATA ============ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Data &amp; experimental design</span>
+    <span class="sec-sub">in-situ truth, four depths, one satellite benchmark</span></div>
+  <div class="grid g32">
+    <div class="card">
+      <h3>International Soil Moisture Network (ISMN)</h3>
+      <div class="kv">
+        <b>Period</b><span>2010 – 2023</span>
+        <b>Record filter</b><span>≥ 5 years of daily data per station</span>
+        <b>Native step</b><span>hourly SM + precipitation, harmonised</span>
+        <b>Reference</b><span>co-located in-situ rain gauges</span>
+        <b>Benchmark</b><span>GPM IMERG (gridded satellite precipitation)</span>
+        <b>Software</b><span>MATLAB R2023b · maps via Python Cartopy</span>
+      </div>
+      <p class="note">Fig. 1 of the paper maps global station coverage, colour-coded by how many of the four soil-moisture depths each station reports (1→4). Coverage is dense over North America and Europe, sparse elsewhere.</p>
+      <h4>Stratifications tested</h4>
+      <p><span class="pill">Depth × 4</span><span class="pill">Land cover × 5</span><span class="pill">Köppen climate × 8</span></p>
+    </div>
+    <div class="card">
+      <h3>The depth ladder — where the rainfall imprint lives</h3>
+      <div id="depthDiagram"></div>
+      <p class="note">The rainfall imprint in soil moisture is sharpest at the surface and becomes progressively attenuated, delayed and dispersed with depth — this is the paper's central control variable.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 3. PHYSICS ============ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">The physics: from water balance to two inversions</span>
+    <span class="sec-sub">"soil as a natural rain gauge"</span></div>
+
+  <div class="card" style="margin-bottom:14px">
+    <h3>Common core — the SM2RAIN water balance (Brocca et al.)</h3>
+    <div class="grid g2" style="align-items:start">
+      <div>
+        <div class="eq"><span class="tag">EQ 1</span>
+          <span class="v">Z</span>&thinsp;<span class="frac"><span><span class="v">dθ</span>(<span class="v">t</span>)</span><span><span class="v">dt</span></span></span>
+          = <span class="v">P</span>(<span class="v">t</span>) − <span class="v">R</span>(<span class="v">t</span>) − <span class="v">ET</span>(<span class="v">t</span>) − <span class="v">G</span>(<span class="v">t</span>)
+        </div>
+        <div class="eq"><span class="tag">EQ 2–4</span>
+          <span class="v">R</span>(<span class="v">t</span>) = <span class="v">P</span>(<span class="v">t</span>)&thinsp;<span class="v">θ</span>(<span class="v">t</span>)<sup class="v">c</sup> &nbsp;&nbsp;·&nbsp;&nbsp;
+          <span class="v">G</span>(<span class="v">t</span>) = <span class="v">a</span>&thinsp;<span class="v">θ</span>(<span class="v">t</span>)<sup class="v">b</sup> &nbsp;&nbsp;·&nbsp;&nbsp;
+          <span class="v">ET</span>(<span class="v">t</span>) = <span class="v">ET</span><sub>pot</sub>&thinsp;<span class="v">θ</span>(<span class="v">t</span>)
+        </div>
+      </div>
+      <div>
+        <div class="eq"><span class="tag">EQ 5 — classic inversion</span>
+          <span class="v">P</span>(<span class="v">t</span>) =
+          <span class="frac">
+            <span><span class="v">Z</span><span class="frac" style="font-size:.9em"><span><span class="v">dθ</span>(<span class="v">t</span>)</span><span><span class="v">dt</span></span></span> + <span class="v">a</span>&thinsp;<span class="v">θ</span>(<span class="v">t</span>)<sup class="v">b</sup></span>
+            <span>1 − <span class="v">θ</span>(<span class="v">t</span>)<sup class="v">c</sup></span>
+          </span>
+        </div>
+        <p style="font-size:12px">ET is assumed negligible <i>during</i> rainfall. Rainfall is inferred from the competition between storage tendency and loss terms — so errors in the <b class="lead">drainage / infiltration term</b> systematically bias retrieved rainfall and can make the inverse problem ill-conditioned.</p>
+        <table class="sym">
+          <tr><td>Z</td><td>depth-related soil parameter (soil layer depth)</td></tr>
+          <tr><td>θ(t)</td><td>relative / volumetric soil moisture</td></tr>
+          <tr><td>a, b, c</td><td>empirical drainage &amp; runoff exponents (calibrated)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <!-- NWF branch -->
+    <div class="card acc-nwf">
+      <h3><span class="pill nwf">Branch A</span> SM2RAIN–NWF · analytical Net Water Flux</h3>
+      <p>Sadeghi et al.'s NWF model, embedded in SM2RAIN by Saeedi et al. It reconstructs the effective vertical water flux from SM by <b class="lead">analytically inverting the 1-D linearized Richards equation</b>.</p>
+      <div class="eq tall"><span class="tag">EQ 6 — recursive flux</span>
+        <span class="v">F<sub>N</sub></span> =
+        <span class="brace">{</span>
+        <span class="cases">
+          <span>Θ<sub>1</sub>(<span class="v">Z</span>)&thinsp;<span class="v">e</span><sup>0.5<span class="v">Z</span>−0.25<span class="v">T</span></sup>&thinsp;<span class="v">U</span>(<span class="v">Z</span>, Δ<span class="v">T</span>),</span><span style="font-family:system-ui;font-size:12px;align-self:center"><span class="v">N</span> = 1</span>
+          <span><span class="v">F</span><sub><span class="v">N</span>−1</sub> + Θ<sub><span class="v">N</span></sub>(<span class="v">Z</span>)<span class="v">e</span><sup>0.5<span class="v">Z</span>−0.25<span class="v">T</span></sup> − <span class="v">F</span><sub>1</sub><span class="v">U</span>(<span class="v">Z</span>,<span class="v">T</span>) − <span class="big">Σ</span><sub style="font-size:.7em"><span class="v">i</span>=3</sub><sup style="font-size:.7em"><span class="v">N</span></sup>[<span class="v">F</span><sub><span class="v">i</span>−1</sub> − <span class="v">F</span><sub><span class="v">i</span>−2</sub>]<span class="v">U</span>(<span class="v">Z</span>,(<span class="v">N</span>−<span class="v">i</span>+2)Δ<span class="v">T</span>),</span><span style="font-family:system-ui;font-size:12px;align-self:center"><span class="v">N</span> ≥ 2</span>
+        </span>
+      </div>
+      <div class="eq"><span class="tag">EQ 7 — modified inversion</span>
+        <span class="v">P</span>(<span class="v">t</span>) =
+        <span class="frac">
+          <span><span class="v">Z</span><span class="frac" style="font-size:.9em"><span><span class="v">dθ</span>(<span class="v">t</span>)</span><span><span class="v">dt</span></span></span> + <span class="v">a f</span>(<span class="v">t</span>)</span>
+          <span>1 − <span class="v">θ</span>(<span class="v">t</span>)<sup class="v">c</sup></span>
+        </span>
+      </div>
+      <table class="sym">
+        <tr><td>Θ<sub>N</sub>(Z)</td><td>normalised SM anomaly, (θ(t) − θ<sub>∞</sub>)/θ<sub>∞</sub>; θ<sub>∞</sub> = background moisture</td></tr>
+        <tr><td>U(Z,T)</td><td>analytical unit response function</td></tr>
+        <tr><td>T</td><td>dimensionless time, T = k²t/D<sub>i</sub> (k = hydraulic conductivity, D<sub>i</sub> = diffusivity)</td></tr>
+        <tr><td>f(t)</td><td>drainage/flux term G(t) proxy inserted into the inversion</td></tr>
+        <tr><td>f<sub>max</sub>, D<sub>i</sub>, k<sub>f</sub>, z<sub>f</sub></td><td>infiltration parameters — <b>fixed from literature</b> in the original scheme</td></tr>
+      </table>
+      <p class="note"><b class="lead">Limitation attacked:</b> fixed literature parameters neglect site-specific soil-hydraulic variability → systematic bias.</p>
+    </div>
+
+    <!-- GA branch -->
+    <div class="card acc-ga">
+      <h3><span class="pill new">NEW · Branch B</span> SM2RAIN–GA · Green–Ampt wetting front</h3>
+      <p><b class="lead">First application of a Green–Ampt infiltration calculation inside a bottom-up rainfall-inversion framework.</b> A sharp wetting front separates a saturated zone (θ<sub>s</sub>) above from the initial water content (θ<sub>i</sub>) below and advances downward.</p>
+      <div id="gaDiagram" style="margin:6px 0 2px"></div>
+      <div class="eq"><span class="tag">EQ 8 — infiltration rate</span>
+        <span class="frac"><span><span class="v">dF</span></span><span><span class="v">dt</span></span></span>
+        = <span class="v">K<sub>s</sub></span><span style="font-size:1.35em;font-weight:200">(</span>1 +
+        <span class="frac"><span><span class="v">Ψ<sub>f</sub></span>&thinsp;Δ<span class="v">θ</span></span><span><span class="v">F</span>(<span class="v">t</span>)</span></span>
+        <span style="font-size:1.35em;font-weight:200">)</span>
+      </div>
+      <div class="eq"><span class="tag">EQ 9 — implicit cumulative form</span>
+        <span class="v">F</span>(<span class="v">t</span>) − <span class="v">F</span><sub>0</sub> − <span class="v">Ψ<sub>f</sub></span>Δ<span class="v">θ</span>&thinsp;ln
+        <span style="font-size:1.35em;font-weight:200">(</span>
+        <span class="frac"><span><span class="v">F</span>(<span class="v">t</span>) + <span class="v">Ψ<sub>f</sub></span>Δ<span class="v">θ</span></span><span><span class="v">F</span><sub>0</sub> + <span class="v">Ψ<sub>f</sub></span>Δ<span class="v">θ</span></span></span>
+        <span style="font-size:1.35em;font-weight:200">)</span>
+        = <span class="v">K<sub>s</sub></span>(<span class="v">t</span> − <span class="v">t</span><sub>0</sub>)
+      </div>
+      <div class="eqnote">Instantaneous rate <span class="v">f</span>(<span class="v">t</span>) = d<span class="v">F</span>/d<span class="v">t</span> from Eq. 8 <b>replaces the NWF flux term inside Eq. 7</b>.</div>
+      <table class="sym">
+        <tr><td>F, F<sub>0</sub></td><td>cumulative infiltration depth at t and t<sub>0</sub> (mm)</td></tr>
+        <tr><td>K<sub>s</sub></td><td>saturated hydraulic conductivity — constrained to <b>[0.1, 200] mm h⁻¹</b></td></tr>
+        <tr><td>Ψ<sub>f</sub></td><td>wetting-front suction head — constrained to <b>[20, 1000] mm</b></td></tr>
+        <tr><td>Δθ</td><td>θ<sub>s</sub> − θ<sub>i</sub>, constant moisture deficit across the front</td></tr>
+      </table>
+      <p class="note"><b class="lead">Assumption &amp; its cost:</b> 1-D vertical flow with a sharp front is most defensible in shallow layers. Deeper, diffuse redistribution, lateral flow, root uptake, preferential flow and heterogeneity take over — so at 15–20 cm the GA term must be read as an <i>effective first-order, physically constrained</i> representation, not full mechanistic subsurface flow.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 4. PARAMETER LEARNING ============ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Learning the parameters &amp; probing their uncertainty</span>
+    <span class="sec-sub">Bayesian optimization + one-at-a-time stochastic sensitivity</span></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>SM2RAIN–NWF<sub>Calib</sub> — site-wise Bayesian optimization</h3>
+      <p>The fixed-literature-parameter assumption is relaxed: all infiltration- and SM2RAIN-specific parameters are estimated <b class="lead">independently for every station</b>.</p>
+      <div class="eq"><span class="tag">EQ 10–11</span>
+        <span class="v">θ</span>* = arg&thinsp;min<sub style="font-size:.75em"><span class="v">θ</span>∈𝒳</sub> <span class="v">L</span>(<span class="v">θ</span>)
+        &nbsp;&nbsp;,&nbsp;&nbsp;
+        <span class="v">L</span>(<span class="v">θ</span>) = −NSE(<span class="v">P</span><sub>sim</sub>, <span class="v">P</span><sub>obs</sub>)
+      </div>
+      <div class="eq"><span class="tag">EQ 12 — GP surrogate</span>
+        <span class="v">L</span>(<span class="v">θ</span>) ~ 𝒢𝒫<span style="font-size:1.2em;font-weight:200">(</span><span class="v">m</span>(<span class="v">θ</span>), <span class="v">k</span>(<span class="v">θ</span>, <span class="v">θ</span>′)<span style="font-size:1.2em;font-weight:200">)</span>
+      </div>
+      <div class="eq"><span class="tag">EQ 13 — Expected Improvement</span>
+        <span class="v">α</span>(<span class="v">θ</span>) = <span class="v">ξ</span> + 𝔼<span style="font-size:1.2em;font-weight:200">[</span>max<span style="font-size:1.1em;font-weight:200">(</span>0, <span class="v">L</span><sub>best</sub> − <span class="v">L</span>(<span class="v">θ</span>)<span style="font-size:1.1em;font-weight:200">)</span><span style="font-size:1.2em;font-weight:200">]</span>
+      </div>
+      <div id="boLoop" style="margin-top:8px"></div>
+      <p class="note"><span class="v">ξ</span> &gt; 0 encourages exploratory sampling in high-posterior-uncertainty regions — balancing exploration against exploitation with a limited budget of expensive model evaluations. All infiltration- and SM2RAIN-specific parameters are jointly calibrated; the four reported against elevation in Fig. 8 are <b>f<sub>max</sub>, D<sub>i</sub>, k<sub>f</sub>, z<sub>f</sub></b>.</p>
+    </div>
+
+    <div class="card">
+      <h3>One-at-a-time (OAT) stochastic sensitivity</h3>
+      <p>Isolates the marginal effect of each calibrated parameter: perturb one, hold the rest at their BO optima, keep the infiltration term fixed. <b class="lead">1000 realizations × 8 representative stations</b> spanning a broad elevation and geographic range.</p>
+      <div class="eq"><span class="tag">EQ 14–16 — three perturbation blocks</span>
+        <span style="display:block">B1: <span class="v">a</span><sup>(<span class="v">i</span>)</sup> = |<span class="v">a</span>* + <span class="v">a</span>*<span class="v">ξ<sub>i</sub></span>|, &nbsp;<span class="v">c</span><sup>(<span class="v">i</span>)</sup>=<span class="v">c</span>*, &nbsp;<span class="v">Z</span><sup>(<span class="v">i</span>)</sup>=<span class="v">Z</span>*</span>
+        <span style="display:block">B2: <span class="v">a</span><sup>(<span class="v">i</span>)</sup>=<span class="v">a</span>*, &nbsp;<span class="v">c</span><sup>(<span class="v">i</span>)</sup> = |<span class="v">c</span>* + <span class="v">c</span>*<span class="v">η<sub>i</sub></span>|, &nbsp;<span class="v">Z</span><sup>(<span class="v">i</span>)</sup>=<span class="v">Z</span>*</span>
+        <span style="display:block">B3: <span class="v">a</span><sup>(<span class="v">i</span>)</sup>=<span class="v">a</span>*, &nbsp;<span class="v">c</span><sup>(<span class="v">i</span>)</sup>=<span class="v">c</span>*, &nbsp;<span class="v">Z</span><sup>(<span class="v">i</span>)</sup> = |<span class="v">Z</span>* + <span class="v">Z</span>*<span class="v">ζ<sub>i</sub></span>|</span>
+        <span class="eqnote"><span class="v">ξ<sub>i</sub></span>, <span class="v">η<sub>i</sub></span>, <span class="v">ζ<sub>i</sub></span> ~ i.i.d. 𝒩(0,1) &nbsp;·&nbsp; perturbation applied as <span class="v">P</span> = <span class="v">P</span><sub>opt</sub> + <span class="v">σ<sub>P</sub></span>·<span class="v">ε</span></span>
+      </div>
+      <div class="eq"><span class="tag">EQ 17 — ensemble statistics</span>
+        <span class="v">μ<sub>P</sub></span>(<span class="v">t</span>) = <span class="frac"><span>1</span><span><span class="v">N</span></span></span><span class="big">Σ</span><sub style="font-size:.7em"><span class="v">i</span>=1</sub><sup style="font-size:.7em"><span class="v">N</span></sup><span class="v">P</span><sup>(<span class="v">i</span>)</sup><sub style="margin-left:-1.2em">sim</sub>(<span class="v">t</span>)
+        &nbsp;,&nbsp;
+        <span class="v">σ<sub>P</sub></span>(<span class="v">t</span>) = √<span style="border-top:1.3px solid currentColor;padding:0 .2em">
+          <span class="frac"><span>1</span><span><span class="v">N</span>−1</span></span><span class="big">Σ</span><span style="font-size:.9em">(<span class="v">P</span><sup>(<span class="v">i</span>)</sup><sub style="margin-left:-1.2em">sim</sub> − <span class="v">μ<sub>P</sub></span>)²</span></span>
+      </div>
+      <p class="note">Reported per time step: mean, σ, 2.5th/97.5th percentiles (95% CI) and the 25–75% IQR. <b class="lead">Result:</b> at almost all stations the deterministic BO estimates for <i>Z</i> and <i>a</i> fall inside the 5–95% Monte-Carlo envelope and near the distribution median — the calibration is robust to parameter perturbation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 5. EVALUATION ============ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Evaluation protocol</span>
+    <span class="sec-sub">three products · five metrics · four depths · non-parametric testing</span></div>
+  <div class="grid g4">
+    <div class="card"><h3>Products compared</h3>
+      <div class="legend" style="flex-direction:column;align-items:flex-start;gap:7px">
+        <span class="k"><span class="sw" style="background:var(--nwf)"></span> SM2RAIN–NWF <span style="color:var(--text-muted)">bottom-up, analytical flux</span></span>
+        <span class="k"><span class="sw" style="background:var(--ga)"></span> SM2RAIN–GA <span style="color:var(--text-muted)">bottom-up, Green–Ampt</span></span>
+        <span class="k"><span class="sw" style="background:var(--gpm)"></span> GPM IMERG <span style="color:var(--text-muted)">top-down satellite benchmark</span></span>
+      </div>
+    </div>
+    <div class="card"><h3>Continuous metrics</h3>
+      <ul><li><b class="lead">NSE</b> — Nash–Sutcliffe efficiency (1 = perfect; &lt;0 worse than the observed mean)</li>
+      <li><b class="lead">R</b> — Pearson correlation</li>
+      <li><b class="lead">RMSE</b> — root mean square error</li></ul>
+    </div>
+    <div class="card"><h3>Categorical (event) metrics</h3>
+      <ul><li><b class="lead">FAR</b> — false alarm ratio (lower = better)</li>
+      <li><b class="lead">POD</b> — probability of detection (higher = better)</li></ul>
+      <p class="note">Together they separate "getting the totals right" from "getting the storms right".</p>
+    </div>
+    <div class="card"><h3>Statistics</h3>
+      <ul><li>Paired <b class="lead">Wilcoxon signed-rank</b> tests on station-wise metrics — chosen because pairing is natural at the station and distributions are skewed with outliers</li>
+      <li><b class="lead">Benjamini–Hochberg FDR</b> correction; adjusted <b class="lead">q-values</b> reported</li>
+      <li>Rank-based composite score across all five metrics → per-station "winner"</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 6. RESULTS ============ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Results</span>
+    <span class="sec-sub">every panel below is interactive — hover any mark</span></div>
+
+  <div class="grid g23" style="margin-bottom:14px">
+    <div class="card">
+      <h3>Percent change relative to GPM, by soil-moisture depth <span style="color:var(--text-muted);font-weight:400">(Fig. 3)</span></h3>
+      <div class="tabs" id="metricTabs" role="tablist"></div>
+      <div class="legend">
+        <span class="k"><span class="sw" style="background:var(--nwf)"></span> SM2RAIN–NWF</span>
+        <span class="k"><span class="sw" style="background:var(--ga)"></span> SM2RAIN–GA</span>
+        <span class="k" style="margin-left:auto;color:var(--text-muted)">positive = better than GPM</span>
+      </div>
+      <div id="chartDepth"></div>
+      <p class="note" id="depthNote"></p>
+      <details class="tbl"><summary>Table view — all metrics, all depths</summary><div id="depthTable"></div></details>
+    </div>
+
+    <div class="card">
+      <h3>Which product wins at each station? <span style="color:var(--text-muted);font-weight:400">(Fig. 4)</span></h3>
+      <p>Share of stations where each method ranks first on the <b class="lead">joint</b> rank-based score over all five metrics.</p>
+      <div class="legend">
+        <span class="k"><span class="sw" style="background:var(--nwf)"></span> NWF</span>
+        <span class="k"><span class="sw" style="background:var(--ga)"></span> GA</span>
+        <span class="k"><span class="sw" style="background:var(--gpm)"></span> GPM</span>
+      </div>
+      <div id="chartWinner"></div>
+      <p class="note">GA dominates at shallow depth, but the winner distribution shifts systematically downward: GA 54%→43%, NWF 30%→20%, while GPM climbs 16%→37%. Consistent with attenuation of the rainfall imprint in deeper soil.</p>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-bottom:14px">
+    <div class="card">
+      <h3>Significance of the inter-model comparison <span style="color:var(--text-muted);font-weight:400">(Fig. 5)</span></h3>
+      <p>Paired Wilcoxon signed-rank on station-wise metrics, FDR-adjusted q-values.</p>
+      <div class="grid g2" style="gap:16px">
+        <div>
+          <div style="font-size:11.5px;font-weight:700;margin-bottom:6px;text-align:center;color:var(--text-secondary)">SM2RAIN–NWF vs GPM</div>
+          <div class="sig" id="sigNWF"></div>
+        </div>
+        <div>
+          <div style="font-size:11.5px;font-weight:700;margin-bottom:6px;text-align:center;color:var(--text-secondary)">SM2RAIN–GA vs GPM</div>
+          <div class="sig" id="sigGA"></div>
+        </div>
+      </div>
+      <div class="legend" style="margin-top:10px">
+        <span class="k"><span class="sw" style="background:var(--good)"></span> SM2RAIN significantly better</span>
+        <span class="k"><span class="sw" style="background:var(--critical)"></span> GPM significantly better</span>
+        <span class="k"><span class="sw" style="background:var(--neutral);border:1px solid var(--border)"></span> Non-significant</span>
+        <span class="k"><span class="sw" style="background:var(--warning)"></span> Significant, median paired difference ≈ 0</span>
+      </div>
+      <p class="note"><b class="lead">Read this way:</b> <b class="lead">FAR</b> favours the bottom-up schemes at <i>every</i> depth for both methods — all eight cells green. NSE favours them everywhere except GA at 15–20 cm, where the difference is non-significant (q = 0.199). NWF loses correlation <i>and</i> POD in the two deepest layers; GA never loses POD anywhere — significantly better at all four depths.</p>
+    </div>
+
+    <div class="card">
+      <h3>Skill decay with depth — the headline pattern</h3>
+      <div id="chartDecay"></div>
+      <p class="note">Composite view: GA's advantage over GPM on event detection (POD ↑ and FAR ↓ simultaneously) is what separates it from NWF, and it survives deeper into the column.</p>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>Stratified by land cover, 0–5 cm <span style="color:var(--text-muted);font-weight:400">(Fig. 6, Table 1)</span></h3>
+      <div class="tabs" id="lcTabs" role="tablist"></div>
+      <div class="legend">
+        <span class="k"><span class="sw" style="background:var(--nwf)"></span> NWF vs GPM</span>
+        <span class="k"><span class="sw" style="background:var(--ga)"></span> GA vs GPM</span>
+      </div>
+      <div id="chartLC"></div>
+      <p class="note">Classes: <b class="lead">10</b> cropland (rainfed) · <b class="lead">70</b> tree cover, needle-leaved evergreen, closed-to-open (&gt;15%) · <b class="lead">120</b> shrubland · <b class="lead">130</b> grassland · <b class="lead">190</b> urban.
+      Mean improvement across classes — NSE +65% (NWF) / +53% (GA); FAR +20% vs <b class="lead">+46%</b>; POD +14% vs <b class="lead">+49%</b>. Replacing the drainage term with Green–Ampt is what buys transferability across surfaces.</p>
+      <details class="tbl"><summary>Table view — land cover</summary><div id="lcTable"></div></details>
+    </div>
+
+    <div class="card">
+      <h3>Stratified by Köppen climate, 0–5 cm <span style="color:var(--text-muted);font-weight:400">(Fig. 7)</span></h3>
+      <div class="tabs" id="clTabs" role="tablist"></div>
+      <div class="legend">
+        <span class="k"><span class="sw" style="background:var(--nwf)"></span> NWF vs GPM</span>
+        <span class="k"><span class="sw" style="background:var(--ga)"></span> GA vs GPM</span>
+      </div>
+      <div id="chartCL"></div>
+      <p class="note">Mean over classes — NSE +78% / +69%; R +14% / +17%; RMSE +29% / +24%; FAR +25% / <b class="lead">+53%</b>; POD +21% / <b class="lead">+48%</b>.
+      <b class="lead">Sign reversals matter:</b> under NWF, POD collapses in Cfb (−55.3%) and Cfa (−7.6%); GA turns both positive (+11.7%, +10.5%). The one systematic exception is <b class="lead">Cfa</b>, where GA's RMSE change is slightly negative despite better FAR and POD — residual mismatch in infiltration timing.</p>
+      <details class="tbl"><summary>Table view — climate</summary><div id="clTable"></div></details>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card">
+      <h3>Fixed literature parameters vs site-wise BO <span style="color:var(--text-muted);font-weight:400">(Fig. 8)</span></h3>
+      <p>Optimized f<sub>max</sub>, D<sub>i</sub>, k<sub>f</sub> and z<sub>f</sub> span broad ranges with <b class="lead">no monotonic dependence on elevation</b> — elevation is not a primary control, and much of what BO captures is idiosyncratic rather than a large-scale driver.</p>
+      <div id="chartBO"></div>
+      <p class="note">Central tendency and spread of R and RMSE largely overlap between the two configurations; FAR changes are minor; the one systematic deviation is <b class="lead">POD, which is higher under the fixed setting</b>. Holding (f<sub>max</sub>, D<sub>i</sub>, k<sub>f</sub>, z<sub>f</sub>) fixed does not materially degrade skill for most stations — and it removes the computational burden of site-wise BO.</p>
+    </div>
+    <div class="card">
+      <h3>OAT sensitivity of <i>Z</i> and <i>a</i> <span style="color:var(--text-muted);font-weight:400">(Fig. 9)</span></h3>
+      <p>1000 stochastic realizations per station, 8 stations. Box = 25–75% IQR, whiskers = 5th–95th percentile, dashed = mean ± 1σ, green dot = the deterministic BO estimate.</p>
+      <div id="chartOAT"></div>
+      <p class="note">At almost all stations the deterministic calibration sits <b class="lead">inside the 5–95% uncertainty envelope</b> and close to the median of the distribution — the calibrated coefficients are relatively robust to the imposed perturbations. (Schematic reproduction of the paper's Fig. 9 layout; box widths/whiskers illustrate the reported structure.)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 7. SCALE MISMATCH ============ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">The fairness check: point gauge vs satellite grid</span>
+    <span class="sec-sub">how much of GPM's penalty is a sampling artefact?</span></div>
+  <div class="card">
+    <div class="grid g23">
+      <div>
+        <p>SM2RAIN estimates are validated against <b class="lead">point-scale</b> rain gauges while GPM IMERG represents <b class="lead">areal</b> rainfall at grid scale. To quantify that penalty the authors ran a multi-gauge pixel sensitivity analysis on GPM pixels containing several gauges (Fig. S1).</p>
+        <div class="tiles" style="grid-template-columns:repeat(3,1fr);margin-top:10px">
+          <div class="tile"><div class="lab">Median P95</div><div class="val">−2.99%</div><div class="sub">reduced by areal reference</div></div>
+          <div class="tile"><div class="lab">Median P99</div><div class="val">−6.38%</div><div class="sub">reduced by areal reference</div></div>
+          <div class="tile"><div class="lab">GPM false alarms</div><div class="val">15.9%</div><div class="sub">resolved by areal reference</div></div>
+        </div>
+      </div>
+      <div>
+        <h4>Context from the literature</h4>
+        <ul>
+          <li>Standard error from a single gauge ≈ <b class="lead">33%</b> for a 2 × 2 km pixel</li>
+          <li>Gauge-to-gauge differences within a 500 × 500 m pixel can reach <b class="lead">100%</b> over several days</li>
+          <li><b class="lead">&gt; 25 gauges</b> may be needed to push area-average error below 20% at fine temporal scale</li>
+          <li>Sparse gauge networks tend to <i>underestimate</i> IMERG skill relative to dense-gauge references</li>
+        </ul>
+        <p class="note"><b class="lead">Verdict:</b> scale mismatch explains only <i>part</i> of the observed performance difference — it does not overturn the main findings.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 8. TAKE-HOMES ============ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-num">08</span><span class="sec-title">What to take away</span>
+    <span class="sec-sub">three contributions · three firm results · operational guidance</span></div>
+  <div class="grid g3">
+    <div class="card acc-ink">
+      <h3>Three contributions</h3>
+      <ul>
+        <li><b class="lead">i.</b> First integration of a <b class="lead">Green–Ampt infiltration constraint</b> into an SM2RAIN-type inversion — an interpretable route to reducing regime-dependent drainage/infiltration error.</li>
+        <li><b class="lead">ii.</b> First <b class="lead">depth-stratified, multi-layer</b> assessment of SM2RAIN-family retrieval using in-situ SM across 0–20 cm — delineating where and why skill weakens with depth.</li>
+        <li><b class="lead">iii.</b> Site-specific parameters via <b class="lead">Bayesian optimization</b> plus OAT stochastic experiments that quantify sensitivity to parametric uncertainty.</li>
+      </ul>
+    </div>
+    <div class="card acc-ga">
+      <h3>Three firm results</h3>
+      <ul>
+        <li><b class="lead">Depth matters.</b> Performance peaks at 0–5 cm and degrades progressively as the rainfall imprint attenuates.</li>
+        <li><b class="lead">Green–Ampt &gt; NWF flux closure.</b> GA improves on both the NWF variant and GPM across NSE, R, RMSE, POD and FAR — with <b>simultaneous</b> POD gains and FAR reductions, i.e. real event discrimination, not just better totals.</li>
+        <li><b class="lead">Fixed parameters are a defensible default.</b> BO's benefit is regime-dependent (mostly FAR in Cfa, Cfb, Dwb, Dfb), not universal.</li>
+      </ul>
+    </div>
+    <div class="card acc-nwf">
+      <h3>Operational recommendations</h3>
+      <ul>
+        <li>Prioritise <b class="lead">near-surface layers</b> for inversion.</li>
+        <li>Adopt <b class="lead">GA-based SM2RAIN</b> as the default bottom-up configuration.</li>
+        <li>Tailor parameters by <b class="lead">depth, land cover and climate</b>.</li>
+        <li>For continental/global roll-out: start from the <b class="lead">fixed parameter set</b> (light, stable POD); reserve BO for sites whose post-hoc diagnostics show persistent volumetric bias or regime mismatch.</li>
+        <li>Ship <b class="lead">OAT uncertainty</b> alongside operational products.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card">
+      <h3>Caveats the authors keep on the table</h3>
+      <ul>
+        <li>Point-scale rainfall and profile SM do not sample the same footprint — affects both correlation and event metrics.</li>
+        <li>Unmodelled processes decouple rainfall from the SM signal: vegetation, frozen soil/snow, irrigation, soil-moisture noise → inflated false detections or misses.</li>
+        <li>The GA sharp-front assumption weakens with depth; Bayesian optimization can only <i>partially</i> absorb the unresolved site-specific complexity.</li>
+        <li>OAT perturbs selected parameters individually; extending uncertainty treatment to observational and structural components would strengthen reliability claims.</li>
+        <li>Class-dependent trade-offs persist, most visibly in Cfa (humid subtropical) and Cfb (oceanic).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Where this goes next</h3>
+      <ul>
+        <li><b class="lead">Fuse multi-depth information</b> rather than choosing one layer.</li>
+        <li>Relax the simplifying assumptions of the front-based formulation.</li>
+        <li>Assimilate additional hydrologic cues.</li>
+        <li>Extend benchmarking <b class="lead">beyond GPM to multi-sensor products</b>.</li>
+      </ul>
+      <h4>Why it matters for climate science</h4>
+      <p>More defensible, observation-based rainfall constraints — with explicit uncertainty — for climate diagnostics, land–atmosphere coupling analysis, and benchmarking of gridded precipitation products in exactly the heterogeneous, data-scarce regions where gauges fail.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <b style="color:var(--text-secondary)">Data</b> — International Soil Moisture Network, https://ismn.earth/ ·
+  <b style="color:var(--text-secondary)">Code</b> — SM2RAIN: github.com/IRPIhydrology/SM2RAIN_Matlab; NWF implementation after Sadeghi et al. (2019) ·
+  Simulations in MATLAB R2023b (University of Virginia academic licence); global maps via Python Cartopy with Natural Earth base features.<br>
+  <b style="color:var(--text-secondary)">Support</b> — US Army Corps of Engineers (W911NF2120095); National Research Foundation of Korea (RS-2025-02363044, RS-2025-24535700); GIST Future-Leading Specialized Research Project (2026); Korea Basic Science Institute (RS-2024-00404673); Virginia Space Grant Consortium Graduate Research Fellowship.<br>
+  <span style="opacity:.85">Graphical abstract generated from the published article; all figures reproduced here are re-drawn from the paper's reported values. © The Author(s) 2026, CC BY-NC-ND 4.0.</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+const NS="http://www.w3.org/2000/svg";
+const $=(s,r)=>(r||document).querySelector(s);
+const tip=$("#tip");
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in (a||{}))e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function txt(s,a,p){const e=el("text",a,p);e.textContent=s;return e;}
+function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+function showTip(ev,html){tip.innerHTML=html;tip.style.opacity=1;moveTip(ev);}
+function moveTip(ev){const r=tip.getBoundingClientRect();let x=ev.clientX+14,y=ev.clientY+14;
+  if(x+r.width>innerWidth-8)x=ev.clientX-r.width-14; if(y+r.height>innerHeight-8)y=ev.clientY-r.height-14;
+  tip.style.left=x+"px";tip.style.top=y+"px";}
+function hideTip(){tip.style.opacity=0;}
+function hover(node,html){node.addEventListener("mouseenter",e=>showTip(e,html));
+  node.addEventListener("mousemove",moveTip);node.addEventListener("mouseleave",hideTip);
+  node.style.cursor="default";}
+const fmt=v=>(v>0?"+":"")+v.toFixed(2)+"%";
+
+/* ============================ DATA ============================ */
+const DEPTHS=["0–5 cm","5–10 cm","10–15 cm","15–20 cm"];
+const METRICS=["NSE","R","RMSE","FAR","POD"];
+const FIG3={
+  NSE :{nwf:[51.59,22.02,30.58,0.28],  ga:[47.59,34.79,24.89,-3.58]},
+  R   :{nwf:[4.57,5.54,-2.78,-7.27],   ga:[7.21,11.46,-0.99,-3.12]},
+  RMSE:{nwf:[21.99,5.46,16.33,7.33],   ga:[18.50,4.92,10.00,1.12]},
+  FAR :{nwf:[21.95,18.32,29.28,31.23], ga:[49.85,41.51,39.98,28.55]},
+  POD :{nwf:[-2.34,3.67,-15.41,-33.76],ga:[24.95,39.69,19.39,11.41]}
+};
+const METRIC_NOTE={
+  NSE:"Nash–Sutcliffe efficiency. Both bottom-up schemes beat GPM through 10–15 cm, and the advantage is largest at the surface. At 15–20 cm the gain essentially vanishes: NWF +0.28%, GA −3.58% (and the GA–GPM difference there is statistically non-significant, q = 0.199).",
+  R:"Pearson correlation. The two schemes diverge with depth: NWF clearly loses correlation in both deep layers (−2.78%, −7.27%), whereas GA is close to neutral there (−0.99%, −3.12%) — the paper's phrasing is that GA \"maintains improvement, or at least avoids degradation\", at those depths.",
+  RMSE:"Error magnitude — positive means RMSE reduced versus GPM. Both schemes reduce error at all four depths. NWF's reduction is the larger of the two at every depth; GA's advantage lies elsewhere, in the event-detection metrics.",
+  FAR:"False alarm ratio — positive means fewer false alarms than GPM. This is GA's clearest and most consistent win: roughly twice NWF's reduction at the surface and still ~29% at 15–20 cm.",
+  POD:"Probability of detection — positive means more real rainfall events captured. The decisive contrast: NWF's POD changes are non-uniform and turn strongly negative with depth (−33.76% at 15–20 cm), while GA improves POD at every depth. GA captures more true events AND sustains a better hit/false-alarm trade-off."
+};
+const WINNER={labels:DEPTHS, nwf:[30,28,27,20], ga:[54,51,44,43], gpm:[16,21,29,37]};
+const SIG={
+  nwf:{NSE:[["s","<0.001"],["s","<0.001"],["s","<0.001"],["s","<0.001"]],
+       R:[["s","<0.001"],["s","0.014"],["g","<0.001"],["g","<0.001"]],
+       RMSE:[["s","<0.001"],["n","0.111"],["s","<0.001"],["s","0.046"]],
+       FAR:[["s","<0.001"],["s","<0.001"],["s","<0.001"],["s","<0.001"]],
+       POD:[["a","0.013"],["n","0.654"],["g","<0.001"],["g","<0.001"]]},
+  ga: {NSE:[["s","<0.001"],["s","0.012"],["s","<0.001"],["n","0.199"]],
+       R:[["s","<0.001"],["s","<0.001"],["n","0.431"],["g","0.014"]],
+       RMSE:[["s","<0.001"],["n","0.349"],["s","<0.001"],["n","0.884"]],
+       FAR:[["s","<0.001"],["s","<0.001"],["s","<0.001"],["s","<0.001"]],
+       POD:[["s","<0.001"],["s","<0.001"],["s","<0.001"],["s","0.012"]]}
+};
+const SIGTEXT={s:"significantly better",g:"GPM significantly better",n:"non-significant",a:"significant, but median paired difference ≈ 0"};
+const LC_CLASSES=[["10","Cropland, rainfed"],["70","Tree cover, needle-leaved evergreen (>15%)"],["120","Shrubland"],["130","Grassland"],["190","Urban areas"]];
+const FIG6={
+  NSE :{nwf:[70.1,41.2,82.7,58.1,74.7], ga:[58.1,44.5,78.8,57.1,27.1], mean:[65,53]},
+  R   :{nwf:[14.0,6.3,35.8,4.3,13.5],   ga:[19.8,7.6,37.5,7.6,17.2],   mean:[15,18]},
+  RMSE:{nwf:[27.9,2.4,16.1,23.1,14.2],  ga:[21.7,-1.6,14.1,19.8,5.2],  mean:[17,12]},
+  FAR :{nwf:[6.0,6.2,31.5,30.4,26.8],   ga:[49.2,28.6,62.4,51.4,37.2], mean:[20,46]},
+  POD :{nwf:[-28.8,32.4,63.6,-2.5,3.6], ga:[17.6,45.3,111.4,17.7,55.2],mean:[14,49]}
+};
+const CL_CLASSES=[["BSk","Cold semi-arid"],["BWk","Cold desert"],["Cfa","Humid subtropical"],["Cfb","Oceanic"],["Csa","Hot-summer Mediterranean"],["Csb","Warm-summer Mediterranean"],["Dfb","Warm-summer humid continental"],["Dwb","Monsoon-influenced continental"]];
+const FIG7={
+  NSE :{nwf:[66.1,63.7,8.1,88.5,131.5,94.8,74.7,99.4], ga:[83.2,36.5,-5.3,72.6,128.1,57.8,84.2,98.9], mean:[78,69]},
+  R   :{nwf:[26.6,29.5,-0.7,18.4,20.4,2.3,9.9,4.2],    ga:[36.7,17.6,3.3,26.4,23.3,9.3,13.5,7.5],     mean:[14,17]},
+  RMSE:{nwf:[14.3,10.4,-0.7,36.6,51.7,19.6,18.5,83.0], ga:[14.0,5.9,-6.6,30.9,45.6,-4.3,19.7,82.8],   mean:[29,24]},
+  FAR :{nwf:[40.0,32.5,17.5,13.3,34.7,49.4,15.1,null], ga:[39.0,89.8,45.7,51.4,31.6,35.2,46.1,86.5],  mean:[25,53]},
+  POD :{nwf:[22.9,55.5,-7.6,-55.3,63.5,68.7,-1.9,null],ga:[50.8,80.6,10.5,11.7,65.5,79.7,33.8,null],  mean:[21,48]}
+};
+
+/* ============================ GENERIC BAR CHART ============================ */
+function groupedBars(host,opt){
+  host.innerHTML="";
+  const cats=opt.cats, series=opt.series;
+  const W=opt.width||620, padL=opt.padL||58, padR=16, padT=14, padB=opt.padB||36;
+  const rowH=opt.rowH||30, barH=Math.min(18,rowH/series.length-4);
+  const H=padT+padB+cats.length*rowH*series.length*0+cats.length*(rowH*series.length*0+rowH*series.length);
+  const groupH=rowH*series.length+10;
+  const totalH=padT+padB+cats.length*groupH;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${totalH}`,role:"img"},host);
+  let vals=[];series.forEach(s=>s.data.forEach(v=>{if(v!==null&&v!==undefined)vals.push(v)}));
+  let rawMx=Math.max(...vals,0), rawMn=Math.min(...vals,0);
+  // choose a round step so ticks land on clean numbers
+  const rough=(rawMx-rawMn)/5||10;
+  const pow=Math.pow(10,Math.floor(Math.log10(rough)));
+  const cand=[1,2,2.5,5,10].map(m=>m*pow);
+  const step=cand.find(c=>c>=rough)||cand[cand.length-1];
+  let mx=Math.ceil((rawMx*1.05)/step)*step;
+  let mn=rawMn<0?Math.floor((rawMn*1.12)/step)*step:0;
+  if(mx===mn)mx=mn+step;
+  const x0=padL, x1=W-padR;
+  const sc=v=>x0+(v-mn)/(mx-mn)*(x1-x0);
+  const zero=sc(0);
+  for(let v=mn;v<=mx+1e-9;v+=step){
+    const x=sc(v);
+    el("line",{x1:x,x2:x,y1:padT-4,y2:totalH-padB+2,class:"gl"},svg);
+    txt((Math.round(v*10)/10)+"%",{x:x,y:totalH-padB+15,"text-anchor":"middle",class:"tick"},svg);
+  }
+  el("line",{x1:zero,x2:zero,y1:padT-4,y2:totalH-padB+2,class:"base","stroke-width":1.5},svg);
+  cats.forEach((c,ci)=>{
+    const gy=padT+ci*groupH;
+    txt(c,{x:x0-8,y:gy+groupH/2+1,"text-anchor":"end","dominant-baseline":"middle",class:"vlab"},svg);
+    series.forEach((s,si)=>{
+      const v=s.data[ci];
+      const y=gy+5+si*rowH+(rowH-barH)/2;
+      if(v===null||v===undefined){
+        txt("not reported",{x:zero+6,y:y+barH/2+3,class:"tick","font-style":"italic"},svg); return;
+      }
+      const xa=sc(Math.min(v,0)), xb=sc(Math.max(v,0));
+      const w=Math.max(Math.abs(xb-xa),1.5);
+      const r=el("path",{d:roundedBar(xa,y,w,barH,v>=0),fill:s.color},svg);
+      hover(r,`<b>${s.name}</b><br>${opt.catLabel||""}${c}<br>${opt.metric||""} ${fmt(v)}${opt.hint?"<br><span style='opacity:.75'>"+opt.hint+"</span>":""}`);
+      const lx=v>=0?xb+5:xa-5;
+      txt(fmt(v),{x:lx,y:y+barH/2+1,"dominant-baseline":"middle","text-anchor":v>=0?"start":"end",class:"tick","font-weight":"650"},svg);
+    });
+  });
+  if(opt.xlabel) txt(opt.xlabel,{x:(x0+x1)/2,y:totalH-2,"text-anchor":"middle",class:"axlab"},svg);
+  return svg;
+}
+function roundedBar(x,y,w,h,rightRound){
+  const r=Math.min(4,w,h/2);
+  if(rightRound){
+    return `M${x},${y} H${x+w-r} A${r},${r} 0 0 1 ${x+w},${y+r} V${y+h-r} A${r},${r} 0 0 1 ${x+w-r},${y+h} H${x} Z`;
+  }else{
+    return `M${x+r},${y} H${x+w} V${y+h} H${x+r} A${r},${r} 0 0 1 ${x},${y+h-r} V${y+r} A${r},${r} 0 0 1 ${x+r},${y} Z`;
+  }
+}
+
+/* ============================ 1. DEPTH CHART ============================ */
+let curMetric="NSE";
+function drawDepth(){
+  const d=FIG3[curMetric];
+  groupedBars($("#chartDepth"),{
+    cats:DEPTHS, width:620, rowH:26,
+    series:[{name:"SM2RAIN–NWF",color:css("--nwf"),data:d.nwf},
+            {name:"SM2RAIN–GA",color:css("--ga"),data:d.ga}],
+    metric:curMetric+" change vs GPM:", catLabel:"Depth ", xlabel:"percent change relative to GPM (positive = improvement)",
+    hint:(curMetric==="RMSE"||curMetric==="FAR")?"positive = error / false alarms reduced":""
+  });
+  $("#depthNote").innerHTML=METRIC_NOTE[curMetric];
+}
+function buildTabs(host,items,onPick,initial){
+  host.innerHTML="";
+  items.forEach(m=>{
+    const b=document.createElement("button");
+    b.className="tab";b.type="button";b.setAttribute("role","tab");
+    b.textContent=m;b.setAttribute("aria-selected",String(m===initial));
+    b.onclick=()=>{[...host.children].forEach(c=>c.setAttribute("aria-selected","false"));
+      b.setAttribute("aria-selected","true");onPick(m);};
+    host.appendChild(b);
+  });
+}
+buildTabs($("#metricTabs"),METRICS,m=>{curMetric=m;drawDepth();},"NSE");
+drawDepth();
+
+/* depth table */
+(function(){
+  let h='<table class="data"><thead><tr><th>Metric</th>';
+  DEPTHS.forEach(d=>h+=`<th>${d} NWF</th><th>${d} GA</th>`);
+  h+="</tr></thead><tbody>";
+  METRICS.forEach(m=>{h+=`<tr><td>${m}</td>`;
+    for(let i=0;i<4;i++)h+=`<td>${fmt(FIG3[m].nwf[i])}</td><td>${fmt(FIG3[m].ga[i])}</td>`;
+    h+="</tr>";});
+  h+="</tbody></table>";
+  $("#depthTable").innerHTML=h;
+})();
+
+/* ============================ 2. WINNER STACKED ============================ */
+(function(){
+  const host=$("#chartWinner");
+  const W=520,padL=58,padR=16,padT=8,padB=28,rowH=46,barH=24;
+  const H=padT+padB+WINNER.labels.length*rowH;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const x0=padL,x1=W-padR;
+  const cols=[["nwf",css("--nwf"),"SM2RAIN–NWF"],["ga",css("--ga"),"SM2RAIN–GA"],["gpm",css("--gpm"),"GPM IMERG"]];
+  WINNER.labels.forEach((lab,i)=>{
+    const y=padT+i*rowH+(rowH-barH)/2;
+    txt(lab,{x:x0-8,y:y+barH/2+1,"text-anchor":"end","dominant-baseline":"middle",class:"vlab"},svg);
+    let acc=0;
+    cols.forEach(([k,c,nm],ci)=>{
+      const v=WINNER[k][i];
+      const xa=x0+acc/100*(x1-x0), w=v/100*(x1-x0);
+      const gap=ci<cols.length-1?2:0;
+      const first=ci===0,last=ci===cols.length-1;
+      const r=4;
+      let d;
+      const ww=Math.max(w-gap,1);
+      if(first) d=`M${xa+r},${y} H${xa+ww} V${y+barH} H${xa+r} A${r},${r} 0 0 1 ${xa},${y+barH-r} V${y+r} A${r},${r} 0 0 1 ${xa+r},${y} Z`;
+      else if(last) d=`M${xa},${y} H${xa+ww-r} A${r},${r} 0 0 1 ${xa+ww},${y+r} V${y+barH-r} A${r},${r} 0 0 1 ${xa+ww-r},${y+barH} H${xa} Z`;
+      else d=`M${xa},${y} H${xa+ww} V${y+barH} H${xa} Z`;
+      const p=el("path",{d:d,fill:c},svg);
+      hover(p,`<b>${nm}</b><br>${lab}<br>wins at <b>${v}%</b> of stations`);
+      if(w>34) txt(v+"%",{x:xa+ww/2,y:y+barH/2+1,"text-anchor":"middle","dominant-baseline":"middle",
+        "font-size":"11","font-weight":"700",fill:"#fff"},svg);
+      acc+=v;
+    });
+  });
+  txt("share of stations where the method ranks first (%)",{x:(x0+x1)/2,y:H-6,"text-anchor":"middle",class:"axlab"},svg);
+})();
+
+/* ============================ 3. SIGNIFICANCE GRIDS ============================ */
+function drawSig(hostId,key,name){
+  const host=$(hostId); host.innerHTML="";
+  const add=(cls,html)=>{const d=document.createElement("div");d.className=cls;d.innerHTML=html;host.appendChild(d);return d;};
+  add("hd","");
+  ["0–5","5–10","10–15","15–20"].forEach(d=>add("hd",d));
+  METRICS.forEach(m=>{
+    add("rw",m);
+    SIG[key][m].forEach((cell,i)=>{
+      const [st,q]=cell;
+      const lbl=st==="s"?name:st==="g"?"GPM":st==="n"?"n.s.":"≈";
+      const c=add("cell c-"+st,`${lbl}<small>q=${q}</small>`);
+      hover(c,`<b>${m}</b> · ${DEPTHS[i]}<br>${name} vs GPM: ${st==="s"?name+" "+SIGTEXT.s:SIGTEXT[st]}<br>FDR-adjusted q = ${q}`);
+    });
+  });
+}
+drawSig("#sigNWF","nwf","NWF");
+drawSig("#sigGA","ga","GA");
+
+/* ============================ 4. DEPTH DIAGRAM ============================ */
+(function(){
+  const host=$("#depthDiagram");
+  const W=560,H=206;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const cols=[css("--d1"),css("--d2"),css("--d3"),css("--d4")];
+  const x0=110,x1=W-150,layH=30;
+  // rain arrows
+  for(let i=0;i<9;i++){
+    const x=x0+16+i*((x1-x0-30)/8);
+    el("line",{x1:x,y1:6,x2:x-3,y2:22,stroke:css("--nwf"),"stroke-width":2,"stroke-linecap":"round",opacity:.55},svg);
+  }
+  txt("Rainfall P(t)",{x:x0-8,y:18,"text-anchor":"end",class:"vlab"},svg);
+  const strengths=["strongest imprint","strong","attenuated","weak / delayed"];
+  const wins=[54,51,44,43];
+  DEPTHS.forEach((d,i)=>{
+    const y=30+i*(layH+3);
+    const r=el("rect",{x:x0,y:y,width:x1-x0,height:layH,fill:cols[i],rx:4},svg);
+    hover(r,`<b>${d}</b><br>${strengths[i]}<br>SM2RAIN–GA wins at ${wins[i]}% of stations`);
+    txt(d,{x:x0-8,y:y+layH/2+1,"text-anchor":"end","dominant-baseline":"middle",class:"vlab"},svg);
+    txt(strengths[i],{x:x1+10,y:y+layH/2+1,"dominant-baseline":"middle",class:"tick"},svg);
+    // signal strength wedge
+    const w=(x1-x0)*(1-i*0.22);
+    el("rect",{x:x0+2,y:y+layH-7,width:Math.max(w-4,10),height:4,fill:"#fff",opacity:.55,rx:2},svg);
+  });
+  const yb=30+4*(layH+3)+6;
+  el("line",{x1:x0,y1:yb,x2:x1,y2:yb,class:"base"},svg);
+  txt("↓ rainfall signal attenuates, delays and disperses with depth",{x:x0,y:yb+15,class:"axlab"},svg);
+  txt("→ the bottom-up advantage shrinks and GPM becomes competitive",{x:x0,y:yb+28,class:"axlab"},svg);
+})();
+
+/* ============================ 5. GREEN–AMPT DIAGRAM ============================ */
+(function(){
+  const host=$("#gaDiagram");
+  const W=520,H=178;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const bx=70,bw=210,by=24,bh=126;
+  const frontY=by+56;
+  // rain
+  for(let i=0;i<7;i++){
+    const x=bx+14+i*((bw-28)/6);
+    el("line",{x1:x,y1:2,x2:x-3,y2:16,stroke:css("--ga"),"stroke-width":2,"stroke-linecap":"round",opacity:.6},svg);
+  }
+  txt("P(t)",{x:bx+bw/2,y:20,"text-anchor":"middle",class:"vlab"},svg);
+  // saturated zone
+  const sat=el("rect",{x:bx,y:by,width:bw,height:frontY-by,fill:css("--ga"),opacity:.85,rx:0},svg);
+  hover(sat,"<b>Saturated zone</b><br>θ = θ<sub>s</sub> — above the wetting front the soil is assumed at saturation");
+  // dry zone
+  const dry=el("rect",{x:bx,y:frontY,width:bw,height:by+bh-frontY,fill:css("--ga"),opacity:.18},svg);
+  hover(dry,"<b>Initially drier zone</b><br>θ = θ<sub>i</sub> — below the front the soil retains its initial water content");
+  el("rect",{x:bx,y:by,width:bw,height:bh,fill:"none",stroke:css("--axis"),"stroke-width":1},svg);
+  // sharp front
+  const fr=el("line",{x1:bx,y1:frontY,x2:bx+bw,y2:frontY,stroke:css("--text-primary"),"stroke-width":2.5},svg);
+  hover(fr,"<b>Sharp wetting front</b><br>advances downward at rate governed by K<sub>s</sub> and Ψ<sub>f</sub>Δθ / F(t)");
+  // labels
+  txt("θ = θs (saturated)",{x:bx+bw/2,y:by+(frontY-by)/2+4,"text-anchor":"middle","font-size":"11","font-weight":"700",fill:"#fff"},svg);
+  txt("θ = θi (initial)",{x:bx+bw/2,y:frontY+30,"text-anchor":"middle","font-size":"11","font-weight":"700",fill:css("--text-secondary")},svg);
+  txt("sharp wetting front",{x:bx+bw+10,y:frontY+4,"font-size":"11","font-weight":"700",fill:css("--text-primary")},svg);
+  txt("Ψf  suction head",{x:bx+bw+10,y:frontY+20,class:"tick"},svg);
+  txt("Δθ = θs − θi",{x:bx+bw+10,y:frontY+35,class:"tick"},svg);
+  txt("Ks  saturated K",{x:bx+bw+10,y:frontY+50,class:"tick"},svg);
+  // depth axis + arrow
+  el("line",{x1:bx-16,y1:by,x2:bx-16,y2:by+bh,stroke:css("--axis"),"stroke-width":1},svg);
+  el("path",{d:`M${bx-16},${by+bh} l-4,-8 h8 z`,fill:css("--axis"),transform:`rotate(180 ${bx-16} ${by+bh-4})`},svg);
+  txt("depth z",{x:bx-24,y:by+bh+12,"text-anchor":"middle",class:"tick"},svg);
+  txt("zf",{x:bx-24,y:frontY-6,"text-anchor":"middle",class:"tick","font-weight":"700"},svg);
+  el("line",{x1:bx-16,y1:frontY,x2:bx,y2:frontY,stroke:css("--text-muted"),"stroke-width":1,"stroke-dasharray":"3 2"},svg);
+  // moving arrow
+  el("path",{d:`M${bx+bw/2},${frontY+6} v18 m-5,-6 l5,6 l5,-6`,stroke:css("--text-primary"),"stroke-width":1.6,fill:"none","stroke-linecap":"round"},svg);
+  txt("F(t) = cumulative infiltration depth",{x:bx,y:H-4,class:"axlab"},svg);
+})();
+
+/* ============================ 6. BO LOOP DIAGRAM ============================ */
+(function(){
+  const host=$("#boLoop");
+  const W=520,H=96;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const steps=[["Propose θ","EI acquisition α(θ)"],["Run SM2RAIN","simulate P(t) for that site"],
+               ["Score","L(θ) = −NSE"],["Update GP","posterior over L(·)"]];
+  const bw=(W-30)/4, y=14, bh=48;
+  steps.forEach((s,i)=>{
+    const x=i*(bw+10);
+    const g=el("g",{},svg);
+    el("rect",{x:x,y:y,width:bw-4,height:bh,rx:8,fill:css("--wash"),stroke:css("--border")},g);
+    txt(s[0],{x:x+(bw-4)/2,y:y+19,"text-anchor":"middle","font-size":"11.5","font-weight":"700",fill:css("--text-primary")},g);
+    txt(s[1],{x:x+(bw-4)/2,y:y+34,"text-anchor":"middle","font-size":"9.5",fill:css("--text-muted")},g);
+    hover(g,`<b>Step ${i+1}: ${s[0]}</b><br>${s[1]}`);
+    if(i<3) txt("→",{x:x+bw+1,y:y+bh/2+4,"text-anchor":"middle","font-size":"14",fill:css("--text-muted")},svg);
+  });
+  el("path",{d:`M${W-bw/2-2},${y+bh+4} v10 H${bw/2-2} v-10`,fill:"none",stroke:css("--text-muted"),
+    "stroke-width":1.2,"stroke-dasharray":"4 3"},svg);
+  el("path",{d:`M${bw/2-2},${y+bh+8} l-4,6 h8 z`,fill:css("--text-muted"),transform:`rotate(180 ${bw/2-2} ${y+bh+11})`},svg);
+  txt("iterate until the evaluation budget is spent → θ*",{x:W/2,y:H-2,"text-anchor":"middle",class:"axlab"},svg);
+})();
+
+/* ============================ 7. DECAY CHART ============================ */
+(function(){
+  const host=$("#chartDecay");
+  const W=560,H=250,padL=44,padR=112,padT=16,padB=34;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const x0=padL,x1=W-padR,y0=padT,y1=H-padB;
+  const mn=-40,mx=60;
+  const sy=v=>y1-(v-mn)/(mx-mn)*(y1-y0);
+  const sx=i=>x0+i*(x1-x0)/3;
+  for(let v=-40;v<=60;v+=20){
+    el("line",{x1:x0,x2:x1,y1:sy(v),y2:sy(v),class:"gl"},svg);
+    txt(v+"%",{x:x0-6,y:sy(v)+3.5,"text-anchor":"end",class:"tick"},svg);
+  }
+  el("line",{x1:x0,x2:x1,y1:sy(0),y2:sy(0),class:"base","stroke-width":1.5},svg);
+  DEPTHS.forEach((d,i)=>txt(d,{x:sx(i),y:y1+16,"text-anchor":"middle",class:"tick"},svg));
+  const lines=[
+    {name:"GA · POD",data:FIG3.POD.ga,color:css("--ga"),dash:""},
+    {name:"NWF · POD",data:FIG3.POD.nwf,color:css("--nwf"),dash:""},
+    {name:"GA · FAR",data:FIG3.FAR.ga,color:css("--ga"),dash:"5 3"},
+    {name:"NWF · FAR",data:FIG3.FAR.nwf,color:css("--nwf"),dash:"5 3"}
+  ];
+  lines.forEach(L=>{
+    const d=L.data.map((v,i)=>`${i?"L":"M"}${sx(i)},${sy(v)}`).join(" ");
+    el("path",{d:d,fill:"none",stroke:L.color,"stroke-width":2,"stroke-linecap":"round",
+      "stroke-linejoin":"round","stroke-dasharray":L.dash},svg);
+    L.data.forEach((v,i)=>{
+      const c=el("circle",{cx:sx(i),cy:sy(v),r:4.5,fill:L.color,stroke:css("--panel"),"stroke-width":2},svg);
+      hover(c,`<b>${L.name}</b><br>${DEPTHS[i]}<br>${fmt(v)} vs GPM`);
+    });
+  });
+  // end labels with leader lines, de-collided vertically
+  const ends=lines.map(L=>({name:L.name,color:L.color,yData:sy(L.data[3]),y:sy(L.data[3])}))
+                  .sort((a,b)=>a.y-b.y);
+  const minGap=15;
+  for(let i=1;i<ends.length;i++) if(ends[i].y-ends[i-1].y<minGap) ends[i].y=ends[i-1].y+minGap;
+  ends.forEach(e=>{
+    if(Math.abs(e.y-e.yData)>1.5)
+      el("path",{d:`M${x1+2},${e.yData} L${x1+7},${e.y-3.5}`,stroke:css("--axis"),"stroke-width":1,fill:"none"},svg);
+    txt(e.name,{x:x1+10,y:e.y+3.5,"font-size":"10.5",fill:css("--text-secondary"),"font-weight":"650"},svg);
+  });
+  txt("Event-detection change vs GPM — solid POD, dashed FAR (both positive = better)",
+    {x:x0,y:H-3,class:"axlab"},svg);
+})();
+
+/* ============================ 8. LAND COVER ============================ */
+let lcMetric="POD";
+function drawLC(){
+  const d=FIG6[lcMetric];
+  groupedBars($("#chartLC"),{
+    cats:LC_CLASSES.map(c=>c[0]),width:600,rowH:22,
+    series:[{name:"SM2RAIN–NWF vs GPM",color:css("--nwf"),data:d.nwf},
+            {name:"SM2RAIN–GA vs GPM",color:css("--ga"),data:d.ga}],
+    metric:lcMetric+" change:",catLabel:"Land-cover class ",
+    xlabel:`${lcMetric} percent change vs GPM at 0–5 cm  ·  class means: NWF ${d.mean[0]}%, GA ${d.mean[1]}%`
+  });
+}
+buildTabs($("#lcTabs"),METRICS,m=>{lcMetric=m;drawLC();},"POD");
+drawLC();
+(function(){
+  let h='<table class="data"><thead><tr><th>Class</th><th>Land cover</th>';
+  METRICS.forEach(m=>h+=`<th>${m} NWF</th><th>${m} GA</th>`);h+="</tr></thead><tbody>";
+  LC_CLASSES.forEach(([code,nm],i)=>{h+=`<tr><td>${code}</td><td style="text-align:left">${nm}</td>`;
+    METRICS.forEach(m=>h+=`<td>${fmt(FIG6[m].nwf[i])}</td><td>${fmt(FIG6[m].ga[i])}</td>`);h+="</tr>";});
+  h+='<tr><td><b>Mean</b></td><td style="text-align:left"><b>across classes</b></td>';
+  METRICS.forEach(m=>h+=`<td><b>+${FIG6[m].mean[0]}%</b></td><td><b>+${FIG6[m].mean[1]}%</b></td>`);
+  h+="</tr></tbody></table>";
+  $("#lcTable").innerHTML=h;
+})();
+
+/* ============================ 9. CLIMATE ============================ */
+let clMetric="POD";
+function drawCL(){
+  const d=FIG7[clMetric];
+  groupedBars($("#chartCL"),{
+    cats:CL_CLASSES.map(c=>c[0]),width:600,rowH:20,
+    series:[{name:"SM2RAIN–NWF vs GPM",color:css("--nwf"),data:d.nwf},
+            {name:"SM2RAIN–GA vs GPM",color:css("--ga"),data:d.ga}],
+    metric:clMetric+" change:",catLabel:"Köppen class ",
+    xlabel:`${clMetric} percent change vs GPM at 0–5 cm  ·  class means: NWF ${d.mean[0]}%, GA ${d.mean[1]}%`
+  });
+}
+buildTabs($("#clTabs"),METRICS,m=>{clMetric=m;drawCL();},"POD");
+drawCL();
+(function(){
+  let h='<table class="data"><thead><tr><th>Class</th><th>Climate</th>';
+  METRICS.forEach(m=>h+=`<th>${m} NWF</th><th>${m} GA</th>`);h+="</tr></thead><tbody>";
+  CL_CLASSES.forEach(([code,nm],i)=>{h+=`<tr><td>${code}</td><td style="text-align:left">${nm}</td>`;
+    METRICS.forEach(m=>{
+      const a=FIG7[m].nwf[i],b=FIG7[m].ga[i];
+      h+=`<td>${a===null?"n/r":fmt(a)}</td><td>${b===null?"n/r":fmt(b)}</td>`;});
+    h+="</tr>";});
+  h+='<tr><td><b>Mean</b></td><td style="text-align:left"><b>across classes</b></td>';
+  METRICS.forEach(m=>h+=`<td><b>+${FIG7[m].mean[0]}%</b></td><td><b>+${FIG7[m].mean[1]}%</b></td>`);
+  h+='</tr></tbody></table><div class="note">n/r = not reported for that class in the published figure.</div>';
+  $("#clTable").innerHTML=h;
+})();
+
+/* ============================ 10. BO vs FIXED ============================ */
+(function(){
+  const host=$("#chartBO");
+  const items=[
+    ["R","overlapping","central tendency and spread nearly identical between the fixed and BO-optimized configurations","neutral"],
+    ["RMSE","overlapping","distributions largely overlap; BO delivers no consistent reduction","neutral"],
+    ["FAR","BO better — in targeted regimes","the most consistent BO benefit: notable reductions in Cfa, Cfb, Dwb and Dfb","pos"],
+    ["POD","fixed better","the only systematic deviation — fixed literature parameters give slightly stronger event hit rates","neg"]
+  ];
+  let h="";
+  items.forEach(([m,verdict,detail,kind])=>{
+    const c=kind==="pos"?"var(--good)":kind==="neg"?"var(--critical)":"var(--axis)";
+    h+=`<div style="display:grid;grid-template-columns:74px 1fr;gap:10px;align-items:baseline;
+        background:var(--wash);border-left:4px solid ${c};border-radius:6px;padding:7px 10px;margin-bottom:6px">
+        <div><b style="font-size:12px">${m}</b><div style="font-size:10px;color:var(--text-secondary);font-weight:650">${verdict}</div></div>
+        <div style="font-size:11px;color:var(--text-muted)">${detail}</div></div>`;
+  });
+  h+=`<div class="note" style="margin-top:8px"><b class="lead">Verdict:</b> fixed parameters are a defensible, efficient default; BO is a targeted tool, not a universal upgrade.</div>`;
+  host.innerHTML=h;
+})();
+
+/* ============================ 11. OAT SCHEMATIC ============================ */
+(function(){
+  const host=$("#chartOAT");
+  const W=560,H=210,padL=40,padR=12,padT=12,padB=32;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`},host);
+  const x0=padL,x1=W-padR,y0=padT,y1=H-padB;
+  // schematic Z distributions for 8 stations (reproducing Fig. 9 structure)
+  const st=[
+    {q1:20,q3:140,lo:5,hi:340,det:215,mean:230},
+    {q1:15,q3:80, lo:5,hi:180,det:52, mean:60},
+    {q1:30,q3:170,lo:8,hi:300,det:185,mean:150},
+    {q1:18,q3:95, lo:5,hi:210,det:55, mean:70},
+    {q1:60,q3:300,lo:15,hi:430,det:265,mean:280},
+    {q1:35,q3:190,lo:10,hi:330,det:150,mean:175},
+    {q1:55,q3:280,lo:12,hi:420,det:235,mean:245},
+    {q1:22,q3:120,lo:6,hi:240,det:55, mean:95}
+  ];
+  const mx=460;
+  const sy=v=>y1-v/mx*(y1-y0);
+  [0,100,200,300,400].forEach(v=>{
+    el("line",{x1:x0,x2:x1,y1:sy(v),y2:sy(v),class:"gl"},svg);
+    txt(v,{x:x0-6,y:sy(v)+3.5,"text-anchor":"end",class:"tick"},svg);
+  });
+  const bw=22, step=(x1-x0)/8;
+  st.forEach((s,i)=>{
+    const cx=x0+step*(i+0.5);
+    const g=el("g",{},svg);
+    el("line",{x1:cx,y1:sy(s.lo),x2:cx,y2:sy(s.hi),stroke:css("--axis"),"stroke-width":1.4},g);
+    el("line",{x1:cx-6,y1:sy(s.hi),x2:cx+6,y2:sy(s.hi),stroke:css("--axis"),"stroke-width":1.4},g);
+    el("line",{x1:cx-6,y1:sy(s.lo),x2:cx+6,y2:sy(s.lo),stroke:css("--axis"),"stroke-width":1.4},g);
+    el("rect",{x:cx-bw/2,y:sy(s.q3),width:bw,height:sy(s.q1)-sy(s.q3),fill:css("--d4"),
+      stroke:css("--d2"),"stroke-width":1,rx:3},g);
+    el("circle",{cx:cx,cy:sy(s.det),r:4.5,fill:css("--good"),stroke:css("--panel"),"stroke-width":2},g);
+    txt(String(i+1),{x:cx,y:y1+15,"text-anchor":"middle",class:"tick"},svg);
+    hover(g,`<b>Station ${i+1}</b><br>Monte-Carlo 5–95% interval for <i>Z</i><br>deterministic BO estimate lies inside the envelope, near the median`);
+  });
+  // mean ± sigma dashed
+  const md=st.map((s,i)=>`${i?"L":"M"}${x0+step*(i+0.5)},${sy(s.mean+70)}`).join(" ");
+  el("path",{d:md,fill:"none",stroke:css("--text-secondary"),"stroke-width":1.2,"stroke-dasharray":"5 3"},svg);
+  txt("Station",{x:(x0+x1)/2,y:H-4,"text-anchor":"middle",class:"axlab"},svg);
+  txt("Z",{x:x0-30,y:(y0+y1)/2,"text-anchor":"middle",class:"axlab","font-style":"italic"},svg);
+  // legend
+  const lg=el("g",{},svg);
+  el("rect",{x:x1-150,y:y0-6,width:14,height:9,fill:css("--d4"),stroke:css("--d2"),rx:2},lg);
+  txt("MC interval (5–95%)",{x:x1-132,y:y0+2,"font-size":"9.5",fill:css("--text-secondary")},lg);
+  el("circle",{cx:x1-143,cy:y0+14,r:4,fill:css("--good")},lg);
+  txt("Deterministic (BO)",{x:x1-132,y:y0+17,"font-size":"9.5",fill:css("--text-secondary")},lg);
+})();
+
+/* ============================ THEME ============================ */
+const btn=$("#themeBtn");
+btn.textContent=document.documentElement.getAttribute("data-theme")==="dark"?"Light mode":"Dark mode";
+btn.onclick=()=>{
+  const cur=document.documentElement.getAttribute("data-theme");
+  const nxt=cur==="dark"?"light":"dark";
+  location.hash=nxt;
+  location.reload();
+};
+})();
+</script>
+</body>
+</html>
