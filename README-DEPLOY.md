@@ -1,60 +1,67 @@
-# Deploying the new site
+# Publishing / updating the site
 
-Files in this bundle:
+Contents of this bundle — this is the WHOLE site:
 
-    index.html                      the whole site (all pages are sections in one file)
-    graphical-abstract-npj.html     standalone page, opens from the npj card
-    graphical-abstract-wrr.html     standalone page, opens from the WRR card
-    assets/                         images, figures, logos, hero video
+    index.html                      every page (Home, About, Projects, Publications,
+                                    Collaborators, CV, Contact are sections in this one file)
+    graphical-abstract-npj.html     opens from the npj card
+    graphical-abstract-wrr.html     opens from the WRR card
+    assets/                         all images, figures, logos, hero video
     .nojekyll                       tells GitHub Pages to serve files as-is
 
-## Option 1 — GitHub web upload (no command line)
+Repo: https://github.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io
 
-1. Go to https://github.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io
-2. Add file -> Upload files
-3. Drag in: index.html, both graphical-abstract-*.html, the assets folder, and .nojekyll
-4. Commit to `main`
+--------------------------------------------------------------------
+OPTION 1 — GitHub website (no command line)
+--------------------------------------------------------------------
+1. Open the repo, click  Add file -> Upload files
+2. Drag in: index.html, both graphical-abstract-*.html, the assets folder, .nojekyll
+3. Scroll down, write a message like "Update site", click Commit changes
 
-If GitHub hides `.nojekyll` because it starts with a dot, use Add file -> Create new file,
-type `.nojekyll` as the name, leave it empty, and commit.
+Uploading a file with a name that already exists REPLACES it. That is how you
+update later too - just drag the new file in again.
 
-## Option 2 — Git
+If GitHub will not accept .nojekyll (files starting with a dot):
+   Add file -> Create new file -> name it  .nojekyll  -> leave empty -> Commit
 
+--------------------------------------------------------------------
+OPTION 2 — Git command line
+--------------------------------------------------------------------
     git clone https://github.com/MohammadSaeedi-wrm/mohammadsaeedi-wrm.github.io
     cd mohammadsaeedi-wrm.github.io
-    git checkout -b new-site
-    # copy the contents of this bundle into the repo root
+
+    # copy this bundle's contents into the repo folder, overwriting
+
     git add -A
-    git commit -m "New site design"
-    git push -u origin new-site
-    # open a pull request, or merge into main when ready
-
-## Important — the old Jekyll site
-
-`.nojekyll` switches GitHub Pages from Jekyll processing to plain static hosting.
-The old `index.md`, `_layouts/`, `_includes/` and `_sass/` are then ignored, but they stay
-in the repository, so nothing is lost. Delete them later once you are happy.
-
-Your old `index.md` will no longer render. `index.html` takes over as the homepage.
-
-## Rolling back
-
-Everything is in git history:
-
-    git revert HEAD        # undo the last commit
+    git commit -m "Update site"
     git push
 
-## After it is live
+To try it on a branch first instead of going straight live:
 
-- Visit https://mohammadsaeedi-wrm.github.io (allow 1-2 minutes for the first build)
-- Check the favicon appears in the browser tab
-- Test on your phone
+    git checkout -b new-site
+    git push -u origin new-site
+
+--------------------------------------------------------------------
+UPDATING JUST ONE THING LATER
+--------------------------------------------------------------------
+Text change      -> open index.html on GitHub, click the pencil icon, edit, commit
+Replace a figure -> upload a new image with the SAME filename into assets/
+Everything       -> re-upload the whole bundle
+
+--------------------------------------------------------------------
+ABOUT THE OLD JEKYLL SITE
+--------------------------------------------------------------------
+.nojekyll switches GitHub Pages from building Jekyll to plain static hosting.
+Your old index.md, _layouts/, _includes/, _sass/ stop being used, but they stay
+in the repository and in git history. Nothing is lost. Delete them later if you like.
+
+Rollback:  git revert HEAD  then  git push
+Or on the website: Commits -> open the previous commit -> Revert
+
+--------------------------------------------------------------------
+AFTER IT IS LIVE
+--------------------------------------------------------------------
+- https://mohammadsaeedi-wrm.github.io  (first build takes 1-2 minutes)
+- Hard refresh if you see the old page: Ctrl+Shift+R / Cmd+Shift+R
+- Check the favicon in the browser tab, and open it on your phone
 - Submit the URL to Google Search Console so the new description gets indexed
-
-## Notes
-
-- The site loads Inter from Google Fonts; everything else is local.
-- The hero video is assets/video.mp4 (~600 KB) and uses preload="none",
-  so it only downloads when the visitor reaches it.
-- To swap any publication figure later, replace the matching file in assets/
-  and keep the same filename.
