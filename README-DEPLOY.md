@@ -33,25 +33,40 @@ empty -> commit.
 
 Rollback at any time:  git revert HEAD  &&  git push
 
+## Updating the LinkedIn post on the homepage
+
+The homepage embeds ONE specific post. It does not update by itself.
+To swap in a newer post:
+
+1. On LinkedIn, open the post -> "..." menu -> Embed this post
+2. Copy the activity id, which looks like  urn:li:activity:1234567890123456789
+3. In index.html, search for  urn:li:activity:
+4. Replace the number with the new one. There are TWO places (the iframe and the
+   "Open the post on LinkedIn" fallback link) - change both.
+5. Commit.
+
+Only works for PUBLIC posts. If the post's audience is "connections only" the embed
+renders empty.
+
 ## IMPORTANT — do these after publishing (this is the SEO half)
 
 1. Google Search Console — https://search.google.com/search-console
    Add property  https://mohammadsaeedi-wrm.github.io
    Verify (easiest: HTML tag -> paste into index.html <head> -> re-upload)
    Submit  sitemap.xml
-   Then use "URL Inspection" -> "Request indexing" on the homepage.
+   Then "URL Inspection" -> "Request indexing" on the homepage.
 
-2. Point every profile at the site. Google confirms identity through matching links.
-   The site already declares these as "sameAs"; the links must come back:
-   - Google Scholar -> add homepage in profile
+2. Point every profile back at the site. Google confirms identity through matching links.
+   The site declares these as "sameAs"; the links must come back:
+   - Google Scholar -> add homepage
    - ORCID          -> Websites -> add
-   - ResearchGate   -> and change affiliation from UVA to Johns Hopkins
-   - LinkedIn       -> Featured/Contact info -> add, and update affiliation to JHU
+   - ResearchGate   -> add, and change affiliation from UVA to Johns Hopkins
+   - LinkedIn       -> add to Contact info, and update affiliation to JHU
    - GitHub profile -> website field
    - X/Twitter bio  -> add link
 
 3. Ask JHU to list you on the departmental people page with a link to this site.
-   A .edu link is the single strongest signal available to you.
+   A .edu link is the strongest single signal available to you.
 
 ## Updating one thing later
 
